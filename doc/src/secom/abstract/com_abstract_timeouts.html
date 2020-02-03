@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_ABSTRACT_TIMEOUTS (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/abstract/cluster.com_abstract.html" class="cluster-name">abstract</a></div>
+<h1>Class COM_ABSTRACT_TIMEOUTS</h1>
+<hr/>
+<h2>Known direct descendants</h2>
+<div>
+<a href="../../secom/windows/com_timeouts.html" class="class-name">COM_TIMEOUTS</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#inter_character_timer" class="feature-name">inter_character_timer</a></li>
+<li><a href="#overall_timer" class="feature-name">overall_timer</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Comparison">Comparison</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_equal" class="feature-name">is_equal</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#has_inter_character_timer" class="feature-name">has_inter_character_timer</a></li>
+<li><a href="#has_overall_timer" class="feature-name">has_overall_timer</a></li>
+<li><a href="#is_blocking" class="feature-name">is_blocking</a></li>
+<li><a href="#is_non_blocking" class="feature-name">is_non_blocking</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_Change">Element&nbsp;Change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#set_blocking" class="feature-name">set_blocking</a></li>
+<li><a href="#set_inter_character_timer" class="feature-name">set_inter_character_timer</a></li>
+<li><a href="#set_non_blocking" class="feature-name">set_non_blocking</a></li>
+<li><a href="#set_overall_timer" class="feature-name">set_overall_timer</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Read timeout settings for an abstract serial communications device.<br/>
+Settings will not be applied until you call <span class="feature-name-comment">set_timeouts</span> on the device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">deferred class</span>
+<span class="class-name">COM_ABSTRACT_TIMEOUTS</span>
+</h2>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="inter_character_timer"><span class="feature-name">inter_character_timer</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Inter-character read timer, in milliseconds.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="overall_timer"><span class="feature-name">overall_timer</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Total read timer, in milliseconds.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Comparison" class="keyword">feature</a>
+<span class="comment">-- Comparison</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_equal"><span class="feature-name">is_equal</span></a> <span class="symbol">(</span>other<span class="symbol">:</span> <span class="keyword">like</span> <span class="special-keyword">Current</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">other</span> attached to an object considered equal<br/>
+-- to current object?
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="symbol">(</span> <a href="../../secom/abstract/com_abstract_timeouts.html#overall_timer" class="feature-name">overall_timer</a> <span class="symbol">=</span> other<span class="symbol">.</span><a href="../../secom/abstract/com_abstract_timeouts.html#overall_timer" class="feature-name">overall_timer</a> <span class="keyword">and</span> <a href="../../secom/abstract/com_abstract_timeouts.html#inter_character_timer" class="feature-name">inter_character_timer</a> <span class="symbol">=</span> other<span class="symbol">.</span><a href="../../secom/abstract/com_abstract_timeouts.html#inter_character_timer" class="feature-name">inter_character_timer</a> <span class="keyword">and</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <span class="symbol">=</span> other<span class="symbol">.</span><a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <span class="keyword">and</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a> <span class="symbol">=</span> other<span class="symbol">.</span><a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a><span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="has_inter_character_timer"><span class="feature-name">has_inter_character_timer</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations return when either the<br/>
+-- requested number of bytes have been received, or when<br/>
+-- <a href="#inter_character_timer" class="feature-name">inter_character_timer</a> milliseconds have elapsed between<br/>
+-- successive characters. At least one character must be<br/>
+-- received to satisfy a read operation.<br/>
+-- Can be combined with an overall timer.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <span class="special-keyword">Result</span> <span class="symbol">=</span> <span class="symbol">(</span><a href="../../secom/abstract/com_abstract_timeouts.html#inter_character_timer" class="feature-name">inter_character_timer</a> <span class="symbol">&gt;</span> 0<span class="symbol">)</span> <br/>
+<span class="assertion-tag">not_non_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a> <br/>
+<span class="assertion-tag">not_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="has_overall_timer"><span class="feature-name">has_overall_timer</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations return when either the<br/>
+-- requested number of bytes have been received, or when<br/>
+-- <a href="#overall_timer" class="feature-name">overall_timer</a> milliseconds have elapsed.<br/>
+-- Can be combined with an inter-character timer.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <span class="special-keyword">Result</span> <span class="symbol">=</span> <span class="symbol">(</span><a href="../../secom/abstract/com_abstract_timeouts.html#overall_timer" class="feature-name">overall_timer</a> <span class="symbol">&gt;</span> 0<span class="symbol">)</span> <br/>
+<span class="assertion-tag">not_non_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a> <br/>
+<span class="assertion-tag">not_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_blocking"><span class="feature-name">is_blocking</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations block until the requested<br/>
+-- number of bytes have been read.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">not_non_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a> <br/>
+<span class="assertion-tag">no_inter_character_timer:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_inter_character_timer" class="feature-name">has_inter_character_timer</a> <br/>
+<span class="assertion-tag">no_overall_timer:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_overall_timer" class="feature-name">has_overall_timer</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_non_blocking"><span class="feature-name">is_non_blocking</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations return immediately with the number of<br/>
+-- bytes already received, even if no bytes have been received.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">not_blocking:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <br/>
+<span class="assertion-tag">no_inter_character_timer:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_inter_character_timer" class="feature-name">has_inter_character_timer</a> <br/>
+<span class="assertion-tag">no_overall_timer:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_overall_timer" class="feature-name">has_overall_timer</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_Change" class="keyword">feature</a>
+<span class="comment">-- Element Change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="set_blocking"><span class="feature-name">set_blocking</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be a pure blocking read.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">is_blocking:</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_inter_character_timer"><span class="feature-name">set_inter_character_timer</span></a> <span class="symbol">(</span>time<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be an inter-character timed read.<br/>
+-- The timer may be altered to meet operating system constraints.<br/>
+-- Set the timer to 0 to indicate the timer is not used.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">valid_time:</span> time <span class="symbol">&gt;=</span> 0 <span class="keyword">and</span> time <span class="symbol">&lt;=</span> 25500 <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">timer_cleared:</span> time <span class="symbol">=</span> 0 <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_inter_character_timer" class="feature-name">has_inter_character_timer</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_non_blocking"><span class="feature-name">set_non_blocking</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be a non-blocking read.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">is_non_blocking:</span> <a href="../../secom/abstract/com_abstract_timeouts.html#is_non_blocking" class="feature-name">is_non_blocking</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_overall_timer"><span class="feature-name">set_overall_timer</span></a> <span class="symbol">(</span>time<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be an overall timed read. The timer<br/>
+-- may be altered to meet operating system constraints.<br/>
+-- Set the timer to 0 to indicate the timer is not used.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">valid_time:</span> time <span class="symbol">&gt;=</span> 0 <span class="keyword">and</span> time <span class="symbol">&lt;=</span> 2147483 <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">timer_cleared:</span> time <span class="symbol">=</span> 0 <span class="keyword">implies</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_timeouts.html#has_overall_timer" class="feature-name">has_overall_timer</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Secom has been tested on the following platforms
+
+x86 Windows XP - All tests passed
+x86 Fedora Core 4 - All tests passed
+x86 Linux 2.6 (Debian 3.1) Compiled, but didn't have permission for /dev/ttyS0
+x86 Linux 2.6 (Fedora Core 2) Compiled, but didn't have permission for /dev/ttyS0
+x86 NetBSD 2.0.2 Compiled and executed (had permission for device /dev/ttys0) but froze on first test.
+Alpha Linux 2.2 (Debian 3.0) Compiled with no permission

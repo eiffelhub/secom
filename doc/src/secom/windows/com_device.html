@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_DEVICE (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/windows/cluster.com_windows.html" class="cluster-name">windows</a></div>
+<h1>Class COM_DEVICE</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<span class="class-name">KL_SHARED_EXCEPTIONS</span>, <a href="../../secom/abstract/com_abstract_device.html" class="class-name">COM_ABSTRACT_DEVICE</a>, <span class="class-name">MEMORY</span>, <a href="../../secom/windows/com_shared_windows_error.html" class="class-name">COM_SHARED_WINDOWS_ERROR</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#control_settings" class="feature-name">control_settings</a></li>
+<li><a href="#handle" class="feature-name">handle</a></li>
+<li><a href="#properties" class="feature-name">properties</a></li>
+<li><a href="#status" class="feature-name">status</a></li>
+<li><a href="#timeouts" class="feature-name">timeouts</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_open" class="feature-name">is_open</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_setting">Status&nbsp;setting</a></strong>
+<ul class="feature-list-features">
+<li><a href="#close" class="feature-name">close</a></li>
+<li><a href="#open" class="feature-name">open</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_change">Element&nbsp;change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#set_control_settings" class="feature-name">set_control_settings</a></li>
+<li><a href="#set_control_string" class="feature-name">set_control_string</a></li>
+<li><a href="#set_timeouts" class="feature-name">set_timeouts</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Removal">Removal</a></strong>
+<ul class="feature-list-features">
+<li><a href="#dispose" class="feature-name">dispose</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Input">Input</a></strong>
+<ul class="feature-list-features">
+<li><a href="#read_data" class="feature-name">read_data</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Output">Output</a></strong>
+<ul class="feature-list-features">
+<li><a href="#put_data" class="feature-name">put_data</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Objects that perform I/O operations on a communications device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">class</span>
+<span class="class-name">COM_DEVICE</span>
+</h2>
+<h2 class="keyword">inherit</h2>
+<div class="indent">
+<div><a href="../../secom/abstract/com_abstract_device.html" class="class-name">COM_ABSTRACT_DEVICE</a></div>
+<div><span class="class-name">MEMORY</span></div>
+</div>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="control_settings"><span class="feature-name">control_settings</span></a><span class="symbol">:</span> <a href="../../secom/windows/com_device_control_block.html" class="class-name">COM_DEVICE_CONTROL_BLOCK</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Current control parameters for this device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="handle"><span class="feature-name">handle</span></a><span class="symbol">:</span> <span class="class-name">POINTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Handle to communications resource
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="properties"><span class="feature-name">properties</span></a><span class="symbol">:</span> <a href="../../secom/windows/com_properties.html" class="class-name">COM_PROPERTIES</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Information about the device driver
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/windows/com_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <span class="special-keyword">Result</span> <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="status"><span class="feature-name">status</span></a><span class="symbol">:</span> <a href="../../secom/windows/com_status.html" class="class-name">COM_STATUS</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Line driver status parameters
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/windows/com_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <span class="special-keyword">Result</span> <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="timeouts"><span class="feature-name">timeouts</span></a><span class="symbol">:</span> <a href="../../secom/windows/com_timeouts.html" class="class-name">COM_TIMEOUTS</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Current timeout properties for this device
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_open"><span class="feature-name">is_open</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is the device open for reading and writing?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_setting" class="keyword">feature</a>
+<span class="comment">-- Status setting</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="close"><span class="feature-name">close</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Close the device.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="open"><span class="feature-name">open</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Open the device.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">handle_available_implies_open:</span> <a href="../../secom/windows/com_device.html#handle" class="feature-name">handle</a> <span class="symbol">/=</span> Invalid_handle_value <span class="keyword">implies</span> <a href="../../secom/windows/com_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_change" class="keyword">feature</a>
+<span class="comment">-- Element change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="set_control_settings"><span class="feature-name">set_control_settings</span></a> <span class="symbol">(</span>a_settings<span class="symbol">:</span> <a href="../../secom/windows/com_device_control_block.html" class="class-name">COM_DEVICE_CONTROL_BLOCK</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Configures the device according to the specifications in <span class="feature-name-comment">a_settings</span>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_control_string"><span class="feature-name">set_control_string</span></a> <span class="symbol">(</span>a_control_string<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Configure the device using <span class="feature-name-comment">a_control_string</span>, e.g. "9600,n,8,1"
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> a_control_string <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/windows/com_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_timeouts"><span class="feature-name">set_timeouts</span></a> <span class="symbol">(</span>a_timeouts<span class="symbol">:</span> <a href="../../secom/windows/com_timeouts.html" class="class-name">COM_TIMEOUTS</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Sets the <a href="#timeouts" class="feature-name">timeouts</a> parameters to those in <span class="feature-name-comment">a_timeouts</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Removal" class="keyword">feature</a>
+<span class="comment">-- Removal</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="dispose"><span class="feature-name">dispose</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- If the device is still open then close it
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Input" class="keyword">feature</a>
+<span class="comment">-- Input</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="read_data"><span class="feature-name">read_data</span></a> <span class="symbol">(</span>data<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read <span class="feature-name-comment">count</span> bytes into the <span class="feature-name-comment">data</span> buffer.  Set <span class="feature-name-comment">last_read_count</span><br/>
+-- to the number of bytes read. Set <span class="feature-name-comment">timed_out</span> if less than <span class="feature-name-comment">count</span><br/>
+-- bytes were read. See <a href="#timeouts" class="feature-name">timeouts</a> to determine when read will<br/>
+-- be completed.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Output" class="keyword">feature</a>
+<span class="comment">-- Output</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="put_data"><span class="feature-name">put_data</span></a> <span class="symbol">(</span>data<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">count</span> bytes of <span class="feature-name-comment">data</span> to the device.  Set<br/>
+-- <span class="feature-name-comment">last_write_count</span> to the number of bytes written.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

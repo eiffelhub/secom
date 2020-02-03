@@ -1,0 +1,11 @@
+TODO before release 1.0
+Posix implementation uses the deprecated routine 'ualarm()'. Version 1.0 should
+use setitimer() instead.
+
+TODO
+Add flow control to the abstract interface
+Use ePosix for generating and capturing signals.
+Implement byte order reversal.
+Add the ability to flush tx and rx queues to the abstract interface
+If possible, add the ability to query the serial devices installed on a system
+Add USB support. A small statement for a very large task.

@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>EWG_MANAGED_POINTER (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/ewg/cluster.com_ewg.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-e.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/ewg/cluster.com_ewg.html" class="cluster-name">ewg</a></div>
+<h1>Class EWG_MANAGED_POINTER</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<span class="class-name">MEMORY</span>, <a href="../../secom/ewg/ewg_imported_external_routines.html" class="class-name">EWG_IMPORTED_EXTERNAL_ROUTINES</a>, <span class="class-name">EWG_EXTERNAL_MEMORY_ROUTINES</span></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Creation</h2>
+<ul class="feature-list-features">
+<li><a href="#creator-make_new_unshared" class="feature-name">make_new_unshared</a></li>
+<li><a href="#creator-make_new_shared" class="feature-name">make_new_shared</a></li>
+<li><a href="#creator-make_new_unshared_uninitialized" class="feature-name">make_new_unshared_uninitialized</a></li>
+<li><a href="#creator-make_new_shared_uninitialized" class="feature-name">make_new_shared_uninitialized</a></li>
+<li><a href="#creator-make_unshared" class="feature-name">make_unshared</a></li>
+<li><a href="#creator-make_shared" class="feature-name">make_shared</a></li>
+<li><a href="#creator-make_default_pointer" class="feature-name">make_default_pointer</a></li>
+</ul>
+<h2>Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#capacity" class="feature-name">capacity</a></li>
+<li><a href="#exists" class="feature-name">exists</a></li>
+<li><a href="#is_shared" class="feature-name">is_shared</a></li>
+<li><a href="#item" class="feature-name">item</a></li>
+<li><a href="#read_double" class="feature-name">read_double</a></li>
+<li><a href="#read_integer" class="feature-name">read_integer</a></li>
+<li><a href="#read_integer_16" class="feature-name">read_integer_16</a></li>
+<li><a href="#read_integer_32" class="feature-name">read_integer_32</a></li>
+<li><a href="#read_integer_8" class="feature-name">read_integer_8</a></li>
+<li><a href="#read_pointer" class="feature-name">read_pointer</a></li>
+<li><a href="#read_real" class="feature-name">read_real</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Basic_Operations">Basic&nbsp;Operations</a></strong>
+<ul class="feature-list-features">
+<li><a href="#put_double" class="feature-name">put_double</a></li>
+<li><a href="#put_integer" class="feature-name">put_integer</a></li>
+<li><a href="#put_integer_16" class="feature-name">put_integer_16</a></li>
+<li><a href="#put_integer_32" class="feature-name">put_integer_32</a></li>
+<li><a href="#put_integer_8" class="feature-name">put_integer_8</a></li>
+<li><a href="#put_pointer" class="feature-name">put_pointer</a></li>
+<li><a href="#put_real" class="feature-name">put_real</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-"></a></strong>
+<ul class="feature-list-features">
+<li><a href="#sizeof_double" class="feature-name">sizeof_double</a></li>
+<li><a href="#sizeof_int" class="feature-name">sizeof_int</a></li>
+<li><a href="#sizeof_pointer" class="feature-name">sizeof_pointer</a></li>
+<li><a href="#sizeof_real" class="feature-name">sizeof_real</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Wrapps a C pointer in a safe way
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Wrapper Generator Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 1999, Andreas Leitner and others
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">class</span>
+<span class="class-name">EWG_MANAGED_POINTER</span>
+</h2>
+<h2 class="keyword">inherit</h2>
+<div class="indent">
+<div><span class="class-name">MEMORY</span></div>
+</div>
+<h2>
+<a id="create"><span class="keyword">create</span></a>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="creator-make_new_unshared"><span class="feature-name">make_new_unshared</span></a> <span class="symbol">(</span>a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to a new memory area where<br/>
+-- all bytes have been reset to zero.<br/>
+-- Allocates as <span class="feature-name-comment">a_capacity</span> bytes of new memory.<br/>
+-- 'unshared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the allocated memory  will<br/>
+-- be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">is_not_shared:</span> <span class="keyword">not</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+<span class="assertion-tag">initialized_to_zero:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_8" class="feature-name">read_integer_8</a> <span class="symbol">(</span>0<span class="symbol">)</span> <span class="symbol">=</span> 0 <span class="keyword">and</span> <span class="keyword">then</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_8" class="feature-name">read_integer_8</a> <span class="symbol">(</span><a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 1<span class="symbol">)</span> <span class="symbol">=</span> 0 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_new_shared"><span class="feature-name">make_new_shared</span></a> <span class="symbol">(</span>a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to a new memory area where<br/>
+-- all bytes have been reset to zero.<br/>
+-- Allocates as <span class="feature-name-comment">a_capacity</span> bytes of new memory.<br/>
+-- 'shared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the allocated memory will<br/>
+-- not be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">is_shared:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+<span class="assertion-tag">initialized_to_zero:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_8" class="feature-name">read_integer_8</a> <span class="symbol">(</span>0<span class="symbol">)</span> <span class="symbol">=</span> 0 <span class="keyword">and</span> <span class="keyword">then</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_8" class="feature-name">read_integer_8</a> <span class="symbol">(</span><a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 1<span class="symbol">)</span> <span class="symbol">=</span> 0 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_new_unshared_uninitialized"><span class="feature-name">make_new_unshared_uninitialized</span></a> <span class="symbol">(</span>a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to a new memory area. Bytes<br/>
+-- have a random value.<br/>
+-- Allocates as <span class="feature-name-comment">a_capacity</span> bytes of new memory.<br/>
+-- 'unshared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the allocated memory  will<br/>
+-- be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">is_not_shared:</span> <span class="keyword">not</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_new_shared_uninitialized"><span class="feature-name">make_new_shared_uninitialized</span></a> <span class="symbol">(</span>a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to a new memory area. Bytes<br/>
+-- have a random value.<br/>
+-- Allocates as <span class="feature-name-comment">a_capacity</span> bytes of new memory.<br/>
+-- 'shared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the allocated memory will<br/>
+-- not be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">is_shared:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_unshared"><span class="feature-name">make_unshared</span></a> <span class="symbol">(</span>a_item<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to an existing memory area.<br/>
+-- <span class="feature-name-comment">a_item</span> must be the pointer to the memory area to wrap.<br/>
+-- <span class="feature-name-comment">a_capacity</span> specifies how big the memory area is that<br/>
+-- the pointer points to.<br/>
+-- 'unshared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the allocated memory will<br/>
+-- be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">item_is_a_item:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#item" class="feature-name">item</a> <span class="symbol">=</span> a_item <br/>
+<span class="assertion-tag">is_not_shared:</span> <span class="keyword">not</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_shared"><span class="feature-name">make_shared</span></a> <span class="symbol">(</span>a_item<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> a_capacity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a new pointer wrapper to an existing memory area.<br/>
+-- <span class="feature-name-comment">a_item</span> must be the pointer to the memory area to wrap.<br/>
+-- <span class="feature-name-comment">a_capacity</span> specifies how big the memory area is that<br/>
+-- the pointer points to.<br/>
+-- 'shared' means if the Current object<br/>
+-- gets collected by the garbage collector,<br/>
+-- the memory allocated for the struct will<br/>
+-- not be freed as well.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">a_capacity_greater_equal_zero:</span> a_capacity <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">item_is_a_item:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#item" class="feature-name">item</a> <span class="symbol">=</span> a_item <br/>
+<span class="assertion-tag">is_shared:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#is_shared" class="feature-name">is_shared</a> <br/>
+<span class="assertion-tag">capacity_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">=</span> a_capacity <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_default_pointer"><span class="feature-name">make_default_pointer</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create a pointer wrapper for the default pointer (NULL).
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">not_exists:</span> <span class="keyword">not</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="capacity"><span class="feature-name">capacity</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Size of the memory area that the wrapped<br/>
+-- pointer points to.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="exists"><span class="feature-name">exists</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Does <a href="#item" class="feature-name">item</a> point to a valid C memory area ?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_shared"><span class="feature-name">is_shared</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is the contents of <a href="#item" class="feature-name">item</a> referenced by other C or Eiffel code?<br/>
+-- If <a href="#is_shared" class="feature-name">is_shared</a> is <span class="feature-name-comment">True</span> then when the current object will be<br/>
+-- collected by the garbage collector, the wrapped memory area will<br/>
+-- also be freed.<br/>
+-- This is a good idea, only if you can be sure that when the<br/>
+-- Eiffel object gets collected, the C side does not have a reference<br/>
+-- to the wrapped memory anymore.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="item"><span class="feature-name">item</span></a><span class="symbol">:</span> <span class="class-name">POINTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Wrapped C pointer
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_double"><span class="feature-name">read_double</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">DOUBLE</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the double at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads <a href="#sizeof_double" class="feature-name">sizeof_double</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_double" class="feature-name">sizeof_double</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_integer"><span class="feature-name">read_integer</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the integer at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads <a href="#sizeof_int" class="feature-name">sizeof_int</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_int" class="feature-name">sizeof_int</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_integer_16"><span class="feature-name">read_integer_16</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the integer at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads 16 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 1 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">result_is_int16:</span> <span class="special-keyword">Result</span> <span class="symbol">&gt;=</span> <span class="symbol">-</span>32768 <span class="keyword">and</span> <span class="special-keyword">Result</span> <span class="symbol">&lt;=</span> 32767 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_integer_32"><span class="feature-name">read_integer_32</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the integer at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads 32 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 3 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_integer_8"><span class="feature-name">read_integer_8</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the byte at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads 8 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">result_is_byte:</span> <span class="special-keyword">Result</span> <span class="symbol">&gt;=</span> <span class="symbol">-</span>128 <span class="keyword">and</span> <span class="special-keyword">Result</span> <span class="symbol">&lt;=</span> 127 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_pointer"><span class="feature-name">read_pointer</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">POINTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the pointer at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads <a href="#sizeof_pointer" class="feature-name">sizeof_pointer</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_pointer" class="feature-name">sizeof_pointer</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_real"><span class="feature-name">read_real</span></a> <span class="symbol">(</span>a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">REAL</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Get the real at the <span class="feature-name-comment">a_pos</span>-th<br/>
+-- byte position of the wrapped memory<br/>
+-- area.<br/>
+-- Reads <a href="#sizeof_real" class="feature-name">sizeof_real</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_real" class="feature-name">sizeof_real</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Basic_Operations" class="keyword">feature</a>
+<span class="comment">-- Basic Operations</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="put_double"><span class="feature-name">put_double</span></a> <span class="symbol">(</span>a_double<span class="symbol">:</span> <span class="class-name">DOUBLE</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_double</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes <a href="#sizeof_double" class="feature-name">sizeof_double</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_double" class="feature-name">sizeof_double</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">double_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_double" class="feature-name">read_double</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_double <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_integer"><span class="feature-name">put_integer</span></a> <span class="symbol">(</span>a_int<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_int</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes <a href="#sizeof_int" class="feature-name">sizeof_int</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_int" class="feature-name">sizeof_int</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">integer_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer" class="feature-name">read_integer</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_int <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_integer_16"><span class="feature-name">put_integer_16</span></a> <span class="symbol">(</span>a_int<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_int</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes 16 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 1 <br/>
+<span class="assertion-tag">a_int_is_int16:</span> a_int <span class="symbol">&gt;=</span> <span class="symbol">-</span>32768 <span class="keyword">and</span> a_int <span class="symbol">&lt;=</span> 32767 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">integer_16_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_16" class="feature-name">read_integer_16</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_int <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_integer_32"><span class="feature-name">put_integer_32</span></a> <span class="symbol">(</span>a_int<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_int</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes 32 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">-</span> 3 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">integer_32_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_32" class="feature-name">read_integer_32</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_int <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_integer_8"><span class="feature-name">put_integer_8</span></a> <span class="symbol">(</span>a_int<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_int</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes 8 bits.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <br/>
+<span class="assertion-tag">a_int_is_byte:</span> a_int <span class="symbol">&gt;=</span> <span class="symbol">-</span>128 <span class="keyword">and</span> a_int <span class="symbol">&lt;=</span> 127 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">integer_8_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_integer_8" class="feature-name">read_integer_8</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_int <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_pointer"><span class="feature-name">put_pointer</span></a> <span class="symbol">(</span>a_pointer<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_pointer</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes <a href="#sizeof_pointer" class="feature-name">sizeof_pointer</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_pointer" class="feature-name">sizeof_pointer</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">pointer_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_pointer" class="feature-name">read_pointer</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_pointer <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_real"><span class="feature-name">put_real</span></a> <span class="symbol">(</span>a_real<span class="symbol">:</span> <span class="class-name">REAL</span><span class="symbol">;</span> a_pos<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Put <span class="feature-name-comment">a_real</span> at the <span class="feature-name-comment">a_pos</span>-th byte position<br/>
+-- of the wrapped memory area.<br/>
+-- Writes <a href="#sizeof_real" class="feature-name">sizeof_real</a> bytes.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">item_exists:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#exists" class="feature-name">exists</a> <br/>
+<span class="assertion-tag">a_pos_greater_equal_zero:</span> a_pos <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">a_pos_small_enough:</span> a_pos <span class="symbol">&lt;</span> <a href="../../secom/ewg/ewg_managed_pointer.html#capacity" class="feature-name">capacity</a> <span class="symbol">+</span> 1 <span class="symbol">-</span> <a href="../../secom/ewg/ewg_managed_pointer.html#sizeof_real" class="feature-name">sizeof_real</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">real_set:</span> <a href="../../secom/ewg/ewg_managed_pointer.html#read_real" class="feature-name">read_real</a> <span class="symbol">(</span>a_pos<span class="symbol">)</span> <span class="symbol">=</span> a_real <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-" class="keyword">feature</a>
+<span class="comment">-- </span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="sizeof_double"><span class="feature-name">sizeof_double</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Returns the number of bytes a C double is broad
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="sizeof_int"><span class="feature-name">sizeof_int</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Returns the number of bytes a C int is broad
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="sizeof_pointer"><span class="feature-name">sizeof_pointer</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Returns the number of bytes a C pointer is broad
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="sizeof_real"><span class="feature-name">sizeof_real</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Returns the number of bytes a C float is broad
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/ewg/cluster.com_ewg.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-e.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

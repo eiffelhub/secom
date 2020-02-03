@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>EWG_STRUCT (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/ewg/cluster.com_ewg.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-e.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/ewg/cluster.com_ewg.html" class="cluster-name">ewg</a></div>
+<h1>Class EWG_STRUCT</h1>
+<hr/>
+<h2>Known direct descendants</h2>
+<div>
+<a href="../../secom/windows/com_device_control_block.html" class="class-name">COM_DEVICE_CONTROL_BLOCK</a>, <a href="../../secom/windows/com_timeouts.html" class="class-name">COM_TIMEOUTS</a>, <a href="../../secom/windows/com_properties.html" class="class-name">COM_PROPERTIES</a>, <a href="../../secom/windows/com_status.html" class="class-name">COM_STATUS</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#exists" class="feature-name">exists</a></li>
+<li><a href="#is_shared" class="feature-name">is_shared</a></li>
+<li><a href="#item" class="feature-name">item</a></li>
+<li><a href="#sizeof" class="feature-name">sizeof</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Abstract ancestor of all struct wrappers
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Wrapper Generator Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 1999, Andreas Leitner and others
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">deferred class</span>
+<span class="class-name">EWG_STRUCT</span>
+</h2>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="exists"><span class="feature-name">exists</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Does <a href="#item" class="feature-name">item</a> point to a valid C struct ?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_shared"><span class="feature-name">is_shared</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is the contents of <a href="#item" class="feature-name">item</a> referenced by other C or Eiffel code?<br/>
+-- If <a href="#is_shared" class="feature-name">is_shared</a> is <span class="feature-name-comment">True</span> then when the current object will be<br/>
+-- collected by the garbage collector, the wrapped struct will<br/>
+-- also be freed.<br/>
+-- This is a good idea, only if you can be sure that when the<br/>
+-- Eiffel object gets collected, the C side does not have a reference<br/>
+-- to the wrapped struct anymore.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_struct.html#exists" class="feature-name">exists</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="item"><span class="feature-name">item</span></a><span class="symbol">:</span> <span class="class-name">POINTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Pointer to the wrapped struct
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <a href="../../secom/ewg/ewg_struct.html#exists" class="feature-name">exists</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">item_not_default_pointer:</span> <span class="special-keyword">Result</span> <span class="symbol">/=</span> Default_pointer <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="sizeof"><span class="feature-name">sizeof</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Size of the struct in bytes<br/>
+-- This needs to be redefined by the<br/>
+-- decendant.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">sizeof_positive:</span> <span class="special-keyword">Result</span> <span class="symbol">&gt;</span> 0 <br/>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+<span class="assertion-tag">managed_data_not_void:</span> managed_data <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">managed_capacity_equals_sizeof:</span> <a href="../../secom/ewg/ewg_struct.html#exists" class="feature-name">exists</a> <span class="keyword">implies</span> managed_data<span class="symbol">.</span>capacity <span class="symbol">=</span> <a href="../../secom/ewg/ewg_struct.html#sizeof" class="feature-name">sizeof</a> <br/>
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/ewg/cluster.com_ewg.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-e.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<project name="windows_test" default="help">
+
+	<description>
+		description: "Eiffel Ant file for Serial Communications Library CSU tests"
+		copyright: "Copyright (c) 2005, Brian E. Heilig"
+		license: "Eiffel Forum License v2 (see license.txt)"
+		date: "$Date: 2006/03/26 05:07:58 $"
+		revision: "$Revision: 1.8 $"
+	</description>
+
+	<inherit>
+		<parent location="${GOBO}/misc/test.eant">
+			<redefine target="init_system"/>
+			<redefine target="test"/>
+			<redefine target="prepare_compile"/>
+		</parent>
+	</inherit>
+
+	<target name="test" depend="init">
+		<description>
+			This task was copied from ${GOBO}/misc/test.eant
+			to allow the ${device} variable to be passed
+			to getest. The ${device} variable specifies which
+			serial port the loopback is plugged into. You can
+			specify which device to use by invoking geant
+			with the following command line option:
+
+			  -Ddevice=COMx
+			
+			The device defaults to COM1 if it is not provided
+		</description>
+
+		<set name="debug_suffix" value="_debug" if="${debug}"/>
+		<set name="debug_suffix" value="" unless="${debug}"/>
+		<set name="gobo_os" value="-DGOBO_OS=unix" if="${GOBO_OS}=unix"/>
+		<set name="gobo_os" value="-DGOBO_OS=windows" if="${GOBO_OS}=windows"/>
+		<echo message=""/>
+		<echo message="Testing ${system}..."/>
+		<set name="abort_option" value="false"/>
+		<set name="abort_option" value="true" if="${abort}=true"/>
+		<set name="verbose_option" value="false"/>
+		<set name="verbose_option" value="true" if="${verbose}"/>
+		<getest verbose="${verbose_option}" abort="${abort_option}" config="${system_dir}/getest.cfg" compile="geant ${gobo_os} -b ${system_dir}/build.eant compile${debug_suffix}_${eiffel} ${compilation_log}">
+			<attribute name="class" value="${class}" if="${class}"/>
+			<attribute name="feature" value="${feature}" if="${feature}"/>
+			<attribute name="default_test" value="true" if="${default_test}=true"/>
+			<define name="debug" value="true" if="${debug}"/>
+			<define name="full_test" value="true" if="${full_test}"/>
+			<define name="device" value="${device}" if="${device}"/>
+		</getest>
+	</target>
+
+<!-- Implementation -->
+
+	<target name="prepare_compile">
+		<available resource="${SECOM}/library/ewg/spec" variable="installed"/>
+		<echo message="Installing secom" if="${installed}=false"/>
+		<geant file="build.eant" target="install" dir="${SECOM}" if="${installed}=false"/>
+	</target>
+
+	<target name="init_system">
+		<echo message="Please set the SECOM environment variable" unless="${SECOM}"/>
+		<echo message="to the secom installation directory." unless="${SECOM}"/>
+		<exit code="1" unless="${SECOM}"/>
+
+		<available resource="${SECOM}/.secom" variable="environment"/>
+		<echo message="File .secom not found. Please set the SECOM environment" if="${environment}=false"/>
+		<echo message="variable to the secom installation directory where the" if="${environment}=false"/>
+		<echo message="file .secom is located." if="${environment}=false"/>
+		<echo message="Current value of SECOM environment variable is ${SECOM}" if="${environment}=false"/>
+		<exit code="1" if="${environment}=false"/>
+
+		<set name="system" value="xwindows"/>
+		<set name="library" value="windows"/>
+		<set name="system_dir" value="${SECOM}/test/${library}"/>
+	</target>
+
+</project>

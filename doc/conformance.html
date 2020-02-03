@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Conformance (SECOM)</title>
+    <link rel="stylesheet" type="text/css" href="src/style.css"/>
+  </head>
+  <body>
+    <a href="http://sourceforge.net">
+      <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=147356&amp;type=3" align="right" width="125" height="37" border="0" alt="SourceForge.net Logo" />
+    </a>
+    <h1>Serial Communications Library</h1>
+    <a href="http://sourceforge.net/donate/index.php?group_id=147356">
+      <img src="http://images.sourceforge.net/images/project-support.jpg" align="right" width="88" height="32" border="0" alt="Support This Project" />
+    </a>
+    Copyright Brian E. Heilig, 2005-2006 under the Eiffel Forum License, version 2<br/>
+    See license.txt for license details<br/>
+
+    <hr/>
+    <h1>IEEE Std 1003.1 Conformance</h1>
+      <p>The following functions and constants used by secom were released with issue 1 of the System V Interface Definition</p>
+      <div class="indent">
+        open<br/>
+        close<br/>
+        write<br/>
+        read<br/>
+        errno<br/>
+        EINTR<br/>
+        O_RDWR<br/>
+        O_NOCTTY<br/>
+      </div>
+      <p>The following were released with POSIX.1-1988</p>
+      <div class="indent">
+        tcsetattr<br/>
+        tcgetattr<br/>
+        cfgetospeed<br/>
+        cfgetispeed<br/>
+        cfsetospeed<br/>
+        cfsetispeed<br/>
+        termios structure<br/>
+        B0<br/>
+        B75<br/>
+        B110<br/>
+        B134<br/>
+        B200<br/>
+        B300<br/>
+        B600<br/>
+        B1200<br/>
+        B1800<br/>
+        B2400<br/>
+        B4800<br/>
+        B9600<br/>
+        B19200<br/>
+        B38400<br/>
+        CS5<br/>
+        CS6<br/>
+        CS7<br/>
+        CS8<br/>
+        VINTR<br/>
+        VQUIT<br/>
+        VSTART<br/>
+        VSTOP<br/>
+        VSUSP<br/>
+        VEOF<br/>
+        VEOL<br/>
+        VERASE<br/>
+        VKILL<br/>
+        VMIN<br/>
+        VTIME<br/>
+        IGNPAR<br/>
+        INPCK<br/>
+        ISTRIP<br/>
+        IXOFF<br/>
+        IXON<br/>
+        PARMRK<br/>
+        CSIZE<br/>
+        CSTOPB<br/>
+        CREAD<br/>
+        PARENB<br/>
+        PARODD<br/>
+        HUPCL<br/>
+        CLOCAL<br/>
+        ECHO<br/>
+        ICANON<br/>
+        sigaction structure<br/>
+        sigemptyset<br/>
+        sigaction<br/>
+        SIGALRM<br/>
+      </div>
+      <p>The following depracated function is used and will be replaced shortly</p>
+      <div class="indent">
+        ualarm<br/>
+      </div>
+      <p>
+        Support for the following non-Posix baud rates is provided. An application<br/>
+        should check that these baud rates are valid by using <a href="src/secom/posix/com_termios.html#is_valid_baud" class="feature-name">is_valid_baud</a> before<br/>
+        applying them to a device.<br/>
+      </p>
+      <div class="indent">
+        B56000<br/>
+        B57600<br/>
+        B115200<br/>
+        B128000<br/>
+        B256000<br/>
+      </div>
+      <p>
+        SmartEiffel as of version 1.1 uses B* (e.g. B50) for type names. This<br/>
+        clashes with names in termios.h. Therefore the following baud rates<br/>
+        have been disabled. However, these are the only name clashes that I<br/>
+        have experienced. Your system may experience additional clashes<br/>
+        as larger systems will have more types. I would appreciate a bug<br/>
+        report but you can disable the baud rates yourself by editing the<br/>
+        'non_std_baud_rates.h' header file located in library/posix/c.<br/>
+      </p>
+      <div class="indent">
+        B50
+        B150
+      </div>
+    <p>
+      <br/>
+    </p>
+    <hr/>
+  </body>
+</html>
+

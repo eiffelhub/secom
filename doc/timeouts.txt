@@ -1,0 +1,489 @@
+---------------------------
+-- Device timeouts analysis
+---------------------------
+
+This document contains an analysis of the timeout properties of Windows and Unix operating systems, and how to design the secom library such that programs behave the same independent of which operating system they are on.
+
+You should read this document only if you need to know why I designed and implemented the timeouts the way I did. This document was not written to be easily read, but rather to document all of the thoughts I had regarding this subject.
+
+n = min_read
+m = max_read
+t = timeout
+
+blocking read
+The read will return when at least n bytes are available. If more than n bytes are available then at most m bytes will be returned
+
+Posix read (min_read, max_read):
+vmin=min_read
+vtime=0
+nread=max_read
+
+Windows (min_read, max_read):
+read_interval=0
+read_total_multiplier=0
+read_total_constant=0
+nNumberOfBytesToRead=min_read
+data check up to max_read
+
+
+non blocking read
+The read will return immediately with at most m bytes
+
+Posix read (min_read, max_read):
+vmin=0
+vtime=0
+nread=max_read
+
+Windows (min_read, max_read):
+read_interval=-1
+read_total_multiplier=0
+read_total_constant=0
+nNumberOfBytesToRead=max_read
+
+or
+
+read_interval=0
+read_total_multiplier=0
+read_total_constant=0
+data check up to max_read
+
+
+inter-character timeout, pre: n >= 1
+The read will return when at least n bytes are available or (t ms have elapsed since the last character was received and at least one character was received). If more than n bytes are available at the time of the read then at most m bytes will be returned
+
+Posix read (min_read, max_read):
+vmin=min_read >= 1
+vtime=t
+nread=max_read
+
+Windows (min_read, max_read):
+read_interval=t
+read_total_multiplier=0
+read_total_constant=0
+nNumberOfBytesToRead=min_read
+data check up to max_read
+
+
+overall timeout
+The read will return when at least n bytes are available or a total of t ms have elapsed. If more than n byte are available at the time of the read then at most m bytes will be returned.
+
+Posix read (min_read, max_read):
+vmin=0
+vtime=t
+nread=min_read
+
+and then
+
+vmin=0
+vtime=0
+nread=max_read - min_read
+
+Windows (min_read, max_read):
+read_interval=0
+read_total_multiplier=0
+read_total_constant=t
+nNumberOfBytesToRead=min_read
+data check up to max_read
+
+Or
+The read will return when t ms have elapsed or at most m bytes are available
+Posix read (min_read, max_read):
+vmin=0
+vtime=t
+nread=max_read
+
+Windows (min_read, max_read):
+read_interval=0
+read_total_multiplier=0
+read_total_constant=t
+nNumberOfBytesToRead=max_read
+
+
+
+***********************************************************************
+The problem is that min_read makes no sense for a non-blocking read,
+it must be > 0 for an inter-character read
+
+***********************************************************************
+
+
+
+data check is
+if not timed_out then
+	check the amount of data in the queue
+		read that data up to a maximum of m-n bytes
+
+
+
+
+Let's take a step back and write down the suggestions so far:
+Problem statement:
+The timeouts behave differently between Windows and Unix. A common interface is required that ensures a read will operate the same when given the same parameters on either operating system. Also the strengths of a single OS should not be eliminated if a user wishes to code for a specific OS and take advantage of that OS's strengths.
+
+Both Windows and Unix expect an nbytes parameter passed to the read function. However Unix uses this as the maximum number of bytes to read, while Windows uses this as the minimum number to read. Unix uses VMIN as the minimum number to read, while Windows has no concept of a maximum number to read.
+
+The read_* functions expect to receive a specific number of bytes (or timeout). This means they must be able to control the minimum number of reads.
+
+We could restrict the Unix implementation by eliminating the possibility for more than VMIN bytes. This would be accomplished with something like:
+
+read_data (p: POINTER; count: INTEGER) is
+  do
+    VMIN := count
+    read (p, count)
+  end
+
+This says that `count' is both the minimum and maximum number of bytes that may be read. Problems with this approach:
+
+1. It restricts the Unix implementation. No one can set a max_read. Probably not a big deal.
+2. VMIN must get set with each read. This is more involved than it looks because the call must communicate with the driver (and   possibly the hardware?) This can be mitigated with something like:
+
+read_data (p: POINTER; count: INTEGER) is
+  do
+    if count /= last_count then
+      VMIN := count
+      last_count = count
+    end
+    read (p, count)
+  end
+
+3. This is a little sneaky. Part of the design was to allow a user to make low-level calls if he desires. This is why `item' is exported to ANY. A user could set VMIN himself and would be surprised to find it being changed. One way to mitigate this is to put it in the ensure clause, thereby stating to the world that it happens. This isn't so sneaky. Another way is to write something like:
+
+read_data (p: POINTER; count: INTEGER) is
+  do
+    if use_abstract_timeouts and count /= last_count then
+      VMIN := count
+      last_count = count
+    end
+    read (p, count)
+  end
+
+use_abstract_timeouts could be set to True when the abstract interface is being used, and False when timeouts are being altered directly.
+
+4. Unix only accepts values up to 255 for `count'. Possible solutions are:
+
+* Require count <= 255. This restricts Windows which is more generic
+* Implement a workaround as follows:
+
+read_data (p: POINTER; count: INTEGER) is
+  local
+    current_count: INTEGER
+    count_remaining: INTEGER
+    total_count: INTEGER
+  do
+    from
+      count_remaining := count
+    until
+      count_remaining = 0 or timed_out
+    loop
+      current_count := count_remaining
+
+      if current_count > 255 then
+        current_count := 255
+      end
+
+      VMIN := current_count
+      last_read_count := read (p + total_count, current_count)
+
+      if last_read_count = -1 then
+        last_read_count := total_count
+        Exceptions.raise ("Read error")
+      end
+
+      if last_read_count < current_count then timed_out := true end
+
+      total_count := total_count + last_read_count
+      count_remaining := count_remaining - last_read_count
+    end
+    
+    last_read_count := total_count
+  end
+
+The added complexity gives us the advantage of being able to read up to max integer. Setting VMIN with every read is probably costly so again this cost can be somewhat mitigated:
+read_data (p: POINTER; count: INTEGER) is
+  local
+    current_count: INTEGER
+    count_remaining: INTEGER
+    total_count: INTEGER
+  do
+    from
+      count_remaining := count
+    until
+      count_remaining = 0 or timed_out
+    loop
+      current_count := count_remaining
+
+      if current_count > 255 then
+        current_count := 255
+      end
+
+      if current_count /= last_count then
+        last_count := current_count
+        VMIN := current_count
+      end
+      last_read_count := read (p + total_count, current_count)
+
+      if last_read_count = -1 then
+        last_read_count := total_count
+        Exceptions.raise ("Read error")
+      end
+
+      if last_read_count < current_count then timed_out := true end
+
+      total_count := total_count + last_read_count
+      count_remaining := count_remaining - last_read_count
+    end
+    
+    last_read_count := total_count
+  end
+
+
+
+We could add the ability to Windows for a max read as follows (this is a very terse version of the actual implementation):
+
+read_data (p: POINTER; min_read, max_read: INTEGER) is
+  local
+    avail: INTEGER
+  do
+    read (p, min_read)
+    if not timed_out then
+      avail := amount of data currently available in the input queue of the device
+      read (p, avail) -- guaranteed not to time out
+    end
+  end
+
+This is the plan that was roughly described at the beginning of this document. It is difficult to implement and I don't remember why or want to.
+
+
+
+This is what should be done: Forget the min/max thing and bring Unix down to Windows level (where reads always return `count' bytes or have timed out)
+
+
+blocking read
+The read will return when count bytes are available.
+
+Posix read (count):
+vmin=count -- set at read call
+vtime=0 -- set at timeouts call
+nread=count
+
+Windows (count):
+read_interval=0 -- set at timeouts call
+read_total_multiplier=0 -- set at timeouts call
+read_total_constant=0 -- set at timeouts call
+nNumberOfBytesToRead=count
+
+
+non blocking read
+The read will return immediately with at most count bytes
+
+Posix read (count):
+vmin=0 -- set at timeouts call
+vtime=0 -- set at timeouts call
+nread=count
+
+Windows (count):
+read_interval=-1 -- set at timeouts call
+read_total_multiplier=0 -- set at timeouts call
+read_total_constant=0 -- set at timeouts call
+nNumberOfBytesToRead=count
+
+
+inter-character timeout, pre: count > 0
+The read will return when count bytes are available or (t ms have elapsed since the last character was received and at least one character was received).
+
+Posix read (count > 0):
+vmin=count -- set at read call
+vtime=t -- set at timeouts call
+nread=count
+
+Windows (count):
+read_interval=t -- set at timeouts call
+read_total_multiplier=0 -- set at timeouts call
+read_total_constant=0 -- set at timeouts call
+nNumberOfBytesToRead=count
+
+
+overall timeout
+The read will return when count bytes are available or a total of t ms have elapsed.
+
+Posix read (count):
+vmin=0 -- set at timeouts call
+vtime=t -- set at timeouts call
+nread=count
+
+
+Windows (count):
+read_interval=0 -- set at timeouts call
+read_total_multiplier=0 -- set at timeouts call
+read_total_constant=t -- set at timeouts call
+nNumberOfBytesToRead=count
+
+
+How do we require that count > 0 only in the inter-character timeout case? Answer: we can require count > 0 in every case
+
+
+The definition of an overall timeout is incorrect...
+
+In unix the timeouts can be summarized as follows:
+If VTIME is zero then the timeout is not used. The read returns when VMIN bytes are available, up to a maximum of nbytes.
+If VTIME is not zero then the timeout is used. The timer begins when read is called and is reset to zero with each character that is received. The read returns when VMIN bytes are available, up to a maximum of nbytes.
+
+In Windows the timeouts can be summarized as follows:
+If all the read timers are zero then the read returns when count bytes are available.
+If the read_interval is -1 and the other two timers are zero then the read returns immediately with the bytes that are already available, up to a maximum of count bytes.
+Otherwise the timers work independently as follows:
+The read_interval timer is set to zero and started with each character that is received. It is not started when read is called.
+The overall timer is started when the read is called and is not reset.
+The read returns when either the overall timer or the inter-character timer times out, or when count bytes have been read.
+
+The difference that must be overcome is a timeout when zero bytes are available:
+In unix the read will timeout after VTIME decaseconds.
+In Windows the read will timeout after read_total_constant milliseconds (assuming read_total_multiplier is zero).
+
+We must be able to timeout if zero bytes are available, and the timeout must be the same in unix and Windows.
+
+For example, let's say VTIME is set to 5, and read_total_constant is set to 500. Then the read will timeout in a similar manner if data is no longer arriving or count bytes have arrived when read is called. However, if data is still arriving and less than count bytes are available then the read behaves differently. In unix the time will be reset with each character that arrives, the read may block longer than 500 ms if data continues to arrive and less than count bytes are available. In Windows the read will timeout after 500 ms, regardless of whether or not data is still arriving (but will stop if count bytes are available).
+
+So another solution might be to set VTIME to 5 and read_interval to 500 (and the other two timeouts to zero). Then the read will time out in a similar manner if at least one character arrives. However if no data arrives then Windows will block forever while unix will timeout after 500 ms.
+
+A combination of the two might be necessary. Set VTIME to 5, read_interval to 500 and read_overall_timeout to 500. Still no good:
+If no data arrives then:
+In unix the read will timeout after 500 ms
+In windows the read will timeout after 500 ms
+
+If some data arrives then:
+In unix the read will finish if 500 ms elapses between the arrival of two characters or count characters have arrived.
+In Windows the read will finish if 500 ms elapses before count characters have arrived (the overall timeout takes precedence)
+
+What to do?
+The unix idea of timeouts is simple. It is always an inter-character timeout, even if no data arrives. I would like to emulate this behavior in Windows, if possible.
+The Windows solution has more bells. It has two independent timers. I don't think it would be possible to emulate this in unix.
+
+What about this?
+In Windows query the number of bytes in the input queue:
+If it is > 0 then set the inter-character timeout and perform the read
+If it is = 0 then set the overall timeout and perform the read.
+Better but not good enough. If data arrives within the 500 ms time period then it will still timeout after 500 ms, even if data continues to arrive.
+
+Okay, second try:
+count_remaining := count
+LOOP:
+Query the number of bytes in the input queue nq
+if nq > 0 then set the inter-character timeout and read count_remaining bytes
+if nq = 0 then set the overall timeout and read 1 character
+  if a character was read then count_remaining-- and goto LOOP
+
+It aint pretty, but it will work. The timing will be slightly different, but if you really wanted accuracy down to the millisecond, why are you using Windows?
+
+So the solution would be to implement this, and have the following possible timeouts (in COM_ABSTRACT_TIMEOUTS, the OS specific version will still have all the bells and whistles)
+
+is_blocking
+  -- Will the read block until `count' bytes have been read?
+
+is_non_blocking
+  -- Will the read return immediately with the bytes already received, up to a maximum of `count' bytes?
+
+is_timed
+  -- Will the read return when `timeout' milliseconds have elapsed or when `count' bytes have been received? The timer is started when read is called, and reset with each character received.
+
+The overall timer must be removed because there is no such thing in unix and one can not be emulated (I'm pretty sure it can't be emulated anyways).
+
+After implementing the solution I really don't like it. It's cumbersome and ugly. Here's another idea
+
+Set the inter-character timeout t before read operations are executed
+Query the number of bytes in the input queue nq
+if nq > 0 then perform the read
+else
+  sleep for t milliseconds
+  Query the nq again
+  if nq > 0 then perform the read
+  else
+    timeout
+
+This is a problem if data arrives while sleeping. Let's say for example t is 10,000 ms (or 10 sec). If there is no data in the input queue then a read will always wait 10 seconds, even if data arrives.
+
+How about this?
+
+Set the inter-character timeout t before read operations are executed
+Query nq
+if nq = 0 then
+  LOOP:
+    sleep 100 ms
+    total_sleep := total_sleep + 100
+    Query nq
+    if nq = 0 then
+      if total_sleep < t then goto LOOP
+      else timed_out := true
+
+if not timed_out then perform the read
+
+This works (in fact it has timeout properties similar to Unix since timeouts are in intervals of decaseconds) but polling is probably worse, even if it's just polling every 100 ms.
+
+The inter-character timeout appears to be exactly the same between Posix and Windows. The unix man page of termios states:
+       When
+       both are set, a read will wait until at least one  character  has  been
+       received,  and  then  return as soon as either MIN characters have been
+       received or time TIME has passed since the last character was received.
+
+And Windows states:
+Maximum time allowed to elapse between the arrival of two bytes on the communications line, in milliseconds. During a ReadFile operation, the time period begins when the first byte is received.
+
+So it seems both timeouts begin when a single character is received. The problem is then, how do we timeout when no characters are received? This is a necessary attribute.
+
+Posix says that when VMIN is 0 and VTIME is not:
+       If only TIME is set, the read will  return  as  soon  as
+       either  at  least  one  character has been received, or the timer times
+       out.
+
+This is different from a Windows overall timeout which is like:
+
+the read will return as soon as either nNumberOfBytesToRead characters have been received, or the timer times out.
+
+We can emulate the Posix functionality by setting nNumberOfBytesToRead to 1 when performing the read. I think this is the best solution.
+
+I've come to the conclusion that the Posix way stinks and Windows has it right. The fact that you can't specify more than one character as the minimum number of reads for an overall timeout is a poor design.
+
+I suppose we can emulate the Windows operation in Posix as follows:
+
+Set VMIN to 0
+Get the current time t0
+n := total bytes to read
+LOOP:
+Set VTIME to t
+Perform a read of n bytes
+k bytes were actually read
+if k < n then
+  get the current time t1
+  t := t - (t1 - t0)
+  if t > 0 then n := n - k; goto LOOP
+  
+The good:
+Windows and Posix overall timeout operates identically (with the restriction that both are in decaseconds and max is 25.5 seconds)
+Posix timeouts are more general, an overall timeout can wait for more than one character
+
+The bad:
+It is still a polling read
+
+I'll try this option
+
+How can the following, seemingly common scenario be coded on Unix?
+
+We want to read packets of 10 characters. If 10 characters are not received within 500 ms then send an "Are You There" message and retry.
+
+If we set VMIN to 10 and VTIME to 5, and
+10 characters are received = great
+< 10 but > 0 characters are received = send AYT message and retry
+0 characters are received = wait forever!
+
+If we set VMIN to 0 and VTIME to 5 then the read returns as soon as any data is available, but at least it won't block forever.
+
+After some discussion on comp.unix.programmer, I have another solution. One that allows both an inter-character timeout and an overall timeout.
+
+We can set up an alarm signal with the overall timeout and perform the read. If the overall timer expires before the read completes then the read is interrupted. If no bytes were read then read returns -1 with errno set to EINTR. If some bytes were read then the read returns with the number of bytes read. The disadvantages to this are 1. There is only one alarm signal per process, which violates some information hiding principles. 2. It is more complex.
+
+It may also be possible to perform the read in a seperate thread. In the first thread (after the second thread is created) wait for an event with a timeout of overall timeout. If the first thread times out then send a signal to the second thread (maybe it doesn't have to be an alarm signal?) If the second thread completes the read then set the event so the first thread can continue.
+
+The signal sent to the second thread can be SIGINT. It seems as though the signal handler must `return'. This will interrupt the read operation. The second thread must install the signal handler. 
+
+
+Performing the read in a seperate thread and sending the SIGINT signal is significantly more complicated than setting an alarm. The most recent implementation uses posix ualarm to set an alarm just before the read begins. An alarm handler sets an external condition to true when it is called causing the read to quit (even if it was in the middle of a system call). I'll test this and, if it works, this will be the final solution.

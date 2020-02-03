@@ -1,0 +1,33 @@
+# Options file for secom Documentation
+# 
+# Documentation will be stored in $SECOM/doc/src
+
+#################
+# INPUT OPTIONS #
+#################
+
+library = $SECOM/library/library.xace
+mount = $GOBO/library/kernel.xace
+mount = $GOBO/library/kernel/library.xace
+mount = $GOBO/library/structure/library.xace
+mount = $GOBO/library/utility/library.xace
+mount = $GOBO/library/pattern/library.xace
+
+include_mounted_libraries = No
+
+##################
+# OUTPUT OPTIONS #
+##################
+
+# Output directory
+output_directory = $SECOM/doc/src
+
+################
+# HTML OPTIONS #
+################
+
+# Documentation title
+title = Serial Communications Library
+
+# Short documentation title
+short_title = SECOM

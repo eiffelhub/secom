@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+
+<project name="test" default="help">
+
+	<description>
+		description: "Eiffel Ant file for the Serial Communications Library CSC tests"
+		copyright: "Copyright (c) 2005, Brian E. Heilig"
+		license: "Eiffel Forum License v2 (see license.txt)"
+		date: "$Date: 2006/03/26 05:07:56 $"
+		revision: "$Revision: 1.9 $"
+	</description>
+
+	<target name="help">
+		<echo message="usage:"/>
+		<echo message="   geant install"/>
+		<echo message="   geant test"/>
+		<echo message="   geant test_all"/>
+		<echo message="   geant test_ise"/>
+		<echo message="   geant test_se"/>
+		<echo message="   geant test_debug"/>
+		<echo message="   geant test_debug_all"/>
+		<echo message="   geant test_debug_ise"/>
+		<echo message="   geant test_debug_se"/>
+		<echo message="   geant clean"/>
+		<echo message="   geant clobber"/>
+	</target>
+
+	<target name="install" depend="init">
+		<description>
+			Install the secom tests.
+		</description>
+		<set name="target" value="install"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test" depend="init_test">
+		<description>
+			Run secom tests.
+			Use Eiffel compiler set in ${GOBO_EIFFEL}
+			or 'se' if this variable is not defined.
+		</description>
+
+		<set name="target" value="test"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test_all" depend="init_test">
+		<description>
+			Run secom tests using all supported Eiffel compilers.
+		</description>
+
+		<geant target="test_se"/>
+		<geant target="test_ise"/>
+	</target>
+
+	<target name="test_ise" depend="init_test">
+		<description>
+			Run secom tests using ISE Eiffel.
+		</description>
+
+		<set name="target" value="test_ise"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test_se" depend="init_test">
+		<description>
+			Run secom tests using SmartEiffel.
+		</description>
+
+		<set name="target" value="test_se"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test_debug" depend="init_test">
+		<description>
+			Run secom tests in debug mode.
+			Use Eiffel compiler set in ${GOBO_EIFFEL}
+			or 'se' if this variable is not defined.
+		</description>
+
+		<set name="target" value="test_debug"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test_debug_all" depend="init_test">
+		<description>
+			Run secom tests using all supported Eiffel compilers
+			in debug mode.
+		</description>
+
+		<geant target="test_debug_se"/>
+		<geant target="test_debug_ise"/>
+	</target>
+
+	<target name="test_debug_ise" depend="init_test">
+		<description>
+			Run secom tests using ISE Eiffel in debug mode.
+		</description>
+
+		<set name="target" value="test_debug_ise"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="test_debug_se" depend="init_test">
+		<description>
+			Run secom tests using SmartEiffel in debug mode.
+		</description>
+
+		<set name="target" value="test_debug_se"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="clean" depend="init">
+		<description>
+			Remove intermediary generated files.
+		</description>
+
+		<set name="target" value="clean"/>
+		<geant target="do_all"/>
+	</target>
+
+	<target name="clobber" depend="init">
+		<description>
+			Remove all generated files.
+		</description>
+
+		<set name="target" value="clobber"/>
+		<geant target="do_all"/>
+	</target>
+
+<!-- Implementation -->
+
+	<target name="init">
+		<echo message="Please set the SECOM environment variable" unless="${SECOM}"/>
+		<echo message="to the secom installation directory." unless="${SECOM}"/>
+		<exit code="1" unless="${SECOM}"/>
+
+		<available resource="${SECOM}/.secom" variable="environment"/>
+		<echo message="File .secom not found. Please set the SECOM environment" if="${environment}=false"/>
+		<echo message="variable to the secom installation directory where the" if="${environment}=false"/>
+		<echo message="file .secom is located." if="${environment}=false"/>
+		<echo message="Current value of SECOM environment variable is ${SECOM}" if="${environment}=false"/>
+		<exit code="1" if="${environment}=false"/>
+	</target>
+
+	<target name="init_test" depend="init">
+		<available resource="${SECOM}/library/ewg/spec" variable="installed"/>
+		<echo message="Installing secom" if="${installed}=false"/>
+		<geant file="build.eant" target="install" dir="${SECOM}" if="${installed}=false"/>
+	</target>
+
+	<target name="do_all" depend="init">
+		<description>
+			Call 'geant' with the same target ${target}
+			in all subdirectories.
+		</description>
+
+		<geant file="build.eant" target="${target}" dir="device"/>
+		<geant file="build.eant" target="${target}" dir="windows" if="${GOBO_OS}=windows"/>
+		<geant file="build.eant" target="${target}" dir="posix" if="${GOBO_OS}=unix"/>
+	</target>
+
+</project>

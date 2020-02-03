@@ -1,0 +1,1320 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_DEVICE_CONTROL_BLOCK (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/windows/cluster.com_windows.html" class="cluster-name">windows</a></div>
+<h1>Class COM_DEVICE_CONTROL_BLOCK</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a>, <a href="../../secom/abstract/com_abstract_settings.html" class="class-name">COM_ABSTRACT_SETTINGS</a>, <a href="../../secom/windows/com_dcb_constants.html" class="class-name">COM_DCB_CONSTANTS</a>, <span class="class-name">KL_SHARED_EXCEPTIONS</span>, <a href="../../secom/ewg/ewg_imported_external_routines.html" class="class-name">EWG_IMPORTED_EXTERNAL_ROUTINES</a>, <a href="../../secom/windows/com_shared_windows_error.html" class="class-name">COM_SHARED_WINDOWS_ERROR</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Creation</h2>
+<ul class="feature-list-features">
+<li><a href="#creator-make_default" class="feature-name">make_default</a></li>
+<li><a href="#creator-make_from_string" class="feature-name">make_from_string</a></li>
+<li><a href="#creator-make_existing" class="feature-name">make_existing</a></li>
+</ul>
+<h2>Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#baud_rate" class="feature-name">baud_rate</a></li>
+<li><a href="#data_bits" class="feature-name">data_bits</a></li>
+<li><a href="#dtr_control" class="feature-name">dtr_control</a></li>
+<li><a href="#eof_char" class="feature-name">eof_char</a></li>
+<li><a href="#error_char" class="feature-name">error_char</a></li>
+<li><a href="#event_char" class="feature-name">event_char</a></li>
+<li><a href="#parity" class="feature-name">parity</a></li>
+<li><a href="#rts_control" class="feature-name">rts_control</a></li>
+<li><a href="#stop_bits" class="feature-name">stop_bits</a></li>
+<li><a href="#xoff_char" class="feature-name">xoff_char</a></li>
+<li><a href="#xoff_lim" class="feature-name">xoff_lim</a></li>
+<li><a href="#xon_char" class="feature-name">xon_char</a></li>
+<li><a href="#xon_lim" class="feature-name">xon_lim</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Comparison">Comparison</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_equal" class="feature-name">is_equal</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#are_errors_replaced" class="feature-name">are_errors_replaced</a></li>
+<li><a href="#are_nulls_discarded" class="feature-name">are_nulls_discarded</a></li>
+<li><a href="#is_abort_on_error" class="feature-name">is_abort_on_error</a></li>
+<li><a href="#is_binary_mode" class="feature-name">is_binary_mode</a></li>
+<li><a href="#is_cts_controlled" class="feature-name">is_cts_controlled</a></li>
+<li><a href="#is_dsr_controlled" class="feature-name">is_dsr_controlled</a></li>
+<li><a href="#is_dsr_sensitive" class="feature-name">is_dsr_sensitive</a></li>
+<li><a href="#is_inx_controlled" class="feature-name">is_inx_controlled</a></li>
+<li><a href="#is_outx_controlled" class="feature-name">is_outx_controlled</a></li>
+<li><a href="#is_parity_checked" class="feature-name">is_parity_checked</a></li>
+<li><a href="#is_tx_continued_on_xoff" class="feature-name">is_tx_continued_on_xoff</a></li>
+<li><a href="#is_valid_baud" class="feature-name">is_valid_baud</a></li>
+<li><a href="#is_valid_data_bits" class="feature-name">is_valid_data_bits</a></li>
+<li><a href="#is_valid_dtr_control" class="feature-name">is_valid_dtr_control</a></li>
+<li><a href="#is_valid_parity" class="feature-name">is_valid_parity</a></li>
+<li><a href="#is_valid_rts_control" class="feature-name">is_valid_rts_control</a></li>
+<li><a href="#is_valid_stop_bits" class="feature-name">is_valid_stop_bits</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_setting">Status&nbsp;setting</a></strong>
+<ul class="feature-list-features">
+<li><a href="#set_abort_on_error" class="feature-name">set_abort_on_error</a></li>
+<li><a href="#set_cts_control" class="feature-name">set_cts_control</a></li>
+<li><a href="#set_dsr_control" class="feature-name">set_dsr_control</a></li>
+<li><a href="#set_dsr_sensitive" class="feature-name">set_dsr_sensitive</a></li>
+<li><a href="#set_error_replacement" class="feature-name">set_error_replacement</a></li>
+<li><a href="#set_inx_control" class="feature-name">set_inx_control</a></li>
+<li><a href="#set_null_discard" class="feature-name">set_null_discard</a></li>
+<li><a href="#set_outx_control" class="feature-name">set_outx_control</a></li>
+<li><a href="#set_parity_check" class="feature-name">set_parity_check</a></li>
+<li><a href="#set_tx_continue_on_xoff" class="feature-name">set_tx_continue_on_xoff</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_change">Element&nbsp;change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#build_from_string" class="feature-name">build_from_string</a></li>
+<li><a href="#get_comm_state" class="feature-name">get_comm_state</a></li>
+<li><a href="#set_baud_rate" class="feature-name">set_baud_rate</a></li>
+<li><a href="#set_data_bits" class="feature-name">set_data_bits</a></li>
+<li><a href="#set_defaults" class="feature-name">set_defaults</a></li>
+<li><a href="#set_dtr_control" class="feature-name">set_dtr_control</a></li>
+<li><a href="#set_eof_char" class="feature-name">set_eof_char</a></li>
+<li><a href="#set_error_char" class="feature-name">set_error_char</a></li>
+<li><a href="#set_event_char" class="feature-name">set_event_char</a></li>
+<li><a href="#set_parity" class="feature-name">set_parity</a></li>
+<li><a href="#set_rts_control" class="feature-name">set_rts_control</a></li>
+<li><a href="#set_stop_bits" class="feature-name">set_stop_bits</a></li>
+<li><a href="#set_xoff_char" class="feature-name">set_xoff_char</a></li>
+<li><a href="#set_xoff_lim" class="feature-name">set_xoff_lim</a></li>
+<li><a href="#set_xon_char" class="feature-name">set_xon_char</a></li>
+<li><a href="#set_xon_lim" class="feature-name">set_xon_lim</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Conversion">Conversion</a></strong>
+<ul class="feature-list-features">
+<li><a href="#to_baud_rate" class="feature-name">to_baud_rate</a></li>
+<li><a href="#to_data_bits" class="feature-name">to_data_bits</a></li>
+<li><a href="#to_parity" class="feature-name">to_parity</a></li>
+<li><a href="#to_stop_bits" class="feature-name">to_stop_bits</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Control settings for a serial communications device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">class</span>
+<span class="class-name">COM_DEVICE_CONTROL_BLOCK</span>
+</h2>
+<h2 class="keyword">inherit</h2>
+<div class="indent">
+<div><a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a></div>
+<div><a href="../../secom/abstract/com_abstract_settings.html" class="class-name">COM_ABSTRACT_SETTINGS</a></div>
+<div><a href="../../secom/windows/com_dcb_constants.html" class="class-name">COM_DCB_CONSTANTS</a></div>
+<div class="indent">
+<div><a href="../../secom/abstract/com_abstract_control_constants.html" class="class-name">COM_ABSTRACT_CONTROL_CONSTANTS</a></div>
+</div>
+</div>
+<h2>
+<a id="create"><span class="keyword">create</span></a>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="creator-make_default"><span class="feature-name">make_default</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Fill with default values.<br/>
+-- Default is 9600 8N1 with flow control<br/>
+-- disabled
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">structure_exists:</span> exists <br/>
+<span class="assertion-tag">memory_not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_from_string"><span class="feature-name">make_from_string</span></a> <span class="symbol">(</span>str<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set defaults, then fill using a device control string.<br/>
+-- Throws an exception if <span class="feature-name-comment">str</span> is not understood by BuildCommDCB
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> str <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">structure_exists:</span> exists <br/>
+<span class="assertion-tag">memory_not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_existing"><span class="feature-name">make_existing</span></a> <span class="symbol">(</span>dev<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Fill the structure with the control settings of an extant, open<br/>
+-- communications resource.  Throws an exception if failed.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> dev <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> dev<span class="symbol">.</span>is_open <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">structure_exists:</span> exists <br/>
+<span class="assertion-tag">memory_not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+<span class="assertion-tag">filled_from_device:</span> dev<span class="symbol">.</span>control_settings<span class="symbol">.</span><a href="../../secom/windows/com_device_control_block.html#is_equal" class="feature-name">is_equal</a> <span class="symbol">(</span><span class="special-keyword">Current</span><span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="baud_rate"><span class="feature-name">baud_rate</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Baud rate at which the communications device operates
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="data_bits"><span class="feature-name">data_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of bits in the bytes transmitted and received.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="dtr_control"><span class="feature-name">dtr_control</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- DTR (data-terminal-ready) flow control scheme to be used
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">valid_result:</span> <a href="../../secom/windows/com_device_control_block.html#is_valid_dtr_control" class="feature-name">is_valid_dtr_control</a> <span class="symbol">(</span><span class="special-keyword">Result</span><span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="eof_char"><span class="feature-name">eof_char</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Character used to signal the end of data.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="error_char"><span class="feature-name">error_char</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Character used to replace bytes received with a parity error.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="event_char"><span class="feature-name">event_char</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Character used to signal an event.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="parity"><span class="feature-name">parity</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Parity scheme used for transmit and receive.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="rts_control"><span class="feature-name">rts_control</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- RTS (request-to-send) flow control scheme to be used
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">valid_result:</span> <a href="../../secom/windows/com_device_control_block.html#is_valid_rts_control" class="feature-name">is_valid_rts_control</a> <span class="symbol">(</span><span class="special-keyword">Result</span><span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="stop_bits"><span class="feature-name">stop_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of stop bits to be used.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="xoff_char"><span class="feature-name">xoff_char</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- XOFF character for both transmission and reception.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="xoff_lim"><span class="feature-name">xoff_lim</span></a><span class="symbol">:</span> <span class="class-name">INTEGER_16</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Maximum number of bytes allowed in the input buffer before flow<br/>
+-- control is activated to allow transmission by the sender. The<br/>
+-- maximum number of bytes allowed is calculated by subtracting this<br/>
+-- value from the size, in bytes, of the input buffer.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="xon_char"><span class="feature-name">xon_char</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- XON character for both transmission and reception.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="xon_lim"><span class="feature-name">xon_lim</span></a><span class="symbol">:</span> <span class="class-name">INTEGER_16</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Minimum number of bytes allowed in the input buffer before flow<br/>
+-- control is activated to inhibit the sender
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Comparison" class="keyword">feature</a>
+<span class="comment">-- Comparison</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_equal"><span class="feature-name">is_equal</span></a> <span class="symbol">(</span>other<span class="symbol">:</span> <span class="keyword">like</span> <span class="special-keyword">Current</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">other</span> attached to an object considered equal<br/>
+-- to current object?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="are_errors_replaced"><span class="feature-name">are_errors_replaced</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Replace errors with <a href="#error_char" class="feature-name">error_char</a>?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="are_nulls_discarded"><span class="feature-name">are_nulls_discarded</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Discard received null characters?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_abort_on_error"><span class="feature-name">is_abort_on_error</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Terminate all read and write operations when an error occurs?<br/>
+-- The driver will not accept any further communications operations<br/>
+-- until the comm error is cleared.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_binary_mode"><span class="feature-name">is_binary_mode</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Binary mode enabled?.  Windows does not support<br/>
+-- non binary mode transfers, so this member must be TRUE.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">only_binary:</span> <span class="special-keyword">Result</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_cts_controlled"><span class="feature-name">is_cts_controlled</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Monitor CTS (clear-to-send) for output flow control? When True<br/>
+-- and remote CTS is off, output is suspended until CTS is received.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_dsr_controlled"><span class="feature-name">is_dsr_controlled</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Monitor DSR (data-set-ready) for output flow control? When True<br/>
+-- and remote DSR is off, output is suspended until DSR is received.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_dsr_sensitive"><span class="feature-name">is_dsr_sensitive</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is the communications driver sensitive to the state of the DSR<br/>
+-- signal? The driver ignores any bytes received, unless the DSR<br/>
+-- modem input line is high.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_inx_controlled"><span class="feature-name">is_inx_controlled</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is input software flow control used?  When True the <a href="#xoff_char" class="feature-name">xoff_char</a><br/>
+-- is sent when the input buffer comes within <a href="#xoff_lim" class="feature-name">xoff_lim</a> bytes of<br/>
+-- capacity, and the <a href="#xon_char" class="feature-name">xon_char</a> is sent when the input buffer<br/>
+-- comes within <a href="#xon_lim" class="feature-name">xon_lim</a> bytes of capacity.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_outx_controlled"><span class="feature-name">is_outx_controlled</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is output software flow control used?  When True transmission<br/>
+-- stops when the <a href="#xoff_char" class="feature-name">xoff_char</a> is received and starts again when<br/>
+-- the <a href="#xon_char" class="feature-name">xon_char</a> is received.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_parity_checked"><span class="feature-name">is_parity_checked</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Check receive parity and report errors?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_tx_continued_on_xoff"><span class="feature-name">is_tx_continued_on_xoff</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Continue transmit when <a href="#xoff_char" class="feature-name">xoff_char</a> is sent? When True<br/>
+-- transmission continues after the input buffer has come within<br/>
+-- <a href="#xoff_lim" class="feature-name">xoff_lim</a> bytes of being full and the driver has transmitted<br/>
+-- the <a href="#xoff_char" class="feature-name">xoff_char</a> to stop receiving bytes. When False transmission<br/>
+-- does not continue until the input buffer is within <a href="#xon_lim" class="feature-name">xon_lim</a><br/>
+-- bytes of being empty and the driver has transmitted the<br/>
+-- <a href="#xon_char" class="feature-name">xon_char</a> to resume reception.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_baud"><span class="feature-name">is_valid_baud</span></a> <span class="symbol">(</span>a_baud<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">a_baud</span> a valid baud rate? True only indicates the<br/>
+-- operating system supports this rate. The device may not.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_data_bits"><span class="feature-name">is_valid_data_bits</span></a> <span class="symbol">(</span>a_data_bits<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">a_data_bits</span> a valid data bits setting?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_dtr_control"><span class="feature-name">is_valid_dtr_control</span></a> <span class="symbol">(</span>dtr<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">dtr</span> a valid dtr control constant?
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="symbol">(</span> dtr <span class="symbol">=</span> Dtr_control_disable <span class="keyword">or</span> dtr <span class="symbol">=</span> Dtr_control_enable <span class="keyword">or</span> dtr <span class="symbol">=</span> Dtr_control_handshake<span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_parity"><span class="feature-name">is_valid_parity</span></a> <span class="symbol">(</span>a_parity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">a_parity</span> a valid parity setting?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_rts_control"><span class="feature-name">is_valid_rts_control</span></a> <span class="symbol">(</span>rts<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">rts</span> a valid rts control constant?
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <span class="special-keyword">Result</span> <span class="keyword">implies</span> <span class="symbol">(</span> rts <span class="symbol">=</span> Rts_control_enable <span class="keyword">or</span> rts <span class="symbol">=</span> Rts_control_disable <span class="keyword">or</span> rts <span class="symbol">=</span> Rts_control_handshake <span class="keyword">or</span> rts <span class="symbol">=</span> Rts_control_toggle<span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_valid_stop_bits"><span class="feature-name">is_valid_stop_bits</span></a> <span class="symbol">(</span>a_stop_bit<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is <span class="feature-name-comment">a_stop_bit</span> a valid stop bits setting?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_setting" class="keyword">feature</a>
+<span class="comment">-- Status setting</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="set_abort_on_error"><span class="feature-name">set_abort_on_error</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_abort_on_error" class="feature-name">is_abort_on_error</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">abort_on_error_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_abort_on_error" class="feature-name">is_abort_on_error</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_cts_control"><span class="feature-name">set_cts_control</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_cts_controlled" class="feature-name">is_cts_controlled</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">cts_control_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_cts_controlled" class="feature-name">is_cts_controlled</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_dsr_control"><span class="feature-name">set_dsr_control</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_dsr_controlled" class="feature-name">is_dsr_controlled</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">dsr_control_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_dsr_controlled" class="feature-name">is_dsr_controlled</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_dsr_sensitive"><span class="feature-name">set_dsr_sensitive</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_dsr_sensitive" class="feature-name">is_dsr_sensitive</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">dsr_sensitivity_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_dsr_sensitive" class="feature-name">is_dsr_sensitive</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_error_replacement"><span class="feature-name">set_error_replacement</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#are_errors_replaced" class="feature-name">are_errors_replaced</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">replace_errors_set:</span> <a href="../../secom/windows/com_device_control_block.html#are_errors_replaced" class="feature-name">are_errors_replaced</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_inx_control"><span class="feature-name">set_inx_control</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_inx_controlled" class="feature-name">is_inx_controlled</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">inx_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_inx_controlled" class="feature-name">is_inx_controlled</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_null_discard"><span class="feature-name">set_null_discard</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#are_nulls_discarded" class="feature-name">are_nulls_discarded</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">discard_nulls_set:</span> <a href="../../secom/windows/com_device_control_block.html#are_nulls_discarded" class="feature-name">are_nulls_discarded</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_outx_control"><span class="feature-name">set_outx_control</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_outx_controlled" class="feature-name">is_outx_controlled</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">outx_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_outx_controlled" class="feature-name">is_outx_controlled</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_parity_check"><span class="feature-name">set_parity_check</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_parity_checked" class="feature-name">is_parity_checked</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_tx_continue_on_xoff"><span class="feature-name">set_tx_continue_on_xoff</span></a> <span class="symbol">(</span>a_value<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#is_tx_continued_on_xoff" class="feature-name">is_tx_continued_on_xoff</a> to <span class="feature-name-comment">a_value</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">tx_continue_on_xoff_set:</span> <a href="../../secom/windows/com_device_control_block.html#is_tx_continued_on_xoff" class="feature-name">is_tx_continued_on_xoff</a> <span class="symbol">=</span> a_value <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_change" class="keyword">feature</a>
+<span class="comment">-- Element change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="build_from_string"><span class="feature-name">build_from_string</span></a> <span class="symbol">(</span>str<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Fill the DCB using <span class="feature-name-comment">str</span> which conforms to the mode<br/>
+-- command line parameter structure.<br/>
+-- [baud=b] [parity=p] [data=d] [stop=s] [to={on|off}]<br/>
+-- [xon={on|off}] [odsr={on|off}] [octs={on|off}]<br/>
+-- [dtr={on|off|hs}] [rts={on|off|hs|tg}] [idsr={on|off}]<br/>
+-- Obsolete format is still supported. Example, "9600,n,8,1"<br/>
+-- Throws an exception if BuildCommDCB fails.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> str <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="get_comm_state"><span class="feature-name">get_comm_state</span></a> <span class="symbol">(</span>comm<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Fill the structure with the current state of <span class="feature-name-comment">comm</span>.<br/>
+-- Throws an exception if failed.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_baud_rate"><span class="feature-name">set_baud_rate</span></a> <span class="symbol">(</span>a_baud_rate<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#baud_rate" class="feature-name">baud_rate</a> with <span class="feature-name-comment">a_baud_rate</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_data_bits"><span class="feature-name">set_data_bits</span></a> <span class="symbol">(</span>a_byte_size<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <span class="feature-name-comment">byte_size</span> to <span class="feature-name-comment">a_byte_size</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_defaults"><span class="feature-name">set_defaults</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Change all settings to default values.<br/>
+-- Default is 9600 8N1 with flow control<br/>
+-- disabled
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">defaults_set:</span> <a href="../../secom/windows/com_device_control_block.html#baud_rate" class="feature-name">baud_rate</a> <span class="symbol">=</span> Baud_9600 <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#data_bits" class="feature-name">data_bits</a> <span class="symbol">=</span> Eight_data_bits <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#parity" class="feature-name">parity</a> <span class="symbol">=</span> No_parity <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#stop_bits" class="feature-name">stop_bits</a> <span class="symbol">=</span> One_stop_bit <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#xon_char" class="feature-name">xon_char</a> <span class="symbol">=</span> '%/17/' <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#xoff_char" class="feature-name">xoff_char</a> <span class="symbol">=</span> '%/19/' <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#error_char" class="feature-name">error_char</a> <span class="symbol">=</span> '%/26/' <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#eof_char" class="feature-name">eof_char</a> <span class="symbol">=</span> '%/4/' <span class="keyword">and</span> <a href="../../secom/windows/com_device_control_block.html#event_char" class="feature-name">event_char</a> <span class="symbol">=</span> '%/7/' <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_dtr_control"><span class="feature-name">set_dtr_control</span></a> <span class="symbol">(</span>a_dtr_control<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#dtr_control" class="feature-name">dtr_control</a> to <span class="feature-name-comment">a_dtr_control</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">valid:</span> <a href="../../secom/windows/com_device_control_block.html#is_valid_dtr_control" class="feature-name">is_valid_dtr_control</a> <span class="symbol">(</span>a_dtr_control<span class="symbol">)</span> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">dtr_control_set:</span> <a href="../../secom/windows/com_device_control_block.html#dtr_control" class="feature-name">dtr_control</a> <span class="symbol">=</span> a_dtr_control <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_eof_char"><span class="feature-name">set_eof_char</span></a> <span class="symbol">(</span>a_eof_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#eof_char" class="feature-name">eof_char</a> to <span class="feature-name-comment">a_eof_char</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">eof_char_set:</span> <a href="../../secom/windows/com_device_control_block.html#eof_char" class="feature-name">eof_char</a> <span class="symbol">=</span> a_eof_char <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_error_char"><span class="feature-name">set_error_char</span></a> <span class="symbol">(</span>a_error_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#error_char" class="feature-name">error_char</a> to <span class="feature-name-comment">a_error_char</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">error_char_set:</span> <a href="../../secom/windows/com_device_control_block.html#error_char" class="feature-name">error_char</a> <span class="symbol">=</span> a_error_char <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_event_char"><span class="feature-name">set_event_char</span></a> <span class="symbol">(</span>a_event_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#event_char" class="feature-name">event_char</a> to <span class="feature-name-comment">a_event_char</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">event_char_set:</span> <a href="../../secom/windows/com_device_control_block.html#event_char" class="feature-name">event_char</a> <span class="symbol">=</span> a_event_char <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_parity"><span class="feature-name">set_parity</span></a> <span class="symbol">(</span>a_parity<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#parity" class="feature-name">parity</a> to <span class="feature-name-comment">a_parity</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_rts_control"><span class="feature-name">set_rts_control</span></a> <span class="symbol">(</span>a_rts_control<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#rts_control" class="feature-name">rts_control</a> to <span class="feature-name-comment">a_rts_control</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">valid:</span> <a href="../../secom/windows/com_device_control_block.html#is_valid_rts_control" class="feature-name">is_valid_rts_control</a> <span class="symbol">(</span>a_rts_control<span class="symbol">)</span> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">rts_control_set:</span> <a href="../../secom/windows/com_device_control_block.html#rts_control" class="feature-name">rts_control</a> <span class="symbol">=</span> a_rts_control <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_stop_bits"><span class="feature-name">set_stop_bits</span></a> <span class="symbol">(</span>a_stop_bits<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#stop_bits" class="feature-name">stop_bits</a> to <span class="feature-name-comment">a_stop_bits</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_xoff_char"><span class="feature-name">set_xoff_char</span></a> <span class="symbol">(</span>a_xoff_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#xoff_char" class="feature-name">xoff_char</a> to <span class="feature-name-comment">a_xoff_char</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_same:</span> a_xoff_char <span class="symbol">/=</span> <a href="../../secom/windows/com_device_control_block.html#xon_char" class="feature-name">xon_char</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">xoff_char_set:</span> <a href="../../secom/windows/com_device_control_block.html#xoff_char" class="feature-name">xoff_char</a> <span class="symbol">=</span> a_xoff_char <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_xoff_lim"><span class="feature-name">set_xoff_lim</span></a> <span class="symbol">(</span>a_xoff_lim<span class="symbol">:</span> <span class="class-name">INTEGER_16</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#xoff_lim" class="feature-name">xoff_lim</a> to <span class="feature-name-comment">a_xoff_lim</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">xoff_lim_set:</span> <a href="../../secom/windows/com_device_control_block.html#xoff_lim" class="feature-name">xoff_lim</a> <span class="symbol">=</span> a_xoff_lim <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_xon_char"><span class="feature-name">set_xon_char</span></a> <span class="symbol">(</span>a_xon_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#xon_char" class="feature-name">xon_char</a> to <span class="feature-name-comment">a_xon_char</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_same:</span> a_xon_char <span class="symbol">/=</span> <a href="../../secom/windows/com_device_control_block.html#xoff_char" class="feature-name">xoff_char</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">xon_char_set:</span> <a href="../../secom/windows/com_device_control_block.html#xon_char" class="feature-name">xon_char</a> <span class="symbol">=</span> a_xon_char <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_xon_lim"><span class="feature-name">set_xon_lim</span></a> <span class="symbol">(</span>a_xon_lim<span class="symbol">:</span> <span class="class-name">INTEGER_16</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#xon_lim" class="feature-name">xon_lim</a> to <span class="feature-name-comment">a_xon_lim</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">xon_lim_set:</span> <a href="../../secom/windows/com_device_control_block.html#xon_lim" class="feature-name">xon_lim</a> <span class="symbol">=</span> a_xon_lim <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Conversion" class="keyword">feature</a>
+<span class="comment">-- Conversion</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="to_baud_rate"><span class="feature-name">to_baud_rate</span></a> <span class="symbol">(</span>a_baud_rate<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Converts <span class="feature-name-comment">a_baud_rate</span> in symbols per second<br/>
+-- to a baud rate setting
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="to_data_bits"><span class="feature-name">to_data_bits</span></a> <span class="symbol">(</span>a_data_bits<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Converts <span class="feature-name-comment">a_data_bits</span> in number of data bits to a data bits setting
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="to_parity"><span class="feature-name">to_parity</span></a> <span class="symbol">(</span>a_parity_char<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Converts <span class="feature-name-comment">a_parity_char</span> to a parity setting
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="to_stop_bits"><span class="feature-name">to_stop_bits</span></a> <span class="symbol">(</span>a_stop_bits<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Converts <span class="feature-name-comment">a_stop_bits</span> in number of stop bits to a stop bits setting
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

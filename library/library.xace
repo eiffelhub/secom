@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<library name="secom" prefix="com_">
+	<description>
+		description: "Xace file for the Serial Communications Library"
+		library: "Serial Communications Library"
+		copyright: "Copyright (c) 2005, Brian E. Heilig"
+		license: "Eiffel Forum License v2 (see license.txt)"
+		date: "$Date: 2006/03/26 05:07:52 $"
+		revision: "$Revision: 1.8 $"
+	</description>
+
+	<cluster name="secom" location="${SECOM}/library">
+		<cluster name="ewg">
+			<cluster name="spec">
+				<option name="abstract" value="true"/>
+				<cluster name="${GOBO_EIFFEL}" prefix="ewg_spec_"/>
+			</cluster>
+		</cluster>
+
+		<cluster name="windows" if="${GOBO_OS}=windows"/>
+		<cluster name="posix" if="${GOBO_OS}=unix"/>
+		<cluster name="abstract"/>
+	</cluster>
+
+	<option name="link" value="${SECOM}/library/posix/c/overall_timer.o" if="${GOBO_OS}=unix"/>
+	<option name="header" value="${SECOM}/library/ewg/c"/>
+	<option name="header" value="${SECOM}/library/posix/c" if="${GOBO_OS}=unix"/>
+</library>

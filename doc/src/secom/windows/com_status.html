@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_STATUS (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/windows/cluster.com_windows.html" class="cluster-name">windows</a></div>
+<h1>Class COM_STATUS</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a>, <span class="class-name">KL_SHARED_EXCEPTIONS</span>, <a href="../../secom/windows/com_error_constants.html" class="class-name">COM_ERROR_CONSTANTS</a>, <a href="../../secom/windows/com_shared_windows_error.html" class="class-name">COM_SHARED_WINDOWS_ERROR</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Creation</h2>
+<ul class="feature-list-features">
+<li><a href="#creator-make" class="feature-name">make</a></li>
+<li><a href="#creator-make_existing" class="feature-name">make_existing</a></li>
+</ul>
+<h2>Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#in_queue_count" class="feature-name">in_queue_count</a></li>
+<li><a href="#last_error" class="feature-name">last_error</a></li>
+<li><a href="#out_queue_count" class="feature-name">out_queue_count</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_cts_hold" class="feature-name">is_cts_hold</a></li>
+<li><a href="#is_dsr_hold" class="feature-name">is_dsr_hold</a></li>
+<li><a href="#is_eof" class="feature-name">is_eof</a></li>
+<li><a href="#is_rlsd_hold" class="feature-name">is_rlsd_hold</a></li>
+<li><a href="#is_tx_char_queued" class="feature-name">is_tx_char_queued</a></li>
+<li><a href="#is_xoff_hold" class="feature-name">is_xoff_hold</a></li>
+<li><a href="#is_xoff_sent" class="feature-name">is_xoff_sent</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_change">Element&nbsp;change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#get_comm_stat" class="feature-name">get_comm_stat</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Objects that retrieve the status of a communications device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">class</span>
+<span class="class-name">COM_STATUS</span>
+</h2>
+<h2 class="keyword">inherit</h2>
+<div class="indent">
+<div><a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a></div>
+</div>
+<h2>
+<a id="create"><span class="keyword">create</span></a>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="creator-make"><span class="feature-name">make</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create an un-initialized com status structure.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> exists <br/>
+<span class="assertion-tag">not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_existing"><span class="feature-name">make_existing</span></a> <span class="symbol">(</span>comm<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create this structure from an extant, open communications device.<br/>
+-- Throws an exception if call to <a href="#get_comm_stat" class="feature-name">get_comm_stat</a> fails.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> comm <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> comm<span class="symbol">.</span>is_open <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> exists <br/>
+<span class="assertion-tag">not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="in_queue_count"><span class="feature-name">in_queue_count</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of bytes received by the serial provider but not yet read.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_error"><span class="feature-name">last_error</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last error reported from <a href="#get_comm_stat" class="feature-name">get_comm_stat</a>.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="out_queue_count"><span class="feature-name">out_queue_count</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of bytes remaining to be transmitted for all write operations.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_cts_hold"><span class="feature-name">is_cts_hold</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is transmission waiting for the CTS (clear-to-send) signal to be sent?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_dsr_hold"><span class="feature-name">is_dsr_hold</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is transmission waiting for the DSR (data-set-ready) signal to be sent?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_eof"><span class="feature-name">is_eof</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Has the EOF (end-of-file) character been received?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_rlsd_hold"><span class="feature-name">is_rlsd_hold</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is transmission  waiting for the RLSD (receive-line-signal-detect)<br/>
+-- signal to be sent?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_tx_char_queued"><span class="feature-name">is_tx_char_queued</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is there a character queued for transmission that has come to the<br/>
+-- communications device by way of the transmit_comm_char function?<br/>
+-- The communications device transmits such a character ahead of other<br/>
+-- characters in the device's output buffer.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_xoff_hold"><span class="feature-name">is_xoff_hold</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is transmission waiting because the XOFF character was received?
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_xoff_sent"><span class="feature-name">is_xoff_sent</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is transmission waiting because the XOFF character was transmitted?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_change" class="keyword">feature</a>
+<span class="comment">-- Element change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="get_comm_stat"><span class="feature-name">get_comm_stat</span></a> <span class="symbol">(</span>comm<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Retrieve the current information about the <span class="feature-name-comment">comm</span> device.<br/>
+-- This function has the unavoidable side effect of clearing any<br/>
+-- comm error.  Throws an exception if call fails.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> comm <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> comm<span class="symbol">.</span>is_open <br/>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

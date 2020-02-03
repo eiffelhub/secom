@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_ABSTRACT_CONTROL_CONSTANTS (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/abstract/cluster.com_abstract.html" class="cluster-name">abstract</a></div>
+<h1>Class COM_ABSTRACT_CONTROL_CONSTANTS</h1>
+<hr/>
+<h2>Known direct descendants</h2>
+<div>
+<a href="../../secom/windows/com_dcb_constants.html" class="class-name">COM_DCB_CONSTANTS</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access_(Baud_rate)">Access&nbsp;(Baud&nbsp;rate)</a></strong>
+<ul class="feature-list-features">
+<li><a href="#baud_110" class="feature-name">Baud_110</a></li>
+<li><a href="#baud_115200" class="feature-name">Baud_115200</a></li>
+<li><a href="#baud_1200" class="feature-name">Baud_1200</a></li>
+<li><a href="#baud_128000" class="feature-name">Baud_128000</a></li>
+<li><a href="#baud_19200" class="feature-name">Baud_19200</a></li>
+<li><a href="#baud_2400" class="feature-name">Baud_2400</a></li>
+<li><a href="#baud_256000" class="feature-name">Baud_256000</a></li>
+<li><a href="#baud_300" class="feature-name">Baud_300</a></li>
+<li><a href="#baud_38400" class="feature-name">Baud_38400</a></li>
+<li><a href="#baud_4800" class="feature-name">Baud_4800</a></li>
+<li><a href="#baud_56000" class="feature-name">Baud_56000</a></li>
+<li><a href="#baud_57600" class="feature-name">Baud_57600</a></li>
+<li><a href="#baud_600" class="feature-name">Baud_600</a></li>
+<li><a href="#baud_9600" class="feature-name">Baud_9600</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Access_(data_bits)">Access&nbsp;(data&nbsp;bits)</a></strong>
+<ul class="feature-list-features">
+<li><a href="#eight_data_bits" class="feature-name">Eight_data_bits</a></li>
+<li><a href="#five_data_bits" class="feature-name">Five_data_bits</a></li>
+<li><a href="#seven_data_bits" class="feature-name">Seven_data_bits</a></li>
+<li><a href="#six_data_bits" class="feature-name">Six_data_bits</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Access_(parity)">Access&nbsp;(parity)</a></strong>
+<ul class="feature-list-features">
+<li><a href="#even_parity" class="feature-name">Even_parity</a></li>
+<li><a href="#no_parity" class="feature-name">No_parity</a></li>
+<li><a href="#odd_parity" class="feature-name">Odd_parity</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Access_(stop_bits)">Access&nbsp;(stop&nbsp;bits)</a></strong>
+<ul class="feature-list-features">
+<li><a href="#one_stop_bit" class="feature-name">One_stop_bit</a></li>
+<li><a href="#two_stop_bits" class="feature-name">Two_stop_bits</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Constants used for device control settings.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">deferred class</span>
+<span class="class-name">COM_ABSTRACT_CONTROL_CONSTANTS</span>
+</h2>
+<h2>
+<a id="clause-Access_(Baud_rate)" class="keyword">feature</a>
+<span class="comment">-- Access (Baud rate)</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="baud_110"><span class="feature-name">Baud_110</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 110 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_115200"><span class="feature-name">Baud_115200</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 115200 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_1200"><span class="feature-name">Baud_1200</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 1200 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_128000"><span class="feature-name">Baud_128000</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 128000 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_19200"><span class="feature-name">Baud_19200</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 19200 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_2400"><span class="feature-name">Baud_2400</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 2400 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_256000"><span class="feature-name">Baud_256000</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 256000 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_300"><span class="feature-name">Baud_300</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 300 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_38400"><span class="feature-name">Baud_38400</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 38400 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_4800"><span class="feature-name">Baud_4800</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 4800 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_56000"><span class="feature-name">Baud_56000</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 56000 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_57600"><span class="feature-name">Baud_57600</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 57600 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_600"><span class="feature-name">Baud_600</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 600 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="baud_9600"><span class="feature-name">Baud_9600</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- 9600 symbols per second.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access_(data_bits)" class="keyword">feature</a>
+<span class="comment">-- Access (data bits)</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="eight_data_bits"><span class="feature-name">Eight_data_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Eight data bits per word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="five_data_bits"><span class="feature-name">Five_data_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Five data bits per word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="seven_data_bits"><span class="feature-name">Seven_data_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Seven data bits per word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="six_data_bits"><span class="feature-name">Six_data_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Six data bits per word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access_(parity)" class="keyword">feature</a>
+<span class="comment">-- Access (parity)</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="even_parity"><span class="feature-name">Even_parity</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Ensure the number of ones in a data word is even
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="no_parity"><span class="feature-name">No_parity</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- No parity scheme is used
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="odd_parity"><span class="feature-name">Odd_parity</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Ensure the number of ones in a data word is odd
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access_(stop_bits)" class="keyword">feature</a>
+<span class="comment">-- Access (stop bits)</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="one_stop_bit"><span class="feature-name">One_stop_bit</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- One stop bit is transmitted per data word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="two_stop_bits"><span class="feature-name">Two_stop_bits</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Two stop bits are transmitted per data word
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

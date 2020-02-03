@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_TIMEOUTS (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/windows/cluster.com_windows.html" class="cluster-name">windows</a></div>
+<h1>Class COM_TIMEOUTS</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a>, <span class="class-name">KL_SHARED_EXCEPTIONS</span>, <a href="../../secom/abstract/com_abstract_timeouts.html" class="class-name">COM_ABSTRACT_TIMEOUTS</a>, <a href="../../secom/windows/com_shared_windows_error.html" class="class-name">COM_SHARED_WINDOWS_ERROR</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Creation</h2>
+<ul class="feature-list-features">
+<li><a href="#creator-make" class="feature-name">make</a></li>
+<li><a href="#creator-make_existing" class="feature-name">make_existing</a></li>
+</ul>
+<h2>Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#read_interval" class="feature-name">read_interval</a></li>
+<li><a href="#read_total_constant" class="feature-name">read_total_constant</a></li>
+<li><a href="#read_total_multiplier" class="feature-name">read_total_multiplier</a></li>
+<li><a href="#write_total_constant" class="feature-name">write_total_constant</a></li>
+<li><a href="#write_total_multiplier" class="feature-name">write_total_multiplier</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_blocking" class="feature-name">is_blocking</a></li>
+<li><a href="#is_non_blocking" class="feature-name">is_non_blocking</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_change">Element&nbsp;change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#get_comm_timeouts" class="feature-name">get_comm_timeouts</a></li>
+<li><a href="#set_blocking" class="feature-name">set_blocking</a></li>
+<li><a href="#set_inter_character_timer" class="feature-name">set_inter_character_timer</a></li>
+<li><a href="#set_non_blocking" class="feature-name">set_non_blocking</a></li>
+<li><a href="#set_overall_timer" class="feature-name">set_overall_timer</a></li>
+<li><a href="#set_read_interval" class="feature-name">set_read_interval</a></li>
+<li><a href="#set_read_total_constant" class="feature-name">set_read_total_constant</a></li>
+<li><a href="#set_read_total_multiplier" class="feature-name">set_read_total_multiplier</a></li>
+<li><a href="#set_write_total_constant" class="feature-name">set_write_total_constant</a></li>
+<li><a href="#set_write_total_multiplier" class="feature-name">set_write_total_multiplier</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Objects that set and query the timeout properties of a communications device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">class</span>
+<span class="class-name">COM_TIMEOUTS</span>
+</h2>
+<h2 class="keyword">inherit</h2>
+<div class="indent">
+<div><a href="../../secom/ewg/ewg_struct.html" class="class-name">EWG_STRUCT</a></div>
+<div><a href="../../secom/abstract/com_abstract_timeouts.html" class="class-name">COM_ABSTRACT_TIMEOUTS</a></div>
+</div>
+<h2>
+<a id="create"><span class="keyword">create</span></a>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="creator-make"><span class="feature-name">make</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create an un-initialized com timeouts structure.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> exists <br/>
+<span class="assertion-tag">not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+<span class="assertion-tag">blocking:</span> <a href="../../secom/windows/com_timeouts.html#is_blocking" class="feature-name">is_blocking</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="creator-make_existing"><span class="feature-name">make_existing</span></a> <span class="symbol">(</span>comm<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Create this structure from an extant, open communications device.<br/>
+-- Throws an exception if <span class="feature-name-comment">GetCommTimeouts</span> fails.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> comm <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> comm<span class="symbol">.</span>is_open <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> exists <br/>
+<span class="assertion-tag">not_shared:</span> <span class="keyword">not</span> is_shared <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="read_interval"><span class="feature-name">read_interval</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Maximum time allowed to elapse between the arrival of two<br/>
+-- characters on the communications line, in milliseconds.<br/>
+-- During a read operation, the time period begins when the<br/>
+-- first character is received. If the interval between the<br/>
+-- arrival of any two characters exceeds this amount, the<br/>
+-- read operation is completed and any buffered data is returned.<br/>
+-- A value of zero indicates that interval time-outs are not used.<br/>
+-- A value of -1, combined with zero values for both the<br/>
+-- <a href="#read_total_constant" class="feature-name">read_total_constant</a> and <a href="#read_total_multiplier" class="feature-name">read_total_multiplier</a> specifies<br/>
+-- that the read operation is to return immediately with the<br/>
+-- characters that have already been received, even if no<br/>
+-- characters have been received.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_total_constant"><span class="feature-name">read_total_constant</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Constant used to calculate the total time-out period for read<br/>
+-- operations, in milliseconds. For each read operation, this value<br/>
+-- is added to the product of <a href="#read_total_multiplier" class="feature-name">read_total_multiplier</a> and the<br/>
+-- requested number of bytes.<br/>
+-- A value of zero for both <a href="#read_total_multiplier" class="feature-name">read_total_multiplier</a> and this<br/>
+-- indicates that total time-outs are not used for read operations.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_total_multiplier"><span class="feature-name">read_total_multiplier</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Multiplier used to calculate the total time-out period for read<br/>
+-- operations, in milliseconds. For each read operation, this value<br/>
+-- is multiplied by the requested number of bytes to be read.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="write_total_constant"><span class="feature-name">write_total_constant</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Constant used to calculate the total time-out period for write<br/>
+-- operations, in milliseconds. For each write operation, this value<br/>
+-- is added to the product of <a href="#write_total_multiplier" class="feature-name">write_total_multiplier</a> member and<br/>
+-- the number of bytes to be written.<br/>
+-- A value of zero for both the <a href="#write_total_multiplier" class="feature-name">write_total_multiplier</a> and this<br/>
+-- indicates that total time-outs are not used for write operations.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="write_total_multiplier"><span class="feature-name">write_total_multiplier</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Multiplier used to calculate the total time-out period for write<br/>
+-- operations, in milliseconds. For each write operation, this value<br/>
+-- is multiplied by the number of bytes to be written.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_blocking"><span class="feature-name">is_blocking</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations block until the requested<br/>
+-- number of bytes have been read.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="is_non_blocking"><span class="feature-name">is_non_blocking</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Indicates read operations return immediately with the number of<br/>
+-- bytes already received, even if no bytes have been received?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_change" class="keyword">feature</a>
+<span class="comment">-- Element change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="get_comm_timeouts"><span class="feature-name">get_comm_timeouts</span></a> <span class="symbol">(</span>comm<span class="symbol">:</span> <a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Fill this structure with the timeout properties of an extant,<br/>
+-- open communications device.  Throw an exception if call to<br/>
+-- GetCommTimeouts fails.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> comm <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">is_open:</span> comm<span class="symbol">.</span>is_open <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_blocking"><span class="feature-name">set_blocking</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be a pure blocking read.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <a href="../../secom/windows/com_timeouts.html#read_interval" class="feature-name">read_interval</a> <span class="symbol">=</span> 0 <span class="keyword">and</span> <a href="../../secom/windows/com_timeouts.html#read_total_multiplier" class="feature-name">read_total_multiplier</a> <span class="symbol">=</span> 0 <span class="keyword">and</span> <a href="../../secom/windows/com_timeouts.html#read_total_constant" class="feature-name">read_total_constant</a> <span class="symbol">=</span> 0 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_inter_character_timer"><span class="feature-name">set_inter_character_timer</span></a> <span class="symbol">(</span>time<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to include an inter-character<br/>
+-- timer.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <a href="../../secom/windows/com_timeouts.html#read_interval" class="feature-name">read_interval</a> <span class="symbol">=</span> time <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_non_blocking"><span class="feature-name">set_non_blocking</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to be a non-blocking read.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <a href="../../secom/windows/com_timeouts.html#read_interval" class="feature-name">read_interval</a> <span class="symbol">=</span> <span class="symbol">-</span>1 <span class="keyword">and</span> <a href="../../secom/windows/com_timeouts.html#read_total_multiplier" class="feature-name">read_total_multiplier</a> <span class="symbol">=</span> 0 <span class="keyword">and</span> <a href="../../secom/windows/com_timeouts.html#read_total_constant" class="feature-name">read_total_constant</a> <span class="symbol">=</span> 0 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_overall_timer"><span class="feature-name">set_overall_timer</span></a> <span class="symbol">(</span>time<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set the timeout properties to include an overall timer.
+</p>
+</div>
+</div>
+<h4 class="keyword">ensure then</h4>
+<div class="indent">
+<span class="assertion-tag">definition:</span> <a href="../../secom/windows/com_timeouts.html#read_total_multiplier" class="feature-name">read_total_multiplier</a> <span class="symbol">=</span> 0 <span class="keyword">and</span> <a href="../../secom/windows/com_timeouts.html#read_total_constant" class="feature-name">read_total_constant</a> <span class="symbol">=</span> time <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_read_interval"><span class="feature-name">set_read_interval</span></a> <span class="symbol">(</span>an_interval<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#read_interval" class="feature-name">read_interval</a> with <span class="feature-name-comment">an_interval</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">valid_setting:</span> an_interval <span class="symbol">&gt;=</span> <span class="symbol">-</span>1 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">read_interval_set:</span> <a href="../../secom/windows/com_timeouts.html#read_interval" class="feature-name">read_interval</a> <span class="symbol">=</span> an_interval <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_read_total_constant"><span class="feature-name">set_read_total_constant</span></a> <span class="symbol">(</span>a_constant<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#read_total_constant" class="feature-name">read_total_constant</a> with <span class="feature-name-comment">a_constant</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_negative:</span> a_constant <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">read_total_constant_set:</span> <a href="../../secom/windows/com_timeouts.html#read_total_constant" class="feature-name">read_total_constant</a> <span class="symbol">=</span> a_constant <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_read_total_multiplier"><span class="feature-name">set_read_total_multiplier</span></a> <span class="symbol">(</span>a_multiplier<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#read_total_multiplier" class="feature-name">read_total_multiplier</a> with <span class="feature-name-comment">a_multiplier</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_negative:</span> a_multiplier <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">read_total_multiplier_set:</span> <a href="../../secom/windows/com_timeouts.html#read_total_multiplier" class="feature-name">read_total_multiplier</a> <span class="symbol">=</span> a_multiplier <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_write_total_constant"><span class="feature-name">set_write_total_constant</span></a> <span class="symbol">(</span>a_constant<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#write_total_constant" class="feature-name">write_total_constant</a> with <span class="feature-name-comment">a_constant</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_negative:</span> a_constant <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">write_total_constant_set:</span> <a href="../../secom/windows/com_timeouts.html#write_total_constant" class="feature-name">write_total_constant</a> <span class="symbol">=</span> a_constant <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_write_total_multiplier"><span class="feature-name">set_write_total_multiplier</span></a> <span class="symbol">(</span>a_multiplier<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Set <a href="#write_total_multiplier" class="feature-name">write_total_multiplier</a> with <span class="feature-name-comment">a_multiplier</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">not_negative:</span> a_multiplier <span class="symbol">&gt;=</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">write_total_multiplier_set:</span> <a href="../../secom/windows/com_timeouts.html#write_total_multiplier" class="feature-name">write_total_multiplier</a> <span class="symbol">=</span> a_multiplier <br/>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/windows/cluster.com_windows.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

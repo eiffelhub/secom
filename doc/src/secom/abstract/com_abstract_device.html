@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>COM_ABSTRACT_DEVICE (SECOM)</title>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+</head>
+<body>
+<div class="header">
+<div class="header-title" id="top">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+<hr/>
+<div class="cluster-small"><a href="../../secom/cluster.com_secom.html" class="cluster-name">secom</a>.<a href="../../secom/abstract/cluster.com_abstract.html" class="cluster-name">abstract</a></div>
+<h1>Class COM_ABSTRACT_DEVICE</h1>
+<hr/>
+<h2>Direct ancestors</h2>
+<div>
+<a href="../../secom/ewg/ewg_imported_external_routines.html" class="class-name">EWG_IMPORTED_EXTERNAL_ROUTINES</a>, <span class="class-name">STRING_HANDLER</span>, <span class="class-name">KL_SHARED_PLATFORM</span></div>
+<hr/>
+<h2>Known direct descendants</h2>
+<div>
+<a href="../../secom/windows/com_device.html" class="class-name">COM_DEVICE</a></div>
+<hr/>
+<div class="feature-list">
+<h2 id="features-list">Features</h2>
+<ul class="feature-list-clauses">
+<li>
+<strong><a href="#clause-Access">Access</a></strong>
+<ul class="feature-list-features">
+<li><a href="#control_settings" class="feature-name">control_settings</a></li>
+<li><a href="#last_boolean" class="feature-name">last_boolean</a></li>
+<li><a href="#last_character" class="feature-name">last_character</a></li>
+<li><a href="#last_double" class="feature-name">last_double</a></li>
+<li><a href="#last_integer" class="feature-name">last_integer</a></li>
+<li><a href="#last_read_count" class="feature-name">last_read_count</a></li>
+<li><a href="#last_real" class="feature-name">last_real</a></li>
+<li><a href="#last_string" class="feature-name">last_string</a></li>
+<li><a href="#last_write_count" class="feature-name">last_write_count</a></li>
+<li><a href="#name" class="feature-name">name</a></li>
+<li><a href="#timeouts" class="feature-name">timeouts</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_report">Status&nbsp;report</a></strong>
+<ul class="feature-list-features">
+<li><a href="#is_open" class="feature-name">is_open</a></li>
+<li><a href="#timed_out" class="feature-name">timed_out</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Status_setting">Status&nbsp;setting</a></strong>
+<ul class="feature-list-features">
+<li><a href="#close" class="feature-name">close</a></li>
+<li><a href="#open" class="feature-name">open</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Element_change">Element&nbsp;change</a></strong>
+<ul class="feature-list-features">
+<li><a href="#set_control_settings" class="feature-name">set_control_settings</a></li>
+<li><a href="#set_timeouts" class="feature-name">set_timeouts</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Input">Input</a></strong>
+<ul class="feature-list-features">
+<li><a href="#read_boolean" class="feature-name">read_boolean</a></li>
+<li><a href="#read_character" class="feature-name">read_character</a></li>
+<li><a href="#read_data" class="feature-name">read_data</a></li>
+<li><a href="#read_double" class="feature-name">read_double</a></li>
+<li><a href="#read_integer" class="feature-name">read_integer</a></li>
+<li><a href="#read_line" class="feature-name">read_line</a></li>
+<li><a href="#read_real" class="feature-name">read_real</a></li>
+<li><a href="#read_stream" class="feature-name">read_stream</a></li>
+<li><a href="#read_string" class="feature-name">read_string</a></li>
+</ul>
+</li>
+<li>
+<strong><a href="#clause-Output">Output</a></strong>
+<ul class="feature-list-features">
+<li><a href="#put_boolean" class="feature-name">put_boolean</a></li>
+<li><a href="#put_character" class="feature-name">put_character</a></li>
+<li><a href="#put_data" class="feature-name">put_data</a></li>
+<li><a href="#put_double" class="feature-name">put_double</a></li>
+<li><a href="#put_integer" class="feature-name">put_integer</a></li>
+<li><a href="#put_new_line" class="feature-name">put_new_line</a></li>
+<li><a href="#put_real" class="feature-name">put_real</a></li>
+<li><a href="#put_stream" class="feature-name">put_stream</a></li>
+<li><a href="#put_string" class="feature-name">put_string</a></li>
+</ul>
+</li>
+</ul>
+<h2><a href="#invariant">Invariants</a></h2>
+</div>
+<h2 class="keyword">indexing</h2>
+<div class="indexing-list indent">
+<h3 class="indexing-tag">description</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Objects that perform I/O operations on a communications device.
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">library</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Serial Communications Library
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">copyright</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Copyright (c) 2005, Brian E. Heilig
+</p>
+</div>
+</div>
+<h3 class="indexing-tag">license</h3>
+<div class="indent">
+<div class="comment">
+<p>
+Eiffel Forum License v2 (see license.txt)
+</p>
+</div>
+</div>
+</div>
+<h2>
+<span class="keyword">deferred class</span>
+<span class="class-name">COM_ABSTRACT_DEVICE</span>
+</h2>
+<h2>
+<a id="clause-Access" class="keyword">feature</a>
+<span class="comment">-- Access</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="control_settings"><span class="feature-name">control_settings</span></a><span class="symbol">:</span> <a href="../../secom/abstract/com_abstract_settings.html" class="class-name">COM_ABSTRACT_SETTINGS</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Current control parameters for this device
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <span class="special-keyword">Result</span> <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_boolean"><span class="feature-name">last_boolean</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last Boolean read by the device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_character"><span class="feature-name">last_character</span></a><span class="symbol">:</span> <span class="class-name">CHARACTER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last character read by the device.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_double"><span class="feature-name">last_double</span></a><span class="symbol">:</span> <span class="class-name">DOUBLE</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last double read by the device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_integer"><span class="feature-name">last_integer</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last integer read by the device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_read_count"><span class="feature-name">last_read_count</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of bytes actually read during last read operation.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_real"><span class="feature-name">last_real</span></a><span class="symbol">:</span> <span class="class-name">REAL</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last real read by the device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_string"><span class="feature-name">last_string</span></a><span class="symbol">:</span> <span class="class-name">STRING</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Last string read by the device.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="last_write_count"><span class="feature-name">last_write_count</span></a><span class="symbol">:</span> <span class="class-name">INTEGER</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Number of bytes actually written during last write operation.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="name"><span class="feature-name">name</span></a><span class="symbol">:</span> <span class="class-name">STRING</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Name of the communications device
+</p>
+</div>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="timeouts"><span class="feature-name">timeouts</span></a><span class="symbol">:</span> <a href="../../secom/abstract/com_abstract_timeouts.html" class="class-name">COM_ABSTRACT_TIMEOUTS</a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Current timeout properties for this device
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> <span class="special-keyword">Result</span> <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_report" class="keyword">feature</a>
+<span class="comment">-- Status report</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="is_open"><span class="feature-name">is_open</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Is the device open for reading and writing?
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="timed_out"><span class="feature-name">timed_out</span></a><span class="symbol">:</span> <span class="class-name">BOOLEAN</span>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Did the last read/write operation timeout?
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Status_setting" class="keyword">feature</a>
+<span class="comment">-- Status setting</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="close"><span class="feature-name">close</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Close the device.
+</p>
+</div>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">closed:</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+<span class="assertion-tag">reset:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> 0 <span class="keyword">and</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> 0 <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="open"><span class="feature-name">open</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Open the device. If open was successful set <a href="#is_open" class="feature-name">is_open</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">closed:</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<div class="keyword">deferred</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Element_change" class="keyword">feature</a>
+<span class="comment">-- Element change</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="set_control_settings"><span class="feature-name">set_control_settings</span></a> <span class="symbol">(</span>a_settings<span class="symbol">:</span> <span class="keyword">like</span> <a href="../../secom/abstract/com_abstract_device.html#control_settings" class="feature-name">control_settings</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Configures the device according to the specifications in <span class="feature-name-comment">a_settings</span>.<br/>
+-- Settings will be immediately applied; input and output queues will<br/>
+-- not be emptied.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> a_settings <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">is_set:</span> <a href="../../secom/abstract/com_abstract_device.html#control_settings" class="feature-name">control_settings</a><span class="symbol">.</span>is_equal <span class="symbol">(</span>a_settings<span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="set_timeouts"><span class="feature-name">set_timeouts</span></a> <span class="symbol">(</span>a_timeouts<span class="symbol">:</span> <span class="keyword">like</span> <a href="../../secom/abstract/com_abstract_device.html#timeouts" class="feature-name">timeouts</a><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Configures the timeout properties according to <span class="feature-name-comment">a_timeouts</span>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">exists:</span> a_timeouts <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+<span class="assertion-tag">handle_available:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">timeouts_set:</span> <a href="../../secom/abstract/com_abstract_device.html#timeouts" class="feature-name">timeouts</a><span class="symbol">.</span>is_equal <span class="symbol">(</span>a_timeouts<span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Input" class="keyword">feature</a>
+<span class="comment">-- Input</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="read_boolean"><span class="feature-name">read_boolean</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a new Boolean. Make result available in <a href="#last_boolean" class="feature-name">last_boolean</a>
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Boolean_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_character"><span class="feature-name">read_character</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a new character. Make result available in <a href="#last_character" class="feature-name">last_character</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Character_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_data"><span class="feature-name">read_data</span></a> <span class="symbol">(</span>data<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read <span class="feature-name-comment">count</span> bytes into the <span class="feature-name-comment">data</span> buffer.  Set <a href="#last_read_count" class="feature-name">last_read_count</a><br/>
+-- to the number of bytes read. Set <a href="#timed_out" class="feature-name">timed_out</a> if less than <span class="feature-name-comment">count</span><br/>
+-- bytes were read. See <a href="#timeouts" class="feature-name">timeouts</a> to determine when read will<br/>
+-- be completed.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+<span class="assertion-tag">valid_count:</span> count <span class="symbol">&gt;</span> 0 <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">time_out:</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <span class="symbol">=</span> <span class="symbol">(</span><a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">&lt;</span> count<span class="symbol">)</span> <br/>
+<span class="assertion-tag">no_more:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">&lt;=</span> count <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_double"><span class="feature-name">read_double</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a new double. Make result available in <a href="#last_double" class="feature-name">last_double</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Double_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_integer"><span class="feature-name">read_integer</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a new integer. Make result available in <a href="#last_integer" class="feature-name">last_integer</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Integer_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_line"><span class="feature-name">read_line</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read characters until a new line is received or a time<br/>
+-- out occurs. Make result available in <a href="#last_string" class="feature-name">last_string</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">new_line_terminated_or_timeout:</span> <a href="../../secom/abstract/com_abstract_device.html#last_string" class="feature-name">last_string</a><span class="symbol">.</span>index_of <span class="symbol">(</span>'%N'<span class="symbol">,</span> 1<span class="symbol">)</span> <span class="symbol">=</span> <a href="../../secom/abstract/com_abstract_device.html#last_string" class="feature-name">last_string</a><span class="symbol">.</span>count <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_real"><span class="feature-name">read_real</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a new real. Make result available in <a href="#last_real" class="feature-name">last_real</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Real_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_stream"><span class="feature-name">read_stream</span></a> <span class="symbol">(</span>count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read a string of <span class="feature-name-comment">count</span> characters.<br/>
+-- Make result available in <a href="#last_string" class="feature-name">last_string</a>.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+<span class="assertion-tag">valid_count:</span> count <span class="symbol">&gt;</span> 0 <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">=</span> count <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="read_string"><span class="feature-name">read_string</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Read characters until a Nul character is received or<br/>
+-- a time out occurs. Make result available in<br/>
+-- <a href="#last_string" class="feature-name">last_string</a>. Do not include the Nul character.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_string" class="feature-name">last_string</a><span class="symbol">.</span>count <span class="symbol">=</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">-</span> 1 <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+<span class="assertion-tag">no_null:</span> <span class="keyword">not</span> <a href="../../secom/abstract/com_abstract_device.html#last_string" class="feature-name">last_string</a><span class="symbol">.</span>has <span class="symbol">(</span>'%U'<span class="symbol">)</span> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2>
+<a id="clause-Output" class="keyword">feature</a>
+<span class="comment">-- Output</span>
+</h2>
+<div class="indent">
+<div class="feature">
+<h3>
+<a id="put_boolean"><span class="feature-name">put_boolean</span></a> <span class="symbol">(</span>b<span class="symbol">:</span> <span class="class-name">BOOLEAN</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">b</span> to the device.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Boolean_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_character"><span class="feature-name">put_character</span></a> <span class="symbol">(</span>c<span class="symbol">:</span> <span class="class-name">CHARACTER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">c</span> to medium.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Character_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_data"><span class="feature-name">put_data</span></a> <span class="symbol">(</span>data<span class="symbol">:</span> <span class="class-name">POINTER</span><span class="symbol">;</span> count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">data</span> to the device.  Set <a href="#last_write_count" class="feature-name">last_write_count</a> with the<br/>
+-- number of bytes written. Set <a href="#timed_out" class="feature-name">timed_out</a> if the write operation<br/>
+-- timed out.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+<span class="assertion-tag">valid_count:</span> count <span class="symbol">&gt;</span> 0 <br/>
+</div>
+<div class="keyword">deferred</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">time_out:</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <span class="symbol">=</span> <span class="symbol">(</span><a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">&lt;</span> count<span class="symbol">)</span> <br/>
+<span class="assertion-tag">no_more:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">&lt;=</span> count <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_double"><span class="feature-name">put_double</span></a> <span class="symbol">(</span>d<span class="symbol">:</span> <span class="class-name">DOUBLE</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">d</span> to the device.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Double_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_integer"><span class="feature-name">put_integer</span></a> <span class="symbol">(</span>i<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">i</span> to the device.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Integer_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_new_line"><span class="feature-name">put_new_line</span></a>
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write a new line character to medium
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Character_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_real"><span class="feature-name">put_real</span></a> <span class="symbol">(</span>r<span class="symbol">:</span> <span class="class-name">REAL</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">r</span> to the device.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> Platform<span class="symbol">.</span>Real_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_stream"><span class="feature-name">put_stream</span></a> <span class="symbol">(</span>s<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">;</span> count<span class="symbol">:</span> <span class="class-name">INTEGER</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write <span class="feature-name-comment">count</span> bytes of <span class="feature-name-comment">s</span> to medium.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+<span class="assertion-tag">safe:</span> count <span class="symbol">&lt;=</span> s<span class="symbol">.</span>capacity <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> count <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+<div class="feature">
+<h3>
+<a id="put_string"><span class="feature-name">put_string</span></a> <span class="symbol">(</span>s<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">)</span> 
+</h3>
+<div class="indent">
+<div class="indent">
+<div class="comment">
+<p>
+-- Write a null terminated string <span class="feature-name-comment">s</span> to medium. All <span class="feature-name-comment">count</span><br/>
+-- characters of <span class="feature-name-comment">s</span> will be written, followed by a null.
+</p>
+</div>
+</div>
+<h4 class="keyword">require</h4>
+<div class="indent">
+<span class="assertion-tag">open:</span> <a href="../../secom/abstract/com_abstract_device.html#is_open" class="feature-name">is_open</a> <br/>
+</div>
+<h4 class="keyword">ensure</h4>
+<div class="indent">
+<span class="assertion-tag">count:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">=</span> s<span class="symbol">.</span>count <span class="symbol">+</span> Platform<span class="symbol">.</span>Character_bytes <span class="keyword">xor</span> <a href="../../secom/abstract/com_abstract_device.html#timed_out" class="feature-name">timed_out</a> <br/>
+</div>
+</div>
+</div>
+</div>
+<h2 class="keyword" id="invariant">invariant</h2>
+<div class="indent">
+<span class="assertion-tag">last_write_count_not_negative:</span> <a href="../../secom/abstract/com_abstract_device.html#last_write_count" class="feature-name">last_write_count</a> <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">last_read_count_not_negative:</span> <a href="../../secom/abstract/com_abstract_device.html#last_read_count" class="feature-name">last_read_count</a> <span class="symbol">&gt;=</span> 0 <br/>
+<span class="assertion-tag">last_string_exists:</span> <a href="../../secom/abstract/com_abstract_device.html#last_string" class="feature-name">last_string</a> <span class="symbol">/=</span> <span class="special-keyword">Void</span> <br/>
+</div>
+<hr/>
+<p>
+<a href="http://eiffel.tschannen.net/edoc" class="edoc-notice">Documentation generated by edoc</a>
+<br/>
+<br/>
+</p>
+<div class="footer">
+<div class="header-title">SECOM</div>
+<div class="buttons">
+<a href="../../index.html" class="button">Overview</a>
+<a href="../../secom/abstract/cluster.com_abstract.html" class="button">Cluster</a>
+<span class="active-button">Class</span>
+<a href="../../classes.all.html" class="button">Classes</a>
+<a href="../../index-c.html" class="button">Index</a>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<a href="#top" class="button">Top</a>
+<a href="#features-list" class="button">Features</a>
+</div>
+</div>
+</body>
+</html>

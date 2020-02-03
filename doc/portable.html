@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Developing Portable Applications (SECOM)</title>
+    <link rel="stylesheet" type="text/css" href="src/style.css"/>
+  </head>
+  <body>
+    <a href="http://sourceforge.net">
+      <img src="http://sflogo.sourceforge.net/sflogo.php?group_id=147356&amp;type=3" align="right" width="125" height="37" border="0" alt="SourceForge.net Logo" />
+    </a>
+    <h1>Serial Communications Library</h1>
+    <a href="http://sourceforge.net/donate/index.php?group_id=147356">
+      <img src="http://images.sourceforge.net/images/project-support.jpg" align="right" width="88" height="32" border="0" alt="Support This Project" />
+    </a>
+    Copyright Brian E. Heilig, 2005-2006 under the Eiffel Forum License, version 2<br/>
+    See license.txt for license details<br/>
+
+    <hr/>
+    <h1>Developing Portable Applications</h1>
+    <p>
+      secom provides you the freedom to write portable applications at the cost of<br/>
+      some functionality, or write OS specific applications at the cost of portability.<br/>
+      The choice is yours.<br/>
+    </p>
+    <h2>Creating a Device</h2>
+    <p>
+      The following example shows how you might create a device. The device will<br/>
+      be set to 38400 baud, even parity, one stop bit, and 8 data bits, or 38400<br/>
+      8E1 for short. An overall timer is set to 2 seconds, and an inter-character<br/>
+      timer is set to 100 milliseconds. These timeout properties would be useful<br/>
+      to satisfy the following example requirements:<br/>
+      <ul>
+        <li>Packets are between 1 and 256 bytes in length
+        <li>If more than 100 ms elapses between the reception of two characters<br/>
+            then the packet is complete
+        <li>The arrival of a packet shall never take more than 2 seconds
+      </ul>
+    </p>
+    <span class="feature-name">create_device</span> <span class="symbol">(</span>a_name<span class="symbol">:</span> <span class="class-name">STRING</span><span class="symbol">):</span> <a href="src/secom/abstract/com_abstract_device.html" class="class-name">COM_ABSTRACT_DEVICE</a> <span class="keyword">is</span><br/>
+    <div class="indent">
+      <span class="keyword">local</span><br/>
+      <div class="indent">
+        a_settings<span class="symbol">:</span> <a href="src/secom/abstract/com_abstract_settings.html" class="class-name">COM_ABSTRACT_SETTINGS</a><br/>
+        a_timeouts<span class="symbol">:</span> <a href="src/secom/abstract/com_abstract_timeouts.html" class="class-name">COM_ABSTRACT_TIMEOUTS</a><br/>
+        constants<span class="symbol">:</span> <span class="class-name">COM_CONTROL_CONSTANTS</span><br/>
+      </div>
+      <span class="keyword">do</span><br/>
+      <div class="indent">
+        <span class="keyword">create</span> <span class="symbol">{</span><span class="class-name">COM_DEVICE</span><span class="symbol">}</span> <span class="special-keyword">Result</span><span class="symbol">.</span>make <span class="symbol">(</span>a_name<span class="symbol">)</span><br/>
+        <span class="keyword">if</span> <span class="special-keyword">Result</span><span class="symbol">.</span>is_open <span class="keyword">then</span><br/>
+        <div class="indent">
+          <span class="keyword">create</span> constants<br/>
+          a_settings <span class="symbol">:=</span> <span class="special-keyword">Result</span><span class="symbol">.</span><a href="src/secom/abstract/com_abstract_device.html#control_settings">control_settings</a><br/>
+          a_settings<span class="symbol">.</span><a href="src/secom/abstract/com_abstract_settings.html#set_defaults">set_defaults</a><br/>
+          a_settings<span class="symbol">.</span><a href="src/secom/abstract/com_abstract_settings.html#set_baud_rate">set_baud_rate</a> <span class="symbol">(</span>constants<span class="symbol">.</span>Baud_38400<span class="symbol">)</span><br/>
+          a_settings<span class="symbol">.</span><a href="src/secom/abstract/com_abstract_settings.html#set_parity">set_parity</a> <span class="symbol">(</span>constants<span class="symbol">.</span>Parity_even<span class="symbol">)</span><br/>
+          <span class="special-keyword">Result</span><span class="symbol">.</span><a href="src/secom/abstract/com_abstract_device.html#set_control_settings">set_control_settings</a> <span class="symbol">(</span>a_settings<span class="symbol">)</span><br/>
+          a_timeouts <span class="symbol">:=</span> <span class="special-keyword">Result</span><span class="symbol">.</span><a href="src/secom/abstract/com_abstract_device.html#timeouts">timeouts</a><br/>
+          a_timeouts<span class="symbol">.</span><a href="src/secom/abstract/com_abstract_timeouts.html#set_overall_timer">set_overall_timer</a> <span class="symbol">(</span>2000<span class="symbol">)</span><br/>
+          a_timeouts<span class="symbol">.</span><a href="src/secom/abstract/com_abstract_timeouts.html#set_inter_character_timer">set_inter_character_timer</a> <span class="symbol">(</span>100<span class="symbol">)</span><br/>
+          <span class="special-keyword">Result</span><span class="symbol">.</span><a href="src/secom/abstract/com_abstract_device.html#set_timeouts">set_timeouts</a> <span class="symbol">(</span>a_settings<span class="symbol">)</span><br/>
+        </div>
+        <span class="keyword">end</span><br/>
+      </div>
+      <span class="keyword">end</span><br/>
+    </div>
+    <p>
+      The preceding function takes the name of a device, e.g. COM1 or /dev/ttyS0,<br/>
+      and returns an object representing that device. If the creation was successful<br/>
+      then <a href="src/secom/abstract/com_abstract_device.html#is_open">is_open</a> will be true.</br>
+    </p>
+    <p>
+      This example will compile and execute on Posix or Windows operating systems.<br/>
+      There are two classes that are not members of the <a href="secom/abstract/cluster.com_abstract.html" class="cluster-name">abstract</a> cluster. They are<br/>
+      <span class="class-name">COM_DEVICE</span> and <span class="class-name">COM_CONTROL_CONSTANTS</span>. Both the <span class="cluster-name">posix</span> and the<br/>
+      <span class="cluster-name">windows</span> clusters have versions of these classes with the same name. Other<br/>
+      than these two classes you shouldn't have to deal with the concrete clusters<br/>
+      unless you want to use OS specific features of those classes.<br/>
+    </p>
+    <p>
+      In most cases you will probably pass the name of the device on the command<br/>
+      line. If this is possible then your application is completely portable across<br/>
+      Posix and Windows operating systems (see the write_port and read_port<br/>
+      examples). If, as part of your application, you must allow your user to select<br/>
+      the serial device from a list (as in Linux's minicom or Windows' Hyper Terminal)<br/>
+      then you will have to work a little harder. In a future version of secom I'd like to<br/>
+      provide a list of available serial devices. Unfortunately I don't know of any way<br/>
+      to do this reliably.<br/>
+    </p>
+    <p>
+      Once the device has successfully opened it is assumed to stay open. Thus any<br/>
+      future errors communicating with the device will result in an exception. These<br/>
+      cases may include applying settings or timeouts, reading from or writing to the<br/>
+      device. In these cases if the device was opened (the contract was satisfied) then<br/>
+      an error would probably indicate a failure rather than an anticipated occurence.<br/>
+      It seems then that throwing an exception is a reasonable course of action.</br>
+    </p>
+    <h2>Reading From and Writing To a Device</h2>
+    <p>
+      Reading from and writing to a device is straight forward. Please browse the<br/>
+      interface of <a href="src/secom/abstract/com_abstract_device.html" class="class-name">COM_ABSTRACT_DEVICE</a> for details.</br>
+    </p>
+    <p>
+      When a read is satisfied depends on the <a href="src/secom/abstract/com_abstract_device.html#timeouts">timeout</a> properties and the <span class="feature-name-comment">count</span><br/>
+      parameter of <a href="src/secom/abstract/com_abstract_device.html#read_data">read_data</a>. <a href="src/secom/abstract/com_abstract_device.html#read_data">read_data</a> is used by all read operations. Please<br/>
+      see <a href="src/secom/abstract/com_abstract_timeouts.html" class="class-name">COM_ABSTRACT_TIMEOUTS</a> for details on when a read operation<br/>
+      will timeout.<br/>
+    </p>
+    <p>
+      If a write operation times out, that means the data is still being transferred from<br/>
+      the driver's queue to the serial lines. As far as I know only Windows has write<br/>
+      timeouts. The abstract interface does not know about write timeouts but the<br/>
+      <span class="class-name">COM_TIMEOUTS</span> class does. Using this class will make your application<br/>
+      non-portable.<br/>
+    </p
+    <dl>
+
+    <hr/>
+    <p>
+      <br/>
+    </p>
+  </body>
+</html>
+
