@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 	
@@ -38,7 +38,7 @@ create
 
 feature {NONE} -- Initialization
 
-	make is
+	make
 			-- Create an un-initialized com timeouts structure.
 		do
 			make_new_unshared
@@ -51,7 +51,7 @@ feature {NONE} -- Initialization
 			blocking: is_blocking
 		end
 
-	make_existing (comm: COM_DEVICE) is
+	make_existing (comm: COM_DEVICE)
 			-- Create this structure from an extant, open communications device.
 			-- Throws an exception if `GetCommTimeouts' fails.
 		require
@@ -67,7 +67,7 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	read_interval: INTEGER is
+	read_interval: INTEGER
 			-- Maximum time allowed to elapse between the arrival of two
 			-- characters on the communications line, in milliseconds.
 			-- During a read operation, the time period begins when the
@@ -84,7 +84,7 @@ feature -- Access
 			Result := c_get_read_interval (item)
 		end
 
-	read_total_multiplier: INTEGER is
+	read_total_multiplier: INTEGER
 			-- Multiplier used to calculate the total time-out period for read
 			-- operations, in milliseconds. For each read operation, this value
 			-- is multiplied by the requested number of bytes to be read.
@@ -92,7 +92,7 @@ feature -- Access
 			Result := c_get_read_total_multiplier (item)
 		end
 
-	read_total_constant: INTEGER is
+	read_total_constant: INTEGER
 			-- Constant used to calculate the total time-out period for read
 			-- operations, in milliseconds. For each read operation, this value
 			-- is added to the product of `read_total_multiplier' and the
@@ -103,7 +103,7 @@ feature -- Access
 			Result := c_get_read_total_constant (item)
 		end
 
-	write_total_multiplier: INTEGER is
+	write_total_multiplier: INTEGER
 			-- Multiplier used to calculate the total time-out period for write
 			-- operations, in milliseconds. For each write operation, this value
 			-- is multiplied by the number of bytes to be written.
@@ -111,7 +111,7 @@ feature -- Access
 			Result := c_get_write_total_multiplier (item)
 		end
 
-	write_total_constant: INTEGER is
+	write_total_constant: INTEGER
 			-- Constant used to calculate the total time-out period for write
 			-- operations, in milliseconds. For each write operation, this value
 			-- is added to the product of `write_total_multiplier' member and
@@ -124,7 +124,7 @@ feature -- Access
 
 feature -- Status report
 
-	is_blocking: BOOLEAN is
+	is_blocking: BOOLEAN
 			-- Indicates read operations block until the requested
 			-- number of bytes have been read.
 		do
@@ -133,7 +133,7 @@ feature -- Status report
 				read_total_constant = 0
 		end
 
-	is_non_blocking: BOOLEAN is
+	is_non_blocking: BOOLEAN
 			-- Indicates read operations return immediately with the number of
 			-- bytes already received, even if no bytes have been received?
 		do
@@ -144,7 +144,7 @@ feature -- Status report
 
 feature -- Element change
 
-	get_comm_timeouts (comm: COM_DEVICE) is
+	get_comm_timeouts (comm: COM_DEVICE)
 			-- Fill this structure with the timeout properties of an extant,
 			-- open communications device.  Throw an exception if call to
 			-- GetCommTimeouts fails.
@@ -157,7 +157,7 @@ feature -- Element change
 			end
 		end
 
-	set_read_interval (an_interval: INTEGER) is
+	set_read_interval (an_interval: INTEGER)
 			-- Set `read_interval' with `an_interval'
 		require
 			valid_setting: an_interval >= -1
@@ -167,7 +167,7 @@ feature -- Element change
 			read_interval_set: read_interval = an_interval
 		end
 
-	set_read_total_multiplier (a_multiplier: INTEGER) is
+	set_read_total_multiplier (a_multiplier: INTEGER)
 			-- Set `read_total_multiplier' with `a_multiplier'
 		require
 			not_negative: a_multiplier >= 0
@@ -177,7 +177,7 @@ feature -- Element change
 			read_total_multiplier_set: read_total_multiplier = a_multiplier
 		end
 
-	set_read_total_constant (a_constant: INTEGER) is
+	set_read_total_constant (a_constant: INTEGER)
 			-- Set `read_total_constant' with `a_constant'
 		require
 			not_negative: a_constant >= 0
@@ -187,7 +187,7 @@ feature -- Element change
 			read_total_constant_set: read_total_constant = a_constant
 		end
 
-	set_blocking is
+	set_blocking
 			-- Set the timeout properties to be a pure blocking read.
 		do
 			set_read_interval (0)
@@ -199,7 +199,7 @@ feature -- Element change
 				read_total_constant = 0
 		end
 
-	set_non_blocking is
+	set_non_blocking
 			-- Set the timeout properties to be a non-blocking read.
 		do
 			set_read_interval (-1)
@@ -211,7 +211,7 @@ feature -- Element change
 				read_total_constant = 0
 		end
 
-	set_overall_timer (time: INTEGER) is
+	set_overall_timer (time: INTEGER)
 			-- Set the timeout properties to include an overall timer.
 		do
 			set_read_total_multiplier (0)
@@ -221,7 +221,7 @@ feature -- Element change
 				read_total_constant = time
 		end
 
-	set_inter_character_timer (time: INTEGER) is
+	set_inter_character_timer (time: INTEGER)
 			-- Set the timeout properties to include an inter-character
 			-- timer.
 		do
@@ -230,7 +230,7 @@ feature -- Element change
 			definition: read_interval = time
 		end
 
-	set_write_total_multiplier (a_multiplier: INTEGER) is
+	set_write_total_multiplier (a_multiplier: INTEGER)
 			-- Set `write_total_multiplier' with `a_multiplier'
 		require
 			not_negative: a_multiplier >= 0
@@ -240,7 +240,7 @@ feature -- Element change
 			write_total_multiplier_set: write_total_multiplier = a_multiplier
 		end
 
-	set_write_total_constant (a_constant: INTEGER) is
+	set_write_total_constant (a_constant: INTEGER)
 			-- Set `write_total_constant' with `a_constant'
 		require
 			not_negative: a_constant >= 0
@@ -252,7 +252,7 @@ feature -- Element change
 
 feature {NONE} -- Error
 
-	timeouts_error (device_name: STRING): STRING is
+	timeouts_error (device_name: STRING): STRING
 			-- An error message indicating a failure to retrieve
 			-- the timeout properties of `device_name'
 		require
@@ -268,7 +268,7 @@ feature {NONE} -- Error
 
 feature {NONE} -- Measurement
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 			-- Size to allocate (in bytes)
 		external
 			"C inline use <windows.h>"
@@ -278,77 +278,77 @@ feature {NONE} -- Measurement
 
 feature {NONE} -- Externals
 
-	cwin_get_comm_timeouts (hFile: POINTER; lpCommTimeouts: POINTER): BOOLEAN is
+	cwin_get_comm_timeouts (hFile: POINTER; lpCommTimeouts: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"GetCommTimeouts"
 		end
 
-	c_get_read_interval (an_item: POINTER): INTEGER is
+	c_get_read_interval (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadIntervalTimeout"
 		end
 
-	c_set_read_interval (an_item: POINTER; a_value: INTEGER) is
+	c_set_read_interval (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadIntervalTimeout = $a_value"
 		end
 
-	c_get_read_total_multiplier (an_item: POINTER): INTEGER is
+	c_get_read_total_multiplier (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadTotalTimeoutMultiplier"
 		end
 
-	c_set_read_total_multiplier (an_item: POINTER; a_value: INTEGER) is
+	c_set_read_total_multiplier (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadTotalTimeoutMultiplier = $a_value"
 		end
 
-	c_get_read_total_constant (an_item: POINTER): INTEGER is
+	c_get_read_total_constant (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadTotalTimeoutConstant"
 		end
 
-	c_set_read_total_constant (an_item: POINTER; a_value: INTEGER) is
+	c_set_read_total_constant (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->ReadTotalTimeoutConstant = $a_value"
 		end
 
-	c_get_write_total_multiplier (an_item: POINTER): INTEGER is
+	c_get_write_total_multiplier (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->WriteTotalTimeoutMultiplier"
 		end
 
-	c_set_write_total_multiplier (an_item: POINTER; a_value: INTEGER) is
+	c_set_write_total_multiplier (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->WriteTotalTimeoutMultiplier = $a_value"
 		end
 
-	c_get_write_total_constant (an_item: POINTER): INTEGER is
+	c_get_write_total_constant (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMMTIMEOUTS) $an_item)->WriteTotalTimeoutConstant"
 		end
 
-	c_set_write_total_constant (an_item: POINTER; a_value: INTEGER) is
+	c_set_write_total_constant (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias

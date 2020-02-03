@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -31,7 +31,7 @@ create
 
 feature {NONE} -- Initialization
 
-	make is
+	make
 			-- Create an un-initialized com status structure.
 		do
 			make_new_unshared
@@ -40,7 +40,7 @@ feature {NONE} -- Initialization
 			not_shared: not is_shared
 		end
 
-	make_existing (comm: COM_DEVICE) is
+	make_existing (comm: COM_DEVICE)
 			-- Create this structure from an extant, open communications device.
 			-- Throws an exception if call to `get_comm_stat' fails.
 		require
@@ -56,13 +56,13 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	in_queue_count: INTEGER is
+	in_queue_count: INTEGER
 			-- Number of bytes received by the serial provider but not yet read.
 		do
 			Result := c_get_in_queue_count (item)
 		end
 
-	out_queue_count: INTEGER is
+	out_queue_count: INTEGER
 			-- Number of bytes remaining to be transmitted for all write operations.
 		do
 			Result := c_get_out_queue_count (item)
@@ -73,44 +73,44 @@ feature -- Access
 
 feature -- Status report
 
-	is_cts_hold: BOOLEAN is
+	is_cts_hold: BOOLEAN
 			-- Is transmission waiting for the CTS (clear-to-send) signal to be sent?
 		do
 			Result := c_get_cts_hold (item)
 		end
 
-	is_dsr_hold: BOOLEAN is
+	is_dsr_hold: BOOLEAN
 			-- Is transmission waiting for the DSR (data-set-ready) signal to be sent?
 		do
 			Result := c_get_dsr_hold (item)
 		end
 
-	is_rlsd_hold: BOOLEAN is
+	is_rlsd_hold: BOOLEAN
 			-- Is transmission  waiting for the RLSD (receive-line-signal-detect)
 			-- signal to be sent?
 		do
 			Result := c_get_rlsd_hold (item)
 		end
 
-	is_xoff_hold: BOOLEAN is
+	is_xoff_hold: BOOLEAN
 			-- Is transmission waiting because the XOFF character was received?
 		do
 			Result := c_get_xoff_hold (item)
 		end
 
-	is_xoff_sent: BOOLEAN is
+	is_xoff_sent: BOOLEAN
 			-- Is transmission waiting because the XOFF character was transmitted?
 		do
 			Result := c_get_xoff_sent (item)
 		end
 
-	is_eof: BOOLEAN is
+	is_eof: BOOLEAN
 			-- Has the EOF (end-of-file) character been received?
 		do
 			Result := c_get_eof (item)
 		end
 
-	is_tx_char_queued: BOOLEAN is
+	is_tx_char_queued: BOOLEAN
 			-- Is there a character queued for transmission that has come to the
 			-- communications device by way of the transmit_comm_char function?
 			-- The communications device transmits such a character ahead of other
@@ -121,7 +121,7 @@ feature -- Status report
 
 feature -- Element change
 
-	get_comm_stat (comm: COM_DEVICE) is
+	get_comm_stat (comm: COM_DEVICE)
 			-- Retrieve the current information about the `comm' device.
 			-- This function has the unavoidable side effect of clearing any
 			-- comm error.  Throws an exception if call fails.
@@ -136,7 +136,7 @@ feature -- Element change
 
 feature {NONE} -- Error
 
-	comm_state_error (device_name: STRING): STRING is
+	comm_state_error (device_name: STRING): STRING
 			-- An error message indicating a failure to retrieve
 			-- the comm status from `device_name'
 		require
@@ -152,7 +152,7 @@ feature {NONE} -- Error
 
 feature {NONE} -- Measurement
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 			-- Size to allocate (in bytes)
 		external
 			"C inline use <windows.h>"
@@ -162,70 +162,70 @@ feature {NONE} -- Measurement
 
 feature {NONE} -- Externals
 
-	cwin_get_comm_stat (hFile, lpErrors, lpStat: POINTER): BOOLEAN is
+	cwin_get_comm_stat (hFile, lpErrors, lpStat: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"ClearCommError"
 		end
 
-	c_get_cts_hold (an_item: POINTER): BOOLEAN is
+	c_get_cts_hold (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fCtsHold"
 		end
 
-	c_get_dsr_hold (an_item: POINTER): BOOLEAN is
+	c_get_dsr_hold (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fDsrHold"
 		end
 
-	c_get_rlsd_hold (an_item: POINTER): BOOLEAN is
+	c_get_rlsd_hold (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fRlsdHold"
 		end
 
-	c_get_xoff_hold (an_item: POINTER): BOOLEAN is
+	c_get_xoff_hold (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fXoffHold"
 		end
 
-	c_get_xoff_sent (an_item: POINTER): BOOLEAN is
+	c_get_xoff_sent (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fXoffSent"
 		end
 
-	c_get_eof (an_item: POINTER): BOOLEAN is
+	c_get_eof (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fEof"
 		end
 
-	c_get_tx_char_queued (an_item: POINTER): BOOLEAN is
+	c_get_tx_char_queued (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->fTxim"
 		end
 
-	c_get_in_queue_count (an_item: POINTER): INTEGER is
+	c_get_in_queue_count (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPCOMSTAT) $an_item)->cbInQue"
 		end
 
-	c_get_out_queue_count (an_item: POINTER): INTEGER is
+	c_get_out_queue_count (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-21-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-21-0 http://www.eiffel.com/developers/xml/configuration-1-21-0.xsd" name="secom" uuid="52D6CBB7-EAE7-4A60-9EDC-26FF33BA004E" library_target="secom">
+	<target name="secom">
+		<root all_classes="true"/>
+		<setting name="console_application" value="true"/>
+		<external_include location="$(ECF_CONFIG_PATH)\ewg\c"/>
+		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="gobo_kernel" location="$ISE_LIBRARY\library\gobo\gobo_kernel.ecf"/>
+		<library name="gobo_structure" location="$ISE_LIBRARY\library\gobo\gobo_structure.ecf"/>
+		<library name="gobo_utility" location="$ISE_LIBRARY\library\gobo\gobo_utility.ecf"/>
+		<cluster name="abstract" location="abstract\"/>
+		<cluster name="ewg" location="ewg\">
+			<cluster name="ewg_ise" location="ewg\spec\ise\"/>
+		</cluster>
+		<cluster name="src" location=".\"/>
+		<cluster name="windows" location="windows\"/>
+	</target>
+</system>

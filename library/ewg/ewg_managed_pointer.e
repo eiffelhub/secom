@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -25,7 +25,7 @@ inherit
 	EWG_EXTERNAL_MEMORY_ROUTINES
 		export {NONE} all end
 
-creation
+create
 
 	make_new_unshared,
 	make_new_shared,
@@ -37,7 +37,7 @@ creation
 
 feature {NONE} -- Initialisation
 
-	make_new_unshared (a_capacity: INTEGER) is
+	make_new_unshared (a_capacity: INTEGER)
 			-- Create a new pointer wrapper to a new memory area where
 			-- all bytes have been reset to zero.
 			-- Allocates as `a_capacity' bytes of new memory.
@@ -59,7 +59,7 @@ feature {NONE} -- Initialisation
 				read_integer_8 (capacity - 1) = 0
 		end
 
-	make_new_shared (a_capacity: INTEGER) is
+	make_new_shared (a_capacity: INTEGER)
 			-- Create a new pointer wrapper to a new memory area where
 			-- all bytes have been reset to zero.
 			-- Allocates as `a_capacity' bytes of new memory.
@@ -82,7 +82,7 @@ feature {NONE} -- Initialisation
 				read_integer_8 (capacity - 1) = 0
 		end
 
-	make_new_unshared_uninitialized (a_capacity: INTEGER) is
+	make_new_unshared_uninitialized (a_capacity: INTEGER)
 			-- Create a new pointer wrapper to a new memory area. Bytes
 			-- have a random value.
 			-- Allocates as `a_capacity' bytes of new memory.
@@ -101,7 +101,7 @@ feature {NONE} -- Initialisation
 			capacity_set: capacity = a_capacity
 		end
 
-	make_new_shared_uninitialized (a_capacity: INTEGER) is
+	make_new_shared_uninitialized (a_capacity: INTEGER)
 			-- Create a new pointer wrapper to a new memory area. Bytes
 			-- have a random value.
 			-- Allocates as `a_capacity' bytes of new memory.
@@ -121,7 +121,7 @@ feature {NONE} -- Initialisation
 			capacity_set: capacity = a_capacity
 		end
 
-	make_unshared (a_item: POINTER; a_capacity: INTEGER) is
+	make_unshared (a_item: POINTER; a_capacity: INTEGER)
 			-- Create a new pointer wrapper to an existing memory area.
 			-- `a_item' must be the pointer to the memory area to wrap.
 			-- `a_capacity' specifies how big the memory area is that
@@ -142,7 +142,7 @@ feature {NONE} -- Initialisation
 			capacity_set: capacity = a_capacity
 		end
 
-	make_shared (a_item: POINTER; a_capacity: INTEGER) is
+	make_shared (a_item: POINTER; a_capacity: INTEGER)
 			-- Create a new pointer wrapper to an existing memory area.
 			-- `a_item' must be the pointer to the memory area to wrap.
 			-- `a_capacity' specifies how big the memory area is that
@@ -164,7 +164,7 @@ feature {NONE} -- Initialisation
 			capacity_set: capacity = a_capacity
 		end
 
-	make_default_pointer is
+	make_default_pointer
 			-- Create a pointer wrapper for the default pointer (NULL).
 		do
 		ensure
@@ -185,7 +185,7 @@ feature {ANY} -- Access
 			-- Eiffel object gets collected, the C side does not have a reference
 			-- to the wrapped memory anymore.
 
-	exists: BOOLEAN is
+	exists: BOOLEAN
 			-- Does `item' point to a valid C memory area ?
 		do
 			Result := item /= default_pointer
@@ -195,7 +195,7 @@ feature {ANY} -- Access
 			-- Size of the memory area that the wrapped
 			-- pointer points to.
 
-	read_integer (a_pos: INTEGER): INTEGER is
+	read_integer (a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -208,7 +208,7 @@ feature {ANY} -- Access
 			Result := external_memory.read_integer_external (item, a_pos)
 		end
 
-	read_pointer (a_pos: INTEGER): POINTER is
+	read_pointer (a_pos: INTEGER): POINTER
 			-- Get the pointer at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -221,7 +221,7 @@ feature {ANY} -- Access
 			Result := external_memory.read_pointer_external (item, a_pos)
 		end
 
-	read_integer_8 (a_pos: INTEGER): INTEGER is
+	read_integer_8 (a_pos: INTEGER): INTEGER
 			-- Get the byte at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -236,7 +236,7 @@ feature {ANY} -- Access
 			result_is_byte: Result >= -128 and Result <= 127
 		end
 
-	read_integer_16 (a_pos: INTEGER): INTEGER is
+	read_integer_16 (a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -251,7 +251,7 @@ feature {ANY} -- Access
 			result_is_int16: Result >= -32768 and Result <= 32767
 		end
 
-	read_integer_32 (a_pos: INTEGER): INTEGER is
+	read_integer_32 (a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -264,7 +264,7 @@ feature {ANY} -- Access
 			Result := external_memory.read_integer_32_external (item, a_pos)
 		end
 
-	read_real (a_pos: INTEGER): REAL is
+	read_real (a_pos: INTEGER): REAL
 			-- Get the real at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -277,7 +277,7 @@ feature {ANY} -- Access
 			Result := external_memory.read_real_external (item, a_pos)
 		end
 
-	read_double (a_pos: INTEGER): DOUBLE is
+	read_double (a_pos: INTEGER): DOUBLE
 			-- Get the double at the `a_pos'-th
 			-- byte position of the wrapped memory
 			-- area.
@@ -292,7 +292,7 @@ feature {ANY} -- Access
 
 feature {ANY} -- Basic Operations
 
-	put_integer (a_int: INTEGER; a_pos: INTEGER) is
+	put_integer (a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes `sizeof_int' bytes.
@@ -306,7 +306,7 @@ feature {ANY} -- Basic Operations
 			integer_set: read_integer (a_pos) = a_int
 		end
 
-	put_pointer (a_pointer: POINTER; a_pos: INTEGER) is
+	put_pointer (a_pointer: POINTER; a_pos: INTEGER)
 			-- Put `a_pointer' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes `sizeof_pointer' bytes.
@@ -320,7 +320,7 @@ feature {ANY} -- Basic Operations
 			pointer_set: read_pointer (a_pos) = a_pointer
 		end
 
-	put_integer_8 (a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_8 (a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes 8 bits.
@@ -335,7 +335,7 @@ feature {ANY} -- Basic Operations
 			integer_8_set: read_integer_8 (a_pos) = a_int
 		end
 
-	put_integer_16 (a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_16 (a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes 16 bits.
@@ -350,7 +350,7 @@ feature {ANY} -- Basic Operations
 			integer_16_set: read_integer_16 (a_pos) = a_int
 		end
 
-	put_integer_32 (a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_32 (a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes 32 bits.
@@ -364,7 +364,7 @@ feature {ANY} -- Basic Operations
 			integer_32_set: read_integer_32 (a_pos) = a_int
 		end
 
-	put_real (a_real: REAL; a_pos: INTEGER) is
+	put_real (a_real: REAL; a_pos: INTEGER)
 			-- Put `a_real' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes `sizeof_real' bytes.
@@ -378,7 +378,7 @@ feature {ANY} -- Basic Operations
 			real_set: read_real (a_pos) = a_real
 		end
 
-	put_double (a_double: DOUBLE; a_pos: INTEGER) is
+	put_double (a_double: DOUBLE; a_pos: INTEGER)
 			-- Put `a_double' at the `a_pos'-th byte position
 			-- of the wrapped memory area.
 			-- Writes `sizeof_double' bytes.
@@ -394,25 +394,25 @@ feature {ANY} -- Basic Operations
 
 feature
 
-	sizeof_pointer: INTEGER is
+	sizeof_pointer: INTEGER
 			-- Returns the number of bytes a C pointer is broad
 		do
 			Result := external_memory.sizeof_pointer_external
 		end
 
-	sizeof_int: INTEGER is
+	sizeof_int: INTEGER
 			-- Returns the number of bytes a C int is broad
 		do
 			Result := external_memory.sizeof_int_external
 		end
 
-	sizeof_real: INTEGER is
+	sizeof_real: INTEGER
 			-- Returns the number of bytes a C float is broad
 		do
 			Result := external_memory.sizeof_real_external
 		end
 
-	sizeof_double: INTEGER is
+	sizeof_double: INTEGER
 			-- Returns the number of bytes a C double is broad
 		do
 			Result := external_memory.sizeof_double_external
@@ -420,7 +420,7 @@ feature
 
 feature {NONE} -- Removal
 
-	dispose is
+	dispose
 			-- If `is_shared' is `False' and the wrapped memory exists
 			-- (is not NULL) then free the wrapped memory
 		do
@@ -430,7 +430,7 @@ feature {NONE} -- Removal
 			end
 		end
 
-	destroy_object is
+	destroy_object
 			-- Free the allocated memory.  This routine may be called
 			-- from within `dispose'.  Due to this, we have to use
 			-- `free_external' and cannot rely on

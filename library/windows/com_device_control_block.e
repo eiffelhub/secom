@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -49,7 +49,7 @@ create
 
 feature {NONE} -- Initialization
 
-	make_default is
+	make_default
 			-- Fill with default values.
 			-- Default is 9600 8N1 with flow control
 			-- disabled
@@ -62,7 +62,7 @@ feature {NONE} -- Initialization
 			memory_not_shared: not is_shared
 		end
 
-	make_from_string (str: STRING) is
+	make_from_string (str: STRING)
 			-- Set defaults, then fill using a device control string.
 			-- Throws an exception if `str' is not understood by BuildCommDCB
 		require
@@ -76,7 +76,7 @@ feature {NONE} -- Initialization
 			-- Structure has been populated using the contents of `str'.
 		end
 
-	make_existing (dev: COM_DEVICE) is
+	make_existing (dev: COM_DEVICE)
 			-- Fill the structure with the control settings of an extant, open
 			-- communications resource.  Throws an exception if failed.
 		require
@@ -93,13 +93,13 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	baud_rate: INTEGER is
+	baud_rate: INTEGER
 			-- Baud rate at which the communications device operates
 		do
 			Result := c_get_baud_rate (item)
 		end
 
-	dtr_control: INTEGER is
+	dtr_control: INTEGER
 			-- DTR (data-terminal-ready) flow control scheme to be used
 		do
 			Result := c_get_dtr_control (item)
@@ -107,7 +107,7 @@ feature -- Access
 			valid_result: is_valid_dtr_control (Result)
 		end
 
-	rts_control: INTEGER is
+	rts_control: INTEGER
 			-- RTS (request-to-send) flow control scheme to be used
 		do
 			Result := c_get_rts_control (item)
@@ -115,14 +115,14 @@ feature -- Access
 			valid_result: is_valid_rts_control (Result)
 		end
 
-	xon_lim: INTEGER_16 is
+	xon_lim: INTEGER_16
 			-- Minimum number of bytes allowed in the input buffer before flow
 			-- control is activated to inhibit the sender
 		do
 			Result := c_get_xon_lim (item)
 		end
 
-	xoff_lim: INTEGER_16 is
+	xoff_lim: INTEGER_16
 			-- Maximum number of bytes allowed in the input buffer before flow
 			-- control is activated to allow transmission by the sender. The
 			-- maximum number of bytes allowed is calculated by subtracting this
@@ -131,49 +131,49 @@ feature -- Access
 			Result := c_get_xoff_lim (item)
 		end
 
-	data_bits: INTEGER is
+	data_bits: INTEGER
 			-- Number of bits in the bytes transmitted and received.
 		do
 			Result := c_get_byte_size (item)
 		end
 		
-	parity: INTEGER is
+	parity: INTEGER
 			-- Parity scheme used for transmit and receive.
 		do
 			Result := c_get_parity (item)
 		end
 
-	stop_bits: INTEGER is
+	stop_bits: INTEGER
 			-- Number of stop bits to be used.
 		do
 			Result := c_get_stop_bits (item)
 		end
 
-	xon_char: CHARACTER is
+	xon_char: CHARACTER
 			-- XON character for both transmission and reception.
 		do
 			Result := c_get_xon_char (item)
 		end
 
-	xoff_char: CHARACTER is
+	xoff_char: CHARACTER
 			-- XOFF character for both transmission and reception.
 		do
 			Result := c_get_xoff_char (item)
 		end
 
-	error_char: CHARACTER is
+	error_char: CHARACTER
 			-- Character used to replace bytes received with a parity error. 
 		do
 			Result := c_get_error_char (item)
 		end
 
-	eof_char: CHARACTER is
+	eof_char: CHARACTER
 			-- Character used to signal the end of data.
 		do
 			Result := c_get_eof_char (item)
 		end
 
-	event_char: CHARACTER is
+	event_char: CHARACTER
 			-- Character used to signal an event.
 		do
 			Result := c_get_event_char (item)
@@ -181,7 +181,7 @@ feature -- Access
 
 feature -- Status report
 
-	is_binary_mode: BOOLEAN is
+	is_binary_mode: BOOLEAN
 			-- Binary mode enabled?.  Windows does not support
 			-- non binary mode transfers, so this member must be TRUE. 
 		do
@@ -190,27 +190,27 @@ feature -- Status report
 			only_binary: Result
 		end
 
-	is_parity_checked: BOOLEAN is
+	is_parity_checked: BOOLEAN
 			-- Check receive parity and report errors?
 		do
 			Result := c_get_parity_check (item)
 		end
 
-	is_cts_controlled: BOOLEAN is
+	is_cts_controlled: BOOLEAN
 			-- Monitor CTS (clear-to-send) for output flow control? When True
 			-- and remote CTS is off, output is suspended until CTS is received. 
 		do
 			Result := c_get_cts_control (item)
 		end
 
-	is_dsr_controlled: BOOLEAN is
+	is_dsr_controlled: BOOLEAN
 			-- Monitor DSR (data-set-ready) for output flow control? When True
 			-- and remote DSR is off, output is suspended until DSR is received.
 		do
 			Result := c_get_dsr_control (item)
 		end
 
-	is_dsr_sensitive: BOOLEAN is
+	is_dsr_sensitive: BOOLEAN
 			-- Is the communications driver sensitive to the state of the DSR
 			-- signal? The driver ignores any bytes received, unless the DSR
 			-- modem input line is high.
@@ -218,7 +218,7 @@ feature -- Status report
 			Result := c_get_dsr_sensitivity (item)
 		end
 
-	is_tx_continued_on_xoff: BOOLEAN is
+	is_tx_continued_on_xoff: BOOLEAN
 			-- Continue transmit when `xoff_char' is sent? When True
 			-- transmission continues after the input buffer has come within
 			-- `xoff_lim' bytes of being full and the driver has transmitted
@@ -230,7 +230,7 @@ feature -- Status report
 			Result := c_get_tx_continue_on_xoff (item)
 		end
 
-	is_outx_controlled: BOOLEAN is
+	is_outx_controlled: BOOLEAN
 			-- Is output software flow control used?  When True transmission
 			-- stops when the `xoff_char' is received and starts again when
 			-- the `xon_char' is received.
@@ -238,7 +238,7 @@ feature -- Status report
 			Result := c_get_outx (item)
 		end
 
-	is_inx_controlled: BOOLEAN is
+	is_inx_controlled: BOOLEAN
 			-- Is input software flow control used?  When True the `xoff_char'
 			-- is sent when the input buffer comes within `xoff_lim' bytes of
 			-- capacity, and the `xon_char' is sent when the input buffer
@@ -247,19 +247,19 @@ feature -- Status report
 			Result := c_get_inx (item)
 		end
 
-	are_errors_replaced: BOOLEAN is
+	are_errors_replaced: BOOLEAN
 			-- Replace errors with `error_char'?
 		do
 			Result := c_get_replace_errors (item)
 		end
 
-	are_nulls_discarded: BOOLEAN is
+	are_nulls_discarded: BOOLEAN
 			-- Discard received null characters?
 		do
 			Result := c_get_discard_nulls (item)
 		end
 
-	is_abort_on_error: BOOLEAN is
+	is_abort_on_error: BOOLEAN
 			-- Terminate all read and write operations when an error occurs?
 			-- The driver will not accept any further communications operations
 			-- until the comm error is cleared.
@@ -267,7 +267,7 @@ feature -- Status report
 			Result := c_get_abort_on_error (item)
 		end
 
-	is_valid_dtr_control (dtr: INTEGER): BOOLEAN is
+	is_valid_dtr_control (dtr: INTEGER): BOOLEAN
 			-- Is `dtr' a valid dtr control constant?
 		do
 			Result := dtr >= Dtr_control_disable and
@@ -279,7 +279,7 @@ feature -- Status report
 				dtr = Dtr_control_handshake)
 		end
 
-	is_valid_rts_control (rts: INTEGER): BOOLEAN is
+	is_valid_rts_control (rts: INTEGER): BOOLEAN
 			-- Is `rts' a valid rts control constant?
 		do
 			Result := rts >= Rts_control_disable and
@@ -292,7 +292,7 @@ feature -- Status report
 				rts = Rts_control_toggle)
 		end
 
-	is_valid_baud (a_baud: INTEGER): BOOLEAN is
+	is_valid_baud (a_baud: INTEGER): BOOLEAN
 			-- Is `a_baud' a valid baud rate? True only indicates the
 			-- operating system supports this rate. The device may not.
 		do
@@ -313,7 +313,7 @@ feature -- Status report
 				a_baud = Baud_256000
 		end
 
-	is_valid_parity (a_parity: INTEGER): BOOLEAN is
+	is_valid_parity (a_parity: INTEGER): BOOLEAN
 			-- Is `a_parity' a valid parity setting?
 		do
 			Result := a_parity = Odd_parity or
@@ -323,7 +323,7 @@ feature -- Status report
 				a_parity = Space_parity
 		end
 
-	is_valid_stop_bits (a_stop_bit: INTEGER): BOOLEAN is
+	is_valid_stop_bits (a_stop_bit: INTEGER): BOOLEAN
 			-- Is `a_stop_bit' a valid stop bits setting?
 		do
 			Result := a_stop_bit = One_stop_bit or
@@ -331,7 +331,7 @@ feature -- Status report
 				a_stop_bit = One_5_stop_bits
 		end
 
-	is_valid_data_bits (a_data_bits: INTEGER): BOOLEAN is
+	is_valid_data_bits (a_data_bits: INTEGER): BOOLEAN
 			-- Is `a_data_bits' a valid data bits setting?
 		do
 			Result := a_data_bits = Five_data_bits or
@@ -342,13 +342,13 @@ feature -- Status report
 
 feature -- Status setting
 
-	set_parity_check (a_value: BOOLEAN) is
+	set_parity_check (a_value: BOOLEAN)
 			-- Set `is_parity_checked' to `a_value'
 		do
 			c_set_parity_check (item, a_value)
 		end
 
-	set_cts_control (a_value: BOOLEAN) is
+	set_cts_control (a_value: BOOLEAN)
 			-- Set `is_cts_controlled' to `a_value'
 		do
 			c_set_cts_control (item, a_value)
@@ -356,7 +356,7 @@ feature -- Status setting
 			cts_control_set: is_cts_controlled = a_value
 		end
 
-	set_dsr_control (a_value: BOOLEAN) is
+	set_dsr_control (a_value: BOOLEAN)
 			-- Set `is_dsr_controlled' to `a_value'
 		do
 			c_set_dsr_control (item, a_value)
@@ -364,7 +364,7 @@ feature -- Status setting
 			dsr_control_set: is_dsr_controlled = a_value
 		end
 
-	set_dsr_sensitive (a_value: BOOLEAN) is
+	set_dsr_sensitive (a_value: BOOLEAN)
 			-- Set `is_dsr_sensitive' to `a_value'
 		do
 			c_set_dsr_sensitivity (item, a_value)
@@ -372,7 +372,7 @@ feature -- Status setting
 			dsr_sensitivity_set: is_dsr_sensitive = a_value
 		end
 
-	set_tx_continue_on_xoff (a_value: BOOLEAN) is
+	set_tx_continue_on_xoff (a_value: BOOLEAN)
 			-- Set `is_tx_continued_on_xoff' to `a_value'
 		do
 			c_set_tx_continue_on_xoff (item, a_value)
@@ -380,7 +380,7 @@ feature -- Status setting
 			tx_continue_on_xoff_set: is_tx_continued_on_xoff = a_value
 		end
 
-	set_outx_control (a_value: BOOLEAN) is
+	set_outx_control (a_value: BOOLEAN)
 			-- Set `is_outx_controlled' to `a_value'
 		do
 			c_set_outx (item, a_value)
@@ -388,7 +388,7 @@ feature -- Status setting
 			outx_set: is_outx_controlled = a_value
 		end
 
-	set_inx_control (a_value: BOOLEAN) is
+	set_inx_control (a_value: BOOLEAN)
 			-- Set `is_inx_controlled' to `a_value'
 		do
 			c_set_inx (item, a_value)
@@ -396,7 +396,7 @@ feature -- Status setting
 			inx_set: is_inx_controlled = a_value
 		end
 
-	set_error_replacement (a_value: BOOLEAN) is
+	set_error_replacement (a_value: BOOLEAN)
 			-- Set `are_errors_replaced' to `a_value'
 		do
 			c_set_replace_errors (item, a_value)
@@ -404,7 +404,7 @@ feature -- Status setting
 			replace_errors_set: are_errors_replaced = a_value
 		end
 
-	set_null_discard (a_value: BOOLEAN) is
+	set_null_discard (a_value: BOOLEAN)
 			-- Set `are_nulls_discarded' to `a_value'
 		do
 			c_set_discard_nulls (item, a_value)
@@ -412,7 +412,7 @@ feature -- Status setting
 			discard_nulls_set: are_nulls_discarded = a_value
 		end
 
-	set_abort_on_error (a_value: BOOLEAN) is
+	set_abort_on_error (a_value: BOOLEAN)
 			-- Set `is_abort_on_error' to `a_value'
 		do
 			c_set_abort_on_error (item, a_value)
@@ -422,7 +422,7 @@ feature -- Status setting
 
 feature -- Element change
 
-	get_comm_state (comm: COM_DEVICE) is
+	get_comm_state (comm: COM_DEVICE)
 			-- Fill the structure with the current state of `comm'.
 			-- Throws an exception if failed.
 		do
@@ -431,7 +431,7 @@ feature -- Element change
 			end
 		end
 
-	build_from_string (str: STRING) is
+	build_from_string (str: STRING)
 			-- Fill the DCB using `str' which conforms to the mode
 			-- command line parameter structure.
 			-- [baud=b] [parity=p] [data=d] [stop=s] [to={on|off}]
@@ -449,13 +449,13 @@ feature -- Element change
 			-- Structure has been populated using the contents of `str'.
 		end
 
-	set_baud_rate (a_baud_rate: INTEGER) is
+	set_baud_rate (a_baud_rate: INTEGER)
 			-- Set `baud_rate' with `a_baud_rate'
 		do
 			c_set_baud_rate (item, a_baud_rate)
 		end
 	
-	set_dtr_control (a_dtr_control: INTEGER) is
+	set_dtr_control (a_dtr_control: INTEGER)
 			-- Set `dtr_control' to `a_dtr_control'
 		require
 			valid: is_valid_dtr_control (a_dtr_control)
@@ -465,7 +465,7 @@ feature -- Element change
 			dtr_control_set: dtr_control = a_dtr_control
 		end
 
-	set_rts_control (a_rts_control: INTEGER) is
+	set_rts_control (a_rts_control: INTEGER)
 			-- Set `rts_control' to `a_rts_control'
 		require
 			valid: is_valid_rts_control (a_rts_control)
@@ -475,7 +475,7 @@ feature -- Element change
 			rts_control_set: rts_control = a_rts_control
 		end
 
-	set_xon_lim (a_xon_lim: INTEGER_16) is
+	set_xon_lim (a_xon_lim: INTEGER_16)
 			-- Set `xon_lim' to `a_xon_lim'
 		do
 			c_set_xon_lim (item, a_xon_lim)
@@ -483,7 +483,7 @@ feature -- Element change
 			xon_lim_set: xon_lim = a_xon_lim
 		end
 		
-	set_xoff_lim (a_xoff_lim: INTEGER_16) is
+	set_xoff_lim (a_xoff_lim: INTEGER_16)
 			-- Set `xoff_lim' to `a_xoff_lim'
 		do
 			c_set_xoff_lim (item, a_xoff_lim)
@@ -491,25 +491,25 @@ feature -- Element change
 			xoff_lim_set: xoff_lim = a_xoff_lim
 		end
 
-	set_data_bits (a_byte_size: INTEGER) is
+	set_data_bits (a_byte_size: INTEGER)
 			-- Set `byte_size' to `a_byte_size'
 		do
 			c_set_byte_size (item, a_byte_size.to_integer_8)
 		end
 
-	set_parity (a_parity: INTEGER) is
+	set_parity (a_parity: INTEGER)
 			-- Set `parity' to `a_parity'
 		do
 			c_set_parity (item, a_parity.to_integer_8)
 		end
 
-	set_stop_bits (a_stop_bits: INTEGER) is
+	set_stop_bits (a_stop_bits: INTEGER)
 			-- Set `stop_bits' to `a_stop_bits'
 		do
 			c_set_stop_bits (item, a_stop_bits.to_integer_8)
 		end
 
-	set_xon_char (a_xon_char: CHARACTER) is
+	set_xon_char (a_xon_char: CHARACTER)
 			-- Set `xon_char' to `a_xon_char'
 		require
 			not_same: a_xon_char /= xoff_char
@@ -519,7 +519,7 @@ feature -- Element change
 			xon_char_set: xon_char = a_xon_char
 		end
 
-	set_xoff_char (a_xoff_char: CHARACTER) is
+	set_xoff_char (a_xoff_char: CHARACTER)
 			-- Set `xoff_char' to `a_xoff_char'
 		require
 			not_same: a_xoff_char /= xon_char
@@ -529,7 +529,7 @@ feature -- Element change
 			xoff_char_set: xoff_char = a_xoff_char
 		end
 
-	set_error_char (a_error_char: CHARACTER) is
+	set_error_char (a_error_char: CHARACTER)
 			-- Set `error_char' to `a_error_char'
 		do
 			c_set_error_char (item, a_error_char)
@@ -537,7 +537,7 @@ feature -- Element change
 			error_char_set: error_char = a_error_char
 		end
 		
-	set_eof_char (a_eof_char: CHARACTER) is
+	set_eof_char (a_eof_char: CHARACTER)
 			-- Set `eof_char' to `a_eof_char'
 		do
 			c_set_eof_char (item, a_eof_char)
@@ -545,7 +545,7 @@ feature -- Element change
 			eof_char_set: eof_char = a_eof_char
 		end
 
-	set_event_char (a_event_char: CHARACTER) is
+	set_event_char (a_event_char: CHARACTER)
 			-- Set `event_char' to `a_event_char'
 		do
 			c_set_event_char (item, a_event_char)
@@ -553,7 +553,7 @@ feature -- Element change
 			event_char_set: event_char = a_event_char
 		end
 
-	set_defaults is
+	set_defaults
 			-- Change all settings to default values.
 			-- Default is 9600 8N1 with flow control
 			-- disabled
@@ -596,7 +596,7 @@ feature -- Element change
 
 feature -- Comparison
 
-	is_equal (other: like Current): BOOLEAN is
+	is_equal (other: like Current): BOOLEAN
 			-- Is `other' attached to an object considered equal
 			-- to current object?
 		do
@@ -627,7 +627,7 @@ feature -- Comparison
 
 feature -- Conversion
 
-	to_baud_rate (a_baud_rate: INTEGER): INTEGER is
+	to_baud_rate (a_baud_rate: INTEGER): INTEGER
 			-- Converts `a_baud_rate' in symbols per second
 			-- to a baud rate setting
 		do
@@ -641,7 +641,7 @@ feature -- Conversion
 			end
 		end
 
-	to_parity (a_parity_char: CHARACTER): INTEGER is
+	to_parity (a_parity_char: CHARACTER): INTEGER
 			-- Converts `a_parity_char' to a parity setting
 		do
 			inspect a_parity_char
@@ -654,7 +654,7 @@ feature -- Conversion
 			end
 		end
 
-	to_stop_bits (a_stop_bits: INTEGER): INTEGER is
+	to_stop_bits (a_stop_bits: INTEGER): INTEGER
 			-- Converts `a_stop_bits' in number of stop bits to a stop bits setting
 		do
 			if a_stop_bits = 1 then Result := One_stop_bit
@@ -663,7 +663,7 @@ feature -- Conversion
 			end
 		end
 
-	to_data_bits (a_data_bits: INTEGER): INTEGER is
+	to_data_bits (a_data_bits: INTEGER): INTEGER
 			-- Converts `a_data_bits' in number of data bits to a data bits setting
 		do
 			-- This feature is dependent on the fact that in Windows the
@@ -678,7 +678,7 @@ feature -- Conversion
 
 feature {NONE} -- Error
 
-	get_state_error (device_name: STRING): STRING is
+	get_state_error (device_name: STRING): STRING
 			-- An error message indicating a failure to retrieve
 			-- the current state of `device_name'
 		require
@@ -692,7 +692,7 @@ feature {NONE} -- Error
 			result_exists: Result /= Void
 		end
 
-	build_from_string_error (str: STRING): STRING is
+	build_from_string_error (str: STRING): STRING
 			-- An error message indicating a failure to build the
 			-- device control block from the contents of `str'
 		require
@@ -708,7 +708,7 @@ feature {NONE} -- Error
 
 feature {NONE} -- Measurement
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 			-- Size to allocate (in bytes)
 		external
 			"C inline use <windows.h>"
@@ -718,231 +718,231 @@ feature {NONE} -- Measurement
 
 feature {NONE} -- Externals
 
-	cwin_build_comm_dcb (lpDef, lpDCB: POINTER): BOOLEAN is
+	cwin_build_comm_dcb (lpDef, lpDCB: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"BuildCommDCB"
 		end
 
-	cwin_get_comm_state (hFile, lpDCB: POINTER): BOOLEAN is
+	cwin_get_comm_state (hFile, lpDCB: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"GetCommState"
 		end
 
-	c_get_dcb_length (an_item: POINTER): INTEGER is
+	c_get_dcb_length (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->DCBlength"
 		end
 
-	c_set_dcb_length (an_item: POINTER; a_value: INTEGER) is
+	c_set_dcb_length (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->DCBlength = $a_value"
 		end
 
-	c_get_baud_rate (an_item: POINTER): INTEGER is
+	c_get_baud_rate (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->BaudRate"
 		end
 
-	c_set_baud_rate (an_item: POINTER; a_value: INTEGER) is
+	c_set_baud_rate (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->BaudRate = $a_value"
 		end
 
-	c_get_binary_mode (an_item: POINTER): BOOLEAN is
+	c_get_binary_mode (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fBinary"
 		end
 
-	c_set_binary_mode (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_binary_mode (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fBinary = $a_value"
 		end
 
-	c_get_parity_check (an_item: POINTER): BOOLEAN is
+	c_get_parity_check (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fParity"
 		end
 
-	c_set_parity_check (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_parity_check (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fParity = $a_value"
 		end
 
-	c_get_cts_control (an_item: POINTER): BOOLEAN is
+	c_get_cts_control (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutxCtsFlow"
 		end
 
-	c_set_cts_control (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_cts_control (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutxCtsFlow = $a_value"
 		end
 
-	c_get_dsr_control (an_item: POINTER): BOOLEAN is
+	c_get_dsr_control (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutxDsrFlow"
 		end
 
-	c_set_dsr_control (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_dsr_control (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutxDsrFlow = $a_value"
 		end
 
-	c_get_dtr_control (an_item: POINTER): INTEGER is
+	c_get_dtr_control (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fDtrControl"
 		end
 
-	c_set_dtr_control (an_item: POINTER; a_value: INTEGER) is
+	c_set_dtr_control (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fDtrControl = $a_value"
 		end
 
-	c_get_dsr_sensitivity (an_item: POINTER): BOOLEAN is
+	c_get_dsr_sensitivity (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fDsrSensitivity"
 		end
 
-	c_set_dsr_sensitivity (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_dsr_sensitivity (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fDsrSensitivity = $a_value"
 		end
 
-	c_get_tx_continue_on_xoff (an_item: POINTER): BOOLEAN is
+	c_get_tx_continue_on_xoff (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fTXContinueOnXoff"
 		end
 
-	c_set_tx_continue_on_xoff (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_tx_continue_on_xoff (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fTXContinueOnXoff = $a_value"
 		end
 
-	c_get_outx (an_item: POINTER): BOOLEAN is
+	c_get_outx (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutX"
 		end
 
-	c_set_outx (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_outx (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fOutX = $a_value"
 		end
 
-	c_get_inx (an_item: POINTER): BOOLEAN is
+	c_get_inx (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fInX"
 		end
 
-	c_set_inx (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_inx (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fInX = $a_value"
 		end
 
-	c_get_replace_errors (an_item: POINTER): BOOLEAN is
+	c_get_replace_errors (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fErrorChar"
 		end
 
-	c_set_replace_errors (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_replace_errors (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fErrorChar = $a_value"
 		end
 
-	c_get_discard_nulls (an_item: POINTER): BOOLEAN is
+	c_get_discard_nulls (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fNull"
 		end
 
-	c_set_discard_nulls (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_discard_nulls (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fNull = $a_value"
 		end
 
-	c_get_rts_control (an_item: POINTER): INTEGER is
+	c_get_rts_control (an_item: POINTER): INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fRtsControl"
 		end
 
-	c_set_rts_control (an_item: POINTER; a_value: INTEGER) is
+	c_set_rts_control (an_item: POINTER; a_value: INTEGER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fRtsControl = $a_value"
 		end
 
-	c_get_abort_on_error (an_item: POINTER): BOOLEAN is
+	c_get_abort_on_error (an_item: POINTER): BOOLEAN
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fAbortOnError"
 		end
 
-	c_set_abort_on_error (an_item: POINTER; a_value: BOOLEAN) is
+	c_set_abort_on_error (an_item: POINTER; a_value: BOOLEAN)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->fAbortOnError = $a_value"
 		end
 
-	c_set_dummy2 (an_item: POINTER; a_value: INTEGER) is
+	c_set_dummy2 (an_item: POINTER; a_value: INTEGER)
 			-- Only used to initialize the structure.  Set to 17.
 		external
 			"C inline use <windows.h>"
@@ -950,140 +950,140 @@ feature {NONE} -- Externals
 			"((LPDCB) $an_item)->fDummy2 = $a_value"
 		end
 
-	c_get_xon_lim (an_item: POINTER): INTEGER_16 is
+	c_get_xon_lim (an_item: POINTER): INTEGER_16
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XonLim"
 		end
 
-	c_set_xon_lim (an_item: POINTER; a_value: INTEGER_16) is
+	c_set_xon_lim (an_item: POINTER; a_value: INTEGER_16)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XonLim = $a_value"
 		end
 
-	c_get_xoff_lim (an_item: POINTER): INTEGER_16 is
+	c_get_xoff_lim (an_item: POINTER): INTEGER_16
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XoffLim"
 		end
 
-	c_set_xoff_lim (an_item: POINTER; a_value: INTEGER_16) is
+	c_set_xoff_lim (an_item: POINTER; a_value: INTEGER_16)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XoffLim = $a_value"
 		end
 
-	c_get_byte_size (an_item: POINTER): INTEGER_8 is
+	c_get_byte_size (an_item: POINTER): INTEGER_8
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->ByteSize"
 		end
 
-	c_set_byte_size (an_item: POINTER; a_value: INTEGER_8) is
+	c_set_byte_size (an_item: POINTER; a_value: INTEGER_8)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->ByteSize = $a_value"
 		end
 
-	c_get_parity (an_item: POINTER): INTEGER_8 is
+	c_get_parity (an_item: POINTER): INTEGER_8
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->Parity"
 		end
 
-	c_set_parity (an_item: POINTER; a_value: INTEGER_8) is
+	c_set_parity (an_item: POINTER; a_value: INTEGER_8)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->Parity = $a_value"
 		end
 
-	c_get_stop_bits (an_item: POINTER): INTEGER_8 is
+	c_get_stop_bits (an_item: POINTER): INTEGER_8
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->StopBits"
 		end
 
-	c_set_stop_bits (an_item: POINTER; a_value: INTEGER_8) is
+	c_set_stop_bits (an_item: POINTER; a_value: INTEGER_8)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->StopBits = $a_value"
 		end
 
-	c_get_xon_char (an_item: POINTER): CHARACTER is
+	c_get_xon_char (an_item: POINTER): CHARACTER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XonChar"
 		end
 
-	c_set_xon_char (an_item: POINTER; a_value: CHARACTER) is
+	c_set_xon_char (an_item: POINTER; a_value: CHARACTER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XonChar = $a_value"
 		end
 
-	c_get_xoff_char (an_item: POINTER): CHARACTER is
+	c_get_xoff_char (an_item: POINTER): CHARACTER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XoffChar"
 		end
 
-	c_set_xoff_char (an_item: POINTER; a_value: CHARACTER) is
+	c_set_xoff_char (an_item: POINTER; a_value: CHARACTER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->XoffChar = $a_value"
 		end
 
-	c_get_error_char (an_item: POINTER): CHARACTER is
+	c_get_error_char (an_item: POINTER): CHARACTER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->ErrorChar"
 		end
 
-	c_set_error_char (an_item: POINTER; a_value: CHARACTER) is
+	c_set_error_char (an_item: POINTER; a_value: CHARACTER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->ErrorChar = $a_value"
 		end
 
-	c_get_eof_char (an_item: POINTER): CHARACTER is
+	c_get_eof_char (an_item: POINTER): CHARACTER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->EofChar"
 		end
 
-	c_set_eof_char (an_item: POINTER; a_value: CHARACTER) is
+	c_set_eof_char (an_item: POINTER; a_value: CHARACTER)
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->EofChar = $a_value"
 		end
 
-	c_get_event_char (an_item: POINTER): CHARACTER is
+	c_get_event_char (an_item: POINTER): CHARACTER
 		external
 			"C inline use <windows.h>"
 		alias
 			"((LPDCB) $an_item)->EvtChar"
 		end
 
-	c_set_event_char (an_item: POINTER; a_value: CHARACTER) is
+	c_set_event_char (an_item: POINTER; a_value: CHARACTER)
 		external
 			"C inline use <windows.h>"
 		alias

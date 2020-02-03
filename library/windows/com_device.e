@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -36,7 +36,7 @@ feature -- Status report
 
 feature -- Status setting
 
-	close is
+	close
 			-- Close the device.
 		local
 			b: BOOLEAN
@@ -49,7 +49,7 @@ feature -- Status setting
 			last_read_count := 0
 		end
 
-	open is
+	open
 			-- Open the device.
 		local
 			p: POINTER
@@ -72,19 +72,19 @@ feature -- Access
 	handle: POINTER
 			-- Handle to communications resource
 
-	control_settings: COM_DEVICE_CONTROL_BLOCK is
+	control_settings: COM_DEVICE_CONTROL_BLOCK
 			-- Current control parameters for this device
 		do
 			create Result.make_existing (Current)
 		end
 
-	timeouts: COM_TIMEOUTS is
+	timeouts: COM_TIMEOUTS
 			-- Current timeout properties for this device
 		do
 			create Result.make_existing (Current)
 		end
 
-	properties: COM_PROPERTIES is
+	properties: COM_PROPERTIES
 			-- Information about the device driver
 		require
 			handle_available: is_open
@@ -95,7 +95,7 @@ feature -- Access
 			exists: Result /= Void
 		end
 
-	status: COM_STATUS is
+	status: COM_STATUS
 			-- Line driver status parameters
 		require
 			handle_available: is_open
@@ -107,7 +107,7 @@ feature -- Access
 
 feature -- Element change
 
-	set_control_settings (a_settings: COM_DEVICE_CONTROL_BLOCK) is
+	set_control_settings (a_settings: COM_DEVICE_CONTROL_BLOCK)
 			-- Configures the device according to the specifications in `a_settings'.
 		do
 			if not cwin_set_comm_state (handle, a_settings.item) then
@@ -115,7 +115,7 @@ feature -- Element change
 			end
 		end
 
-	set_control_string (a_control_string: STRING) is
+	set_control_string (a_control_string: STRING)
 			-- Configure the device using `a_control_string', e.g. "9600,n,8,1"
 		require
 			exists: a_control_string /= Void
@@ -128,7 +128,7 @@ feature -- Element change
 			set_control_settings (settings)
 		end
 
-	set_timeouts (a_timeouts: COM_TIMEOUTS) is
+	set_timeouts (a_timeouts: COM_TIMEOUTS)
 			-- Sets the `timeouts' parameters to those in `a_timeouts'
 		do
 			if not cwin_set_comm_timeouts (handle, a_timeouts.item) then
@@ -138,7 +138,7 @@ feature -- Element change
 
 feature -- Output
 
-	put_data (data: POINTER; count: INTEGER) is
+	put_data (data: POINTER; count: INTEGER)
 			-- Write `count' bytes of `data' to the device.  Set
 			-- `last_write_count' to the number of bytes written.
 		local
@@ -159,7 +159,7 @@ feature -- Output
 
 feature -- Input
 
-	read_data (data: POINTER; count: INTEGER) is
+	read_data (data: POINTER; count: INTEGER)
 			-- Read `count' bytes into the `data' buffer.  Set `last_read_count'
 			-- to the number of bytes read. Set `timed_out' if less than `count'
 			-- bytes were read. See `timeouts' to determine when read will
@@ -181,7 +181,7 @@ feature -- Input
 
 feature -- Removal
 
-	dispose is
+	dispose
 			-- If the device is still open then close it
 		do
 			if is_open then
@@ -191,7 +191,7 @@ feature -- Removal
 
 feature {NONE} -- Errors
 
-	settings_error: STRING is
+	settings_error: STRING
 			-- An error message indicating a failure to apply settings
 			-- to the device
 		do
@@ -203,7 +203,7 @@ feature {NONE} -- Errors
 			exists: Result /= Void
 		end
 
-	timeouts_error: STRING is
+	timeouts_error: STRING
 			-- An error message indicating a failure to apply timeout
 			-- parameters to the device
 		do
@@ -215,7 +215,7 @@ feature {NONE} -- Errors
 			exists: Result /= Void
 		end
 
-	write_error: STRING is
+	write_error: STRING
 			-- An error message indicating a failure to write to
 			-- the device
 		do
@@ -227,7 +227,7 @@ feature {NONE} -- Errors
 			exists: Result /= Void
 		end
 
-	read_error: STRING is
+	read_error: STRING
 			-- An error message indicating a failure to read from
 			-- the device
 		do
@@ -244,7 +244,7 @@ feature {NONE} -- Externals
 	cwin_create_file (lpFileName: POINTER; dwDesiredAccess: INTEGER;
 					  dwShareMode: INTEGER; lpSecurityAttributes: POINTER;
 					  dwCreationDisposition, dwFlagsAndAttributes: INTEGER;
-					  hTemplateFile: POINTER): POINTER is
+					  hTemplateFile: POINTER): POINTER
 		external
 			"C use <windows.h>"
 		alias
@@ -254,7 +254,7 @@ feature {NONE} -- Externals
 	cwin_write_file (hFile: POINTER; lpBuffer: POINTER;
 					 nNumberOfBytesToWrite: INTEGER;
 					 lpNumberOfBytesWritten: POINTER;
-					 lpOverlapped: POINTER): BOOLEAN is
+					 lpOverlapped: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
@@ -264,56 +264,56 @@ feature {NONE} -- Externals
 	cwin_read_file (hFile: POINTER; lpBuffer: POINTER;
 					nNumberOfBytesToRead: INTEGER;
 					lpNumberOfBytesRead: POINTER;
-					lpOverlapped: POINTER): BOOLEAN is
+					lpOverlapped: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"ReadFile"
 		end
 
-	cwin_set_comm_state (hFile, lpDCB: POINTER): BOOLEAN is
+	cwin_set_comm_state (hFile, lpDCB: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"SetCommState"
 		end
 
-	cwin_set_comm_timeouts (hFile: POINTER; lpCommTimeouts: POINTER): BOOLEAN is
+	cwin_set_comm_timeouts (hFile: POINTER; lpCommTimeouts: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"SetCommTimeouts"
 		end
 
-	cwin_close_handle (hObject: POINTER): BOOLEAN is
+	cwin_close_handle (hObject: POINTER): BOOLEAN
 		external
 			"C use <windows.h>"
 		alias
 			"CloseHandle"
 		end
 
-	Open_existing: INTEGER is
+	Open_existing: INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"OPEN_EXISTING"
 		end
 
-	Generic_read: INTEGER is
+	Generic_read: INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"GENERIC_READ"
 		end
 
-	Generic_write: INTEGER is
+	Generic_write: INTEGER
 		external
 			"C inline use <windows.h>"
 		alias
 			"GENERIC_WRITE"
 		end
 
-	Invalid_handle_value: POINTER is
+	Invalid_handle_value: POINTER
 		external
 			"C inline use <windows.h>"
 		alias

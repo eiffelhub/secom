@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -16,7 +16,7 @@ class EWG_EXTERNAL_GARBAGE_COLLECTOR_ROUTINES
 feature
 
 
-	eif_adopt (a_object: ANY): POINTER is
+	eif_adopt (a_object: ANY): POINTER
 		require
 			a_object_not_void: a_object /= Void
 		external
@@ -27,7 +27,7 @@ feature
 			eif_adopt_not_default_pointer: Result /= Default_pointer
 		end
 
-	eif_wean (a_pointer: POINTER) is
+	eif_wean (a_pointer: POINTER)
 		require
 			a_pointer_not_void: a_pointer /= Default_pointer
 		external
@@ -36,7 +36,7 @@ feature
 			"eif_wean"
 		end
 
-	eif_access (a_pointer: POINTER): ANY is
+	eif_access (a_pointer: POINTER): ANY
 		require
 			a_pointer_not_void: a_pointer /= Default_pointer
 		external

@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 	
@@ -15,7 +15,7 @@ class
 
 feature -- Access (service provider type)
 
-	Sp_serial_comm: INTEGER is
+	Sp_serial_comm: INTEGER
 			-- Indicates a serial service provider
 		external
 			"C inline use <windows.h>"
@@ -25,7 +25,7 @@ feature -- Access (service provider type)
 
 feature -- Access (selectable baud rates)
 
-	Sb_75: INTEGER is
+	Sb_75: INTEGER
 			-- 75 bits per second
 		external
 			"C inline use <windows.h>"
@@ -33,7 +33,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_075"
 		end
 
-	Sb_110: INTEGER is
+	Sb_110: INTEGER
 			-- 110 bits per second
 		external
 			"C inline use <windows.h>"
@@ -41,7 +41,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_110"
 		end
 
-	Sb_134_5: INTEGER is
+	Sb_134_5: INTEGER
 			-- 134.5 bits per second
 		external
 			"C inline use <windows.h>"
@@ -49,7 +49,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_134_5"
 		end
 
-	Sb_150: INTEGER is
+	Sb_150: INTEGER
 			-- 150 bits per second
 		external
 			"C inline use <windows.h>"
@@ -57,7 +57,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_150"
 		end
 
-	Sb_300: INTEGER is
+	Sb_300: INTEGER
 			-- 300 bits per second
 		external
 			"C inline use <windows.h>"
@@ -65,7 +65,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_300"
 		end
 
-	Sb_600: INTEGER is
+	Sb_600: INTEGER
 			-- 600 bits per second
 		external
 			"C inline use <windows.h>"
@@ -73,7 +73,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_600"
 		end
 
-	Sb_1200: INTEGER is
+	Sb_1200: INTEGER
 			-- 1200 bits per second
 		external
 			"C inline use <windows.h>"
@@ -81,7 +81,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_1200"
 		end
 
-	Sb_1800: INTEGER is
+	Sb_1800: INTEGER
 			-- 1800 bits per second
 		external
 			"C inline use <windows.h>"
@@ -89,7 +89,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_1800"
 		end
 
-	Sb_2400: INTEGER is
+	Sb_2400: INTEGER
 			-- 2400 bits per second
 		external
 			"C inline use <windows.h>"
@@ -97,7 +97,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_2400"
 		end
 
-	Sb_4800: INTEGER is
+	Sb_4800: INTEGER
 			-- 4800 bits per second
 		external
 			"C inline use <windows.h>"
@@ -105,7 +105,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_4800"
 		end
 
-	Sb_7200: INTEGER is
+	Sb_7200: INTEGER
 			-- 7200 bits per second
 		external
 			"C inline use <windows.h>"
@@ -113,7 +113,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_7200"
 		end
 
-	Sb_9600: INTEGER is
+	Sb_9600: INTEGER
 			-- 9600 bits per second
 		external
 			"C inline use <windows.h>"
@@ -121,7 +121,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_9600"
 		end
 
-	Sb_14400: INTEGER is
+	Sb_14400: INTEGER
 			-- 14.4 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -129,7 +129,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_14400"
 		end
 
-	Sb_19200: INTEGER is
+	Sb_19200: INTEGER
 			-- 19.2 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -137,7 +137,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_19200"
 		end
 
-	Sb_38400: INTEGER is
+	Sb_38400: INTEGER
 			-- 38.4 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -145,7 +145,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_38400"
 		end
 
-	Sb_56000: INTEGER is
+	Sb_56000: INTEGER
 			-- 56 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -153,7 +153,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_56K"
 		end
 
-	Sb_57600: INTEGER is
+	Sb_57600: INTEGER
 			-- 57.6 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -161,7 +161,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_57600"
 		end
 
-	Sb_115200: INTEGER is
+	Sb_115200: INTEGER
 			-- 115.2 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -169,7 +169,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_115200"
 		end
 
-	Sb_128000: INTEGER is
+	Sb_128000: INTEGER
 			-- 128 kilo bits per second
 		external
 			"C inline use <windows.h>"
@@ -177,7 +177,7 @@ feature -- Access (selectable baud rates)
 			"BAUD_128K"
 		end
 
-	Sb_user: INTEGER is
+	Sb_user: INTEGER
 			-- Indicates baud rate is programmable
 		external
 			"C inline use <windows.h>"
@@ -187,7 +187,7 @@ feature -- Access (selectable baud rates)
 
 feature -- Access (provider sub types)
 
-	Pst_fax: INTEGER is
+	Pst_fax: INTEGER
 			-- FAX device
 		external
 			"C inline use <windows.h>"
@@ -195,7 +195,7 @@ feature -- Access (provider sub types)
 			"PST_FAX"
 		end
 
-	Pst_lat: INTEGER is
+	Pst_lat: INTEGER
 			-- Local area terminal protocol
 		external
 			"C inline use <windows.h>"
@@ -203,7 +203,7 @@ feature -- Access (provider sub types)
 			"PST_LAT"
 		end
 
-	Pst_modem: INTEGER is
+	Pst_modem: INTEGER
 			-- Modem device
 		external
 			"C inline use <windows.h>"
@@ -211,7 +211,7 @@ feature -- Access (provider sub types)
 			"PST_MODEM"
 		end
 
-	Pst_network_bridge: INTEGER is
+	Pst_network_bridge: INTEGER
 			-- Unspecified network bridge
 		external
 			"C inline use <windows.h>"
@@ -219,7 +219,7 @@ feature -- Access (provider sub types)
 			"PST_NETWORK_BRIDGE"
 		end
 
-	Pst_parallel_port: INTEGER is
+	Pst_parallel_port: INTEGER
 			-- Parallel port
 		external
 			"C inline use <windows.h>"
@@ -227,7 +227,7 @@ feature -- Access (provider sub types)
 			"PST_PARALLELPORT"
 		end
 
-	Pst_rs232: INTEGER is
+	Pst_rs232: INTEGER
 			-- RS-232 serial port
 		external
 			"C inline use <windows.h>"
@@ -235,7 +235,7 @@ feature -- Access (provider sub types)
 			"PST_RS232"
 		end
 
-	Pst_rs422: INTEGER is
+	Pst_rs422: INTEGER
 			-- RS-422 port
 		external
 			"C inline use <windows.h>"
@@ -243,7 +243,7 @@ feature -- Access (provider sub types)
 			"PST_RS422"
 		end
 
-	Pst_rs423: INTEGER is
+	Pst_rs423: INTEGER
 			-- RS-423 port
 		external
 			"C inline use <windows.h>"
@@ -251,7 +251,7 @@ feature -- Access (provider sub types)
 			"PST_RS423"
 		end
 
-	Pst_rs449: INTEGER is
+	Pst_rs449: INTEGER
 			-- RS-449 port
 		external
 			"C inline use <windows.h>"
@@ -259,7 +259,7 @@ feature -- Access (provider sub types)
 			"PST_RS449"
 		end
 
-	Pst_scanner: INTEGER is
+	Pst_scanner: INTEGER
 			-- Scanner device
 		external
 			"C inline use <windows.h>"
@@ -267,7 +267,7 @@ feature -- Access (provider sub types)
 			"PST_SCANNER"
 		end
 
-	Pst_tcpip_telnet: INTEGER is
+	Pst_tcpip_telnet: INTEGER
 			-- TCP/IP Telnet® protocol
 		external
 			"C inline use <windows.h>"
@@ -275,7 +275,7 @@ feature -- Access (provider sub types)
 			"PST_TCPIP_TELNET"
 		end
 
-	Pst_unspecified: INTEGER is
+	Pst_unspecified: INTEGER
 			-- Unspecified device
 		external
 			"C inline use <windows.h>"
@@ -283,7 +283,7 @@ feature -- Access (provider sub types)
 			"PST_UNSPECIFIED"
 		end
 
-	Pst_x25: INTEGER is
+	Pst_x25: INTEGER
 			-- X.25 standards
 		external
 			"C inline use <windows.h>"
@@ -293,7 +293,7 @@ feature -- Access (provider sub types)
 
 feature -- Access (provider capabilities)
 
-	Pcf_16_bit_mode: INTEGER is
+	Pcf_16_bit_mode: INTEGER
 			-- Special 16-bit mode supported
 		external
 			"C inline use <windows.h>"
@@ -301,7 +301,7 @@ feature -- Access (provider capabilities)
 			"PCF_16BITMODE"
 		end
 
-	Pcf_dtr_dsr: INTEGER is
+	Pcf_dtr_dsr: INTEGER
 			-- DTR (data-terminal-ready)/DSR (data-set-ready) supported
 		external
 			"C inline use <windows.h>"
@@ -309,7 +309,7 @@ feature -- Access (provider capabilities)
 			"PCF_DTRDSR"
 		end
 
-	Pcf_int_timeouts: INTEGER is
+	Pcf_int_timeouts: INTEGER
 			-- Interval time-outs supported
 		external
 			"C inline use <windows.h>"
@@ -317,7 +317,7 @@ feature -- Access (provider capabilities)
 			"PCF_INTTIMEOUTS"
 		end
 
-	Pcf_parity_check: INTEGER is
+	Pcf_parity_check: INTEGER
 			-- Parity checking supported
 		external
 			"C inline use <windows.h>"
@@ -325,7 +325,7 @@ feature -- Access (provider capabilities)
 			"PCF_PARITY_CHECK"
 		end
 
-	Pcf_rlsd: INTEGER is
+	Pcf_rlsd: INTEGER
 			-- RLSD (receive-line-signal-detect) supported
 		external
 			"C inline use <windows.h>"
@@ -333,7 +333,7 @@ feature -- Access (provider capabilities)
 			"PCF_RLSD"
 		end
 
-	Pcf_rts_cts: INTEGER is
+	Pcf_rts_cts: INTEGER
 			-- RTS (request-to-send)/CTS (clear-to-send) supported
 		external
 			"C inline use <windows.h>"
@@ -341,7 +341,7 @@ feature -- Access (provider capabilities)
 			"PCF_RTSCTS"
 		end
 
-	Pcf_set_x_char: INTEGER is
+	Pcf_set_x_char: INTEGER
 			-- Settable XON/XOFF supported
 		external
 			"C inline use <windows.h>"
@@ -349,7 +349,7 @@ feature -- Access (provider capabilities)
 			"PCF_SETXCHAR"
 		end
 
-	Pcf_special_chars: INTEGER is
+	Pcf_special_chars: INTEGER
 			-- Special character support provided
 		external
 			"C inline use <windows.h>"
@@ -357,7 +357,7 @@ feature -- Access (provider capabilities)
 			"PCF_SPECIALCHARS"
 		end
 
-	Pcf_total_timeouts: INTEGER is
+	Pcf_total_timeouts: INTEGER
 			-- Total (elapsed) time-outs supported
 		external
 			"C inline use <windows.h>"
@@ -365,7 +365,7 @@ feature -- Access (provider capabilities)
 			"PCF_TOTALTIMEOUTS"
 		end
 
-	Pcf_xon_xoff: INTEGER is
+	Pcf_xon_xoff: INTEGER
 			-- XON/XOFF flow control supported
 		external
 			"C inline use <windows.h>"
@@ -375,7 +375,7 @@ feature -- Access (provider capabilities)
 
 feature -- Access (settable parameters)
 
-	Sp_baud: INTEGER is
+	Sp_baud: INTEGER
 			-- Baud rate may be changed
 		external
 			"C inline use <windows.h>"
@@ -383,7 +383,7 @@ feature -- Access (settable parameters)
 			"SP_BAUD"
 		end
 
-	Sp_data_bits: INTEGER is
+	Sp_data_bits: INTEGER
 			-- Data bits may be changed
 		external
 			"C inline use <windows.h>"
@@ -391,7 +391,7 @@ feature -- Access (settable parameters)
 			"SP_DATABITS"
 		end
 
-	Sp_handshaking: INTEGER is
+	Sp_handshaking: INTEGER
 			-- Flow control may be changed
 		external
 			"C inline use <windows.h>"
@@ -399,7 +399,7 @@ feature -- Access (settable parameters)
 			"SP_HANDSHAKING"
 		end
 
-	Sp_parity: INTEGER is
+	Sp_parity: INTEGER
 			-- Parity scheme may be changed
 		external
 			"C inline use <windows.h>"
@@ -407,7 +407,7 @@ feature -- Access (settable parameters)
 			"SP_PARITY"
 		end
 
-	Sp_parity_check: INTEGER is
+	Sp_parity_check: INTEGER
 			-- Parity checking may be changed
 		external
 			"C inline use <windows.h>"
@@ -415,7 +415,7 @@ feature -- Access (settable parameters)
 			"SP_PARITY_CHECK"
 		end
 
-	Sp_rlsd: INTEGER is
+	Sp_rlsd: INTEGER
 			-- RLSD (receive-line-signal-detect) may be changed
 		external
 			"C inline use <windows.h>"
@@ -423,7 +423,7 @@ feature -- Access (settable parameters)
 			"SP_RLSD"
 		end
 
-	Sp_stop_bits: INTEGER is
+	Sp_stop_bits: INTEGER
 			-- Stop bits may be changed
 		external
 			"C inline use <windows.h>"
@@ -433,7 +433,7 @@ feature -- Access (settable parameters)
 
 feature -- Access (selectable data bits)
 
-	Databits_5: INTEGER_16 is
+	Databits_5: INTEGER_16
 			-- 5 data bits may be used
 		external
 			"C inline use <windows.h>"
@@ -441,7 +441,7 @@ feature -- Access (selectable data bits)
 			"DATABITS_5"
 		end
 
-	Databits_6: INTEGER_16 is
+	Databits_6: INTEGER_16
 			-- 6 data bits may be used
 		external
 			"C inline use <windows.h>"
@@ -449,7 +449,7 @@ feature -- Access (selectable data bits)
 			"DATABITS_6"
 		end
 
-	Databits_7: INTEGER_16 is
+	Databits_7: INTEGER_16
 			-- 7 data bits may be used
 		external
 			"C inline use <windows.h>"
@@ -457,7 +457,7 @@ feature -- Access (selectable data bits)
 			"DATABITS_7"
 		end
 
-	Databits_8: INTEGER_16 is
+	Databits_8: INTEGER_16
 			-- 8 data bits may be used
 		external
 			"C inline use <windows.h>"
@@ -465,7 +465,7 @@ feature -- Access (selectable data bits)
 			"DATABITS_8"
 		end
 
-	Databits_16: INTEGER_16 is
+	Databits_16: INTEGER_16
 			-- 16 data bits may be used
 		external
 			"C inline use <windows.h>"
@@ -473,7 +473,7 @@ feature -- Access (selectable data bits)
 			"DATABITS_16"
 		end
 
-	Databits_16x: INTEGER_16 is
+	Databits_16x: INTEGER_16
 			-- Special wide path through serial hardware lines
 		external
 			"C inline use <windows.h>"
@@ -483,7 +483,7 @@ feature -- Access (selectable data bits)
 
 feature -- Access (selectable stop bits)
 
-	Stopbits_1: INTEGER_16 is
+	Stopbits_1: INTEGER_16
 			-- 1 stop bit may be used
 		external
 			"C inline use <windows.h>"
@@ -491,7 +491,7 @@ feature -- Access (selectable stop bits)
 			"STOPBITS_10"
 		end
 
-	Stopbits_1_5: INTEGER_16 is
+	Stopbits_1_5: INTEGER_16
 			-- 1.5 stop bits may be used
 		external
 			"C inline use <windows.h>"
@@ -499,7 +499,7 @@ feature -- Access (selectable stop bits)
 			"STOPBITS_15"
 		end
 
-	Stopbits_2: INTEGER_16 is
+	Stopbits_2: INTEGER_16
 			-- 2 stop bits may be used
 		external
 			"C inline use <windows.h>"
@@ -509,7 +509,7 @@ feature -- Access (selectable stop bits)
 
 feature -- Access (selectable parity schemes)
 
-	Parity_none: INTEGER_16 is
+	Parity_none: INTEGER_16
 			-- `No parity' may be used
 		external
 			"C inline use <windows.h>"
@@ -517,7 +517,7 @@ feature -- Access (selectable parity schemes)
 			"PARITY_NONE"
 		end
 
-	Parity_odd: INTEGER_16 is
+	Parity_odd: INTEGER_16
 			-- Odd parity may be used
 		external
 			"C inline use <windows.h>"
@@ -525,7 +525,7 @@ feature -- Access (selectable parity schemes)
 			"PARITY_ODD"
 		end
 
-	Parity_even: INTEGER_16 is
+	Parity_even: INTEGER_16
 			-- Even parity may be used
 		external
 			"C inline use <windows.h>"
@@ -533,7 +533,7 @@ feature -- Access (selectable parity schemes)
 			"PARITY_EVEN"
 		end
 
-	Parity_mark: INTEGER_16 is
+	Parity_mark: INTEGER_16
 			-- Mark parity may be used
 		external
 			"C inline use <windows.h>"
@@ -541,7 +541,7 @@ feature -- Access (selectable parity schemes)
 			"PARITY_MARK"
 		end
 
-	Parity_space: INTEGER_16 is
+	Parity_space: INTEGER_16
 			-- Space parity may be used
 		external
 			"C inline use <windows.h>"

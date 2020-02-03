@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -25,7 +25,7 @@ create
 
 feature {NONE} -- Initialization
 
-	make is
+	make
 			-- Create `pointer'
 		do
 			create pointer.make_new_unshared (Max_message_length)
@@ -37,7 +37,7 @@ feature {NONE} -- Initialization
 
 feature -- Access
 
-	last_error_string: STRING is
+	last_error_string: STRING
 			-- A string version of the last Windows error
 		do
 			c_error_string (pointer.item, Max_message_length)
@@ -46,7 +46,7 @@ feature -- Access
 			exists: Result /= Void
 		end
 
-	last_error_code: INTEGER is
+	last_error_code: INTEGER
 			-- The error code of the most recently called Windows function
 		external
 			"C use <windows.h>"
@@ -54,7 +54,7 @@ feature -- Access
 			"GetLastError"
 		end
 
-	Max_message_length: INTEGER is 256
+	Max_message_length: INTEGER = 256
 
 feature {NONE} -- Implementation
 
@@ -63,7 +63,7 @@ feature {NONE} -- Implementation
 
 feature {NONE} -- External
 
-	c_error_string (ptr: POINTER; max_len: INTEGER) is
+	c_error_string (ptr: POINTER; max_len: INTEGER)
 			-- Calls GetLastError and FormatMessage. Places the
 			-- null-terminated error message in `ptr'.
 		external

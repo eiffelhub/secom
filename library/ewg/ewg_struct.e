@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -14,7 +14,7 @@ deferred class EWG_STRUCT
 
 feature {NONE} -- Initialisation
 
-	make_new_unshared is
+	make_new_unshared
 			-- Create a new pointer wrapper to a new struct.
 			-- Allocates as much new memory as the struct needs.
 			-- 'unshared' means if the Current object
@@ -28,7 +28,7 @@ feature {NONE} -- Initialisation
 			is_not_shared: not is_shared
 		end
 
-	make_new_shared is
+	make_new_shared
 			-- Create a new pointer wrapper to a new struct.
 			-- Allocates as much new memory as the struct needs.
 			-- 'shared' means if the Current object
@@ -42,7 +42,7 @@ feature {NONE} -- Initialisation
 			is_shared: is_shared
 		end
 
-	make_unshared (a_item: POINTER) is
+	make_unshared (a_item: POINTER)
 			-- Create a new pointer wrapper to a given struct.
 			-- 'unshared' means if the Current object
 			-- gets collected by the garbage collector,
@@ -58,7 +58,7 @@ feature {NONE} -- Initialisation
 			is_not_shared: not is_shared
 		end
 
-	make_shared (a_item: POINTER) is
+	make_shared (a_item: POINTER)
 			-- Create a new pointer wrapper to a given struct.
 			-- 'shared' means if the Current object
 			-- gets collected by the garbage collector,
@@ -76,7 +76,7 @@ feature {NONE} -- Initialisation
 
 feature {ANY} -- Access
 
-	item: POINTER is
+	item: POINTER
 			-- Pointer to the wrapped struct
 		require
 			exists: exists
@@ -86,7 +86,7 @@ feature {ANY} -- Access
 			item_not_default_pointer: Result /= Default_pointer
 		end
 
-	sizeof: INTEGER is
+	sizeof: INTEGER
 			-- Size of the struct in bytes
 			-- This needs to be redefined by the
 			-- decendant.
@@ -95,7 +95,7 @@ feature {ANY} -- Access
 			sizeof_positive: Result > 0
 		end
 
-	is_shared: BOOLEAN is
+	is_shared: BOOLEAN
 			-- Is the contents of `item' referenced by other C or Eiffel code?
 			-- If `is_shared' is `True' then when the current object will be
 			-- collected by the garbage collector, the wrapped struct will
@@ -109,7 +109,7 @@ feature {ANY} -- Access
 			Result := managed_data.is_shared
 		end
 
-	exists: BOOLEAN is
+	exists: BOOLEAN
 			-- Does `item' point to a valid C struct ?
 		do
 			Result := managed_data.item /= Default_pointer

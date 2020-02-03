@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -26,7 +26,7 @@ inherit
 
 feature {NONE} -- Initialization
 
-	make (a_name: STRING) is
+	make (a_name: STRING)
 			-- Open the device `a_name'. Check `is_open' to
 			-- ensure device opened correctly.
 		require
@@ -68,7 +68,7 @@ feature -- Access
 	last_write_count: INTEGER
 			-- Number of bytes actually written during last write operation.
 
-	control_settings: COM_ABSTRACT_SETTINGS is
+	control_settings: COM_ABSTRACT_SETTINGS
 			-- Current control parameters for this device
 		require
 			handle_available: is_open
@@ -77,7 +77,7 @@ feature -- Access
 			exists: Result /= Void
 		end
 
-	timeouts: COM_ABSTRACT_TIMEOUTS is
+	timeouts: COM_ABSTRACT_TIMEOUTS
 			-- Current timeout properties for this device
 		require
 			handle_available: is_open
@@ -88,7 +88,7 @@ feature -- Access
 
 feature -- Status report
 
-	is_open: BOOLEAN is
+	is_open: BOOLEAN
 			-- Is the device open for reading and writing?
 		deferred
 		end
@@ -98,7 +98,7 @@ feature -- Status report
 
 feature -- Status setting
 
-	close is
+	close
 			-- Close the device.
 		deferred
 		ensure
@@ -106,7 +106,7 @@ feature -- Status setting
 			reset: last_read_count = 0 and last_write_count = 0
 		end
 
-	open is
+	open
 			-- Open the device. If open was successful set `is_open'.
 		require
 			closed: not is_open
@@ -115,7 +115,7 @@ feature -- Status setting
 
 feature -- Element change
 
-	set_control_settings (a_settings: like control_settings) is
+	set_control_settings (a_settings: like control_settings)
 			-- Configures the device according to the specifications in `a_settings'.
 			-- Settings will be immediately applied; input and output queues will
 			-- not be emptied.
@@ -127,7 +127,7 @@ feature -- Element change
 			is_set: control_settings.is_equal (a_settings)
 		end
 
-	set_timeouts (a_timeouts: like timeouts) is
+	set_timeouts (a_timeouts: like timeouts)
 			-- Configures the timeout properties according to `a_timeouts'
 		require
 			exists: a_timeouts /= Void
@@ -139,7 +139,7 @@ feature -- Element change
 
 feature -- Output
 
-	put_character (c: CHARACTER) is
+	put_character (c: CHARACTER)
 			-- Write `c' to medium.
 		require
 			open: is_open
@@ -150,7 +150,7 @@ feature -- Output
 			count: last_write_count = Platform.Character_bytes xor timed_out
 		end
 
-	put_integer (i: INTEGER) is
+	put_integer (i: INTEGER)
 			-- Write `i' to the device.
 		require
 			open: is_open
@@ -161,7 +161,7 @@ feature -- Output
 			count: last_write_count = Platform.Integer_bytes xor timed_out
 		end
 
-	put_boolean (b: BOOLEAN) is
+	put_boolean (b: BOOLEAN)
 			-- Write `b' to the device.
 		require
 			open: is_open
@@ -172,7 +172,7 @@ feature -- Output
 			count: last_write_count = Platform.Boolean_bytes xor timed_out
 		end
 
-	put_real (r: REAL) is
+	put_real (r: REAL)
 			-- Write `r' to the device.
 		require
 			open: is_open
@@ -183,7 +183,7 @@ feature -- Output
 			count: last_write_count = Platform.Real_bytes xor timed_out
 		end
 
-	put_double (d: DOUBLE) is
+	put_double (d: DOUBLE)
 			-- Write `d' to the device.
 		require
 			open: is_open
@@ -194,7 +194,7 @@ feature -- Output
 			count: last_write_count = Platform.Double_bytes xor timed_out
 		end
 
-	put_stream (s: STRING; count: INTEGER) is
+	put_stream (s: STRING; count: INTEGER)
 			-- Write `count' bytes of `s' to medium.
 		require
 			open: is_open
@@ -208,7 +208,7 @@ feature -- Output
 			count: last_write_count = count xor timed_out
 		end
 
-	put_string (s: STRING) is
+	put_string (s: STRING)
 			-- Write a null terminated string `s' to medium. All `count'
 			-- characters of `s' will be written, followed by a null.
 		require
@@ -226,7 +226,7 @@ feature -- Output
 			count: last_write_count = s.count + Platform.Character_bytes xor timed_out
 		end
 
-	put_new_line is
+	put_new_line
 			-- Write a new line character to medium
 		require
 			open: is_open
@@ -236,7 +236,7 @@ feature -- Output
 			count: last_write_count = Platform.Character_bytes xor timed_out
 		end
 
-	put_data (data: POINTER; count: INTEGER) is
+	put_data (data: POINTER; count: INTEGER)
 			-- Write `data' to the device.  Set `last_write_count' with the
 			-- number of bytes written. Set `timed_out' if the write operation
 			-- timed out.
@@ -251,7 +251,7 @@ feature -- Output
 
 feature -- Input
 
-	read_character is
+	read_character
 			-- Read a new character. Make result available in `last_character'.
 		require
 			open: is_open
@@ -261,7 +261,7 @@ feature -- Input
 			count: last_read_count = Platform.Character_bytes xor timed_out
 		end
 
-	read_integer is
+	read_integer
 			-- Read a new integer. Make result available in `last_integer'.
 		require
 			open: is_open
@@ -271,7 +271,7 @@ feature -- Input
 			count: last_read_count = Platform.Integer_bytes xor timed_out
 		end
 
-	read_boolean is
+	read_boolean
 			-- Read a new Boolean. Make result available in `last_boolean'
 		require
 			open: is_open
@@ -281,7 +281,7 @@ feature -- Input
 			count: last_read_count = Platform.Boolean_bytes xor timed_out
 		end
 
-	read_real is
+	read_real
 			-- Read a new real. Make result available in `last_real'.
 		require
 			open: is_open
@@ -291,7 +291,7 @@ feature -- Input
 			count: last_read_count = Platform.Real_bytes xor timed_out
 		end
 
-	read_double is
+	read_double
 			-- Read a new double. Make result available in `last_double'.
 		require
 			open: is_open
@@ -301,7 +301,7 @@ feature -- Input
 			count: last_read_count = Platform.Double_bytes xor timed_out
 		end
 
-	read_stream (count: INTEGER) is
+	read_stream (count: INTEGER)
 			-- Read a string of `count' characters.
 			-- Make result available in `last_string'.
 		require
@@ -318,7 +318,7 @@ feature -- Input
 			count: last_read_count = count xor timed_out
 		end
 
-	read_string is
+	read_string
 			-- Read characters until a Nul character is received or
 			-- a time out occurs. Make result available in
 			-- `last_string'. Do not include the Nul character.
@@ -348,7 +348,7 @@ feature -- Input
 			no_null: not last_string.has ('%U')
 		end
 
-	read_line is
+	read_line
 			-- Read characters until a new line is received or a time
 			-- out occurs. Make result available in `last_string'.
 		require
@@ -376,7 +376,7 @@ feature -- Input
 				last_string.index_of ('%N', 1) = last_string.count xor timed_out
 		end
 
-	read_data (data: POINTER; count: INTEGER) is
+	read_data (data: POINTER; count: INTEGER)
 			-- Read `count' bytes into the `data' buffer.  Set `last_read_count'
 			-- to the number of bytes read. Set `timed_out' if less than `count'
 			-- bytes were read. See `timeouts' to determine when read will

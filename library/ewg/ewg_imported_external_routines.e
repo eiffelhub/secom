@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -14,7 +14,7 @@ class EWG_IMPORTED_EXTERNAL_ROUTINES
 
 feature {ANY} -- Access
 
-	external_garbage_collector: EWG_EXTERNAL_GARBAGE_COLLECTOR_ROUTINES is
+	external_garbage_collector: EWG_EXTERNAL_GARBAGE_COLLECTOR_ROUTINES
 			-- External garbage collector routines
 		once
 			create Result
@@ -22,7 +22,7 @@ feature {ANY} -- Access
 			result_not_void: Result /= Void
 		end
 
-	external_garbage_collector_: like external_garbage_collector is
+	external_garbage_collector_: like external_garbage_collector
 		obsolete "Use `external_garbage_collector' instead"
 		do
 			Result := external_garbage_collector
@@ -30,7 +30,7 @@ feature {ANY} -- Access
 			result_not_void: Result /= Void
 		end
 
-	external_memory: EWG_EXTERNAL_MEMORY_ROUTINES is
+	external_memory: EWG_EXTERNAL_MEMORY_ROUTINES
 			-- External memory routines; Needs to be expanded because
 			-- sometimes routines from there need to be called from
 			-- withing `dispose'.
@@ -40,7 +40,7 @@ feature {ANY} -- Access
 			result_not_void: Result /= Void
 		end
 
-	external_memory_: like external_memory is
+	external_memory_: like external_memory
 		obsolete "Use `external_memory' instead"
 		do
 			Result := external_memory
@@ -48,7 +48,7 @@ feature {ANY} -- Access
 			result_not_void: Result /= Void
 		end
 
-	external_string: EWG_EXTERNAL_STRING_ROUTINES is
+	external_string: EWG_EXTERNAL_STRING_ROUTINES
 			-- External string routines
 		once
 			create Result
@@ -56,7 +56,7 @@ feature {ANY} -- Access
 			result_not_void: Result /= Void
 		end
 
-	external_string_: like external_string is
+	external_string_: like external_string
 		obsolete "Use `external_string' instead"
 		do
 			Result := external_string

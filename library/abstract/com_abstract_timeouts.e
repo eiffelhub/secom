@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -22,19 +22,19 @@ inherit
 
 feature -- Access
 
-	overall_timer: INTEGER is
+	overall_timer: INTEGER
 			-- Total read timer, in milliseconds.
 		deferred
 		end
 
-	inter_character_timer: INTEGER is
+	inter_character_timer: INTEGER
 			-- Inter-character read timer, in milliseconds.
 		deferred
 		end
 
 feature -- Status report
 
-	is_blocking: BOOLEAN is
+	is_blocking: BOOLEAN
 			-- Indicates read operations block until the requested
 			-- number of bytes have been read.
 		deferred
@@ -44,7 +44,7 @@ feature -- Status report
 			no_overall_timer: Result implies not has_overall_timer
 		end
 
-	is_non_blocking: BOOLEAN is
+	is_non_blocking: BOOLEAN
 			-- Indicates read operations return immediately with the number of
 			-- bytes already received, even if no bytes have been received.
 		deferred
@@ -54,7 +54,7 @@ feature -- Status report
 			no_overall_timer: Result implies not has_overall_timer
 		end
 
-	has_overall_timer: BOOLEAN is
+	has_overall_timer: BOOLEAN
 			-- Indicates read operations return when either the
 			-- requested number of bytes have been received, or when
 			-- `overall_timer' milliseconds have elapsed.
@@ -67,7 +67,7 @@ feature -- Status report
 			not_blocking: Result implies not is_blocking
 		end
 
-	has_inter_character_timer: BOOLEAN is
+	has_inter_character_timer: BOOLEAN
 			-- Indicates read operations return when either the
 			-- requested number of bytes have been received, or when
 			-- `inter_character_timer' milliseconds have elapsed between
@@ -84,21 +84,21 @@ feature -- Status report
 
 feature -- Element Change
 
-	set_blocking is
+	set_blocking
 			-- Set the timeout properties to be a pure blocking read.
 		deferred
 		ensure
 			is_blocking: is_blocking
 		end
 
-	set_non_blocking is
+	set_non_blocking
 			-- Set the timeout properties to be a non-blocking read.
 		deferred
 		ensure
 			is_non_blocking: is_non_blocking
 		end
 
-	set_overall_timer (time: INTEGER) is
+	set_overall_timer (time: INTEGER)
 			-- Set the timeout properties to be an overall timed read. The timer
 			-- may be altered to meet operating system constraints.
 			-- Set the timer to 0 to indicate the timer is not used.
@@ -109,7 +109,7 @@ feature -- Element Change
 			timer_cleared: time = 0 implies not has_overall_timer
 		end
 
-	set_inter_character_timer (time: INTEGER) is
+	set_inter_character_timer (time: INTEGER)
 			-- Set the timeout properties to be an inter-character timed read.
 			-- The timer may be altered to meet operating system constraints.
 			-- Set the timer to 0 to indicate the timer is not used.
@@ -122,7 +122,7 @@ feature -- Element Change
 
 feature -- Comparison
 
-	is_equal (other: like Current): BOOLEAN is
+	is_equal (other: like Current): BOOLEAN
 			-- Is `other' attached to an object considered equal
 			-- to current object?
 		do

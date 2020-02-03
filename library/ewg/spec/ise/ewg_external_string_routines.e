@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -14,7 +14,7 @@ class EWG_EXTERNAL_STRING_ROUTINES
 
 feature {ANY} -- Initialisation
 
-	make_copy_from_c_zero_terminated_string (a_c_string: POINTER): STRING is
+	make_copy_from_c_zero_terminated_string (a_c_string: POINTER): STRING
 			-- Create a new Eiffel string and copy the contents of
 			-- `a_c_string' into it. `a_c_string' must point to a
 			-- c zero terminated string.
@@ -37,7 +37,7 @@ feature {ANY} -- Initialisation
 
 feature
 
-	string_to_pointer (a_string: STRING): POINTER is
+	string_to_pointer (a_string: STRING): POINTER
 			-- Get a c pointer to the storage area of an Eiffel string
 			-- Thanks to Berend resp. the mico/e team (;
 			-- Note: This is extremly dangerous buisness
@@ -63,7 +63,7 @@ feature
 		end
 
 
-	strlen_external (ptr: POINTER): INTEGER is
+	strlen_external (ptr: POINTER): INTEGER
 		require
 			ptr_not_nil: ptr /= default_pointer
 		external
@@ -80,7 +80,7 @@ feature
 			"strlen"
 		end
 
-	strcpy_external (a_dest, a_src: POINTER): POINTER is
+	strcpy_external (a_dest, a_src: POINTER): POINTER
 		require
 			a_dest_not_default: a_dest /= Default_pointer
 			a_src_not_default: a_src /= Default_pointer

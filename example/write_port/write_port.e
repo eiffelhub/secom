@@ -1,7 +1,7 @@
-indexing
+note
 
 	description:
-	
+
 		"Root class for the write_port example"
 
 	library: "Serial Communications Library"
@@ -34,7 +34,7 @@ create
 
 feature {NONE} -- Initialization
 
-	make is
+	make
 			-- Execute 'write_port'
 		local
 			to: COM_ABSTRACT_TIMEOUTS
@@ -99,7 +99,7 @@ feature -- Access
 	error_handler: UT_ERROR_HANDLER
 			-- Error handler
 
-	set_default_parameters is
+	set_default_parameters
 			-- Set up the default command line parameters
 		do
 			baud := 57600
@@ -108,7 +108,7 @@ feature -- Access
 			stop_bits := 1
 		end
 
-	read_command_line is
+	read_command_line
 			-- Read command line arguments.
 		local
 			i, nb: INTEGER
@@ -123,7 +123,7 @@ feature -- Access
 					report_usage_error
 				elseif arg.count > 7 and then arg.substring (1, 7).is_equal ("--baud=") then
 					arg_param := arg.substring (8, arg.count)
-					if not STRING_.is_integer (arg_param) then
+					if not arg_param.is_integer then
 						report_usage_error
 					else
 						baud := arg_param.to_integer
@@ -132,14 +132,14 @@ feature -- Access
 					parity_char := arg.item (10)
 				elseif arg.count > 7 and then arg.substring (1, 7).is_equal ("--data=") then
 					arg_param := arg.substring (8, arg.count)
-					if not STRING_.is_integer (arg_param) then
+					if not arg_param.is_integer then
 						report_usage_error
 					else
 						data_bits := arg_param.to_integer
 					end
 				elseif arg.count > 7 and then arg.substring (1, 7).is_equal ("--stop=") then
 					arg_param := arg.substring (8, arg.count)
-					if not STRING_.is_integer (arg_param) then
+					if not arg_param.is_integer then
 						report_usage_error
 					else
 						stop_bits := arg_param.to_integer
@@ -159,7 +159,7 @@ feature -- Access
 			lines_not_void: lines /= Void
 		end
 
-	set_control_settings is
+	set_control_settings
 			-- Apply the control settings to `device'
 		require
 			device_exists: device /= Void and then device.is_open
@@ -178,7 +178,7 @@ feature -- Access
 			else
 				settings.set_baud_rate (setting)
 			end
-			
+
 			setting := settings.to_parity (parity_char)
 			if not settings.is_valid_parity (setting) then
 				report_error (Invalid_parity_error)
@@ -199,13 +199,13 @@ feature -- Access
 			else
 				settings.set_stop_bits (setting)
 			end
-			
+
 			a_device.set_control_settings (settings)
 		end
 
 feature {NONE} -- Error handling
 
-	report_usage_error is
+	report_usage_error
 			-- Report usage error and then terminate
 			-- with exit status 1.
 		do
@@ -213,7 +213,7 @@ feature {NONE} -- Error handling
 			Exceptions.die (1)
 		end
 
-	report_error (an_error: STRING) is
+	report_error (an_error: STRING)
 			-- Report an error and terminate with
 			-- exit status 1.
 		do
@@ -222,7 +222,7 @@ feature {NONE} -- Error handling
 			Exceptions.die(1)
 		end
 
-	Failed_open_error: STRING is
+	Failed_open_error: STRING
 			-- An error message indicating `device'
 			-- failed to open
 		require
@@ -234,7 +234,7 @@ feature {NONE} -- Error handling
 			exists: Result /= Void and then Result.count > 0
 		end
 
-	Invalid_baud_error: STRING is
+	Invalid_baud_error: STRING
 			-- An error message indicating `baud'
 			-- is an invalid setting
 		once
@@ -244,7 +244,7 @@ feature {NONE} -- Error handling
 			exists: Result /= Void and then Result.count > 0
 		end
 
-	Invalid_parity_error: STRING is
+	Invalid_parity_error: STRING
 			-- An error message indicating `parity_char'
 			-- is an invalid setting
 		once
@@ -253,7 +253,7 @@ feature {NONE} -- Error handling
 			exists: Result /= Void and then Result.count > 0
 		end
 
-	Invalid_data_bits_error: STRING is
+	Invalid_data_bits_error: STRING
 			-- An error message indicating `data_bits'
 			-- is an invalid setting
 		once
@@ -263,7 +263,7 @@ feature {NONE} -- Error handling
 			exists: Result /= Void and then Result.count > 0
 		end
 
-	Invalid_stop_bits_error: STRING is
+	Invalid_stop_bits_error: STRING
 			-- An error message indicating `stop_bits'
 			-- is an invalid setting
 		once
@@ -273,7 +273,7 @@ feature {NONE} -- Error handling
 			exists: Result /= Void and then Result.count > 0
 		end
 
-	Usage_message: UT_USAGE_MESSAGE is
+	Usage_message: UT_USAGE_MESSAGE
 			-- read_port usage message
 		local
 			s: STRING

@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -16,7 +16,7 @@ class
 
 feature -- Access
 
-	Windows_error: COM_WINDOWS_ERROR is
+	Windows_error: COM_WINDOWS_ERROR
 			-- Windows error
 		once
 			create Result.make

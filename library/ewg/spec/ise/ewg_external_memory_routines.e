@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 
@@ -19,7 +19,7 @@ inherit
 
 feature -- Memory allocation and deallocation
 
-	calloc_external (an_elements, an_element_size: INTEGER): POINTER is
+	calloc_external (an_elements, an_element_size: INTEGER): POINTER
 			-- Allocate memory for an array of `an_elements' elements of
 			-- `an_element_size' bytes each and returns a pointer to the
 			-- allocated memory. The memory is set to zero.
@@ -37,7 +37,7 @@ feature -- Memory allocation and deallocation
 			"calloc"
 		end
 
-	malloc_external (a_size: INTEGER): POINTER is
+	malloc_external (a_size: INTEGER): POINTER
 		require
 			a_size_greater_equal_zero: a_size >= 0
 		external
@@ -51,7 +51,7 @@ feature -- Memory allocation and deallocation
 			"malloc"
 		end
 
-	free_external (a_item: POINTER) is
+	free_external (a_item: POINTER)
 		require
 			a_item_not_null: a_item /= Default_pointer
 		external
@@ -65,7 +65,7 @@ feature -- Memory allocation and deallocation
 			"free"
 		end
 
-	memcpy_external (a_dest, a_src: POINTER; a_n: INTEGER): POINTER is
+	memcpy_external (a_dest, a_src: POINTER; a_n: INTEGER): POINTER
 		require
 			a_n_greater_equal_zero: a_n >= 0
 			a_dest_not_default: a_dest /= Default_pointer
@@ -82,7 +82,7 @@ feature -- Memory allocation and deallocation
 		end
 
 
-	read_integer_8_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER is
+	read_integer_8_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER
 			-- Get the byte at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads 8 bits.
@@ -114,7 +114,7 @@ feature -- Memory allocation and deallocation
 			result_is_byte: Result >= -128 and Result <= 127
 		end
 
-	put_integer_8_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_8_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes 8 bits.
@@ -147,7 +147,7 @@ feature -- Memory allocation and deallocation
 			integer_set: read_integer_8_external (a_pointer, a_pos) = a_int
 		end
 
-	read_integer_16_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER is
+	read_integer_16_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads 16 bits.
@@ -179,7 +179,7 @@ feature -- Memory allocation and deallocation
 			result_is_int16: Result >= -32768 and Result <= 32767
 		end
 
-	put_integer_16_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_16_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes 16 bits.
@@ -212,7 +212,7 @@ feature -- Memory allocation and deallocation
 			integer_set: read_integer_16_external (a_pointer, a_pos) = a_int
 		end
 
-	read_integer_32_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER is
+	read_integer_32_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads 32 bits.
@@ -239,7 +239,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	put_integer_32_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_32_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes 16 bits.
@@ -268,7 +268,7 @@ feature -- Memory allocation and deallocation
 			integer_set: read_integer_32_external (a_pointer, a_pos) = a_int
 		end
 
-	read_integer_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER is
+	read_integer_external (a_pointer: POINTER; a_pos: INTEGER): INTEGER
 			-- Get the integer at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads `sizeof_int' bytes.
@@ -293,7 +293,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	put_integer_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER) is
+	put_integer_external (a_pointer: POINTER; a_int: INTEGER; a_pos: INTEGER)
 			-- Put `a_int' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes `sizeof_int' bytes.
@@ -321,7 +321,7 @@ feature -- Memory allocation and deallocation
 		end
 
 
-	read_real_external (a_pointer: POINTER; a_pos: INTEGER): REAL is
+	read_real_external (a_pointer: POINTER; a_pos: INTEGER): REAL
 			-- Get the real at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads `sizeof_real' bytes.
@@ -346,7 +346,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	put_real_external (a_pointer: POINTER; a_real: REAL; a_pos: INTEGER) is
+	put_real_external (a_pointer: POINTER; a_real: REAL; a_pos: INTEGER)
 			-- Put `a_real' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes `sizeof_real' bytes.
@@ -374,7 +374,7 @@ feature -- Memory allocation and deallocation
 		end
 
 
-	read_double_external (a_pointer: POINTER; a_pos: INTEGER): DOUBLE is
+	read_double_external (a_pointer: POINTER; a_pos: INTEGER): DOUBLE
 			-- Get the double at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads `sizeof_double' bytes.
@@ -399,7 +399,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	put_double_external (a_pointer: POINTER; a_double: DOUBLE; a_pos: INTEGER) is
+	put_double_external (a_pointer: POINTER; a_double: DOUBLE; a_pos: INTEGER)
 			-- Put `a_double' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes `sizeof_double' bytes.
@@ -426,7 +426,7 @@ feature -- Memory allocation and deallocation
 			double_set: read_double_external (a_pointer, a_pos) = a_double
 		end
 
-	read_pointer_external (a_pointer: POINTER; a_pos: INTEGER): POINTER is
+	read_pointer_external (a_pointer: POINTER; a_pos: INTEGER): POINTER
 			-- Get the pointer at the `a_pos'-th
 			-- byte position starting at `a_pointer'.
 			-- Reads `sizeof_pointer' bytes.
@@ -445,7 +445,7 @@ feature -- Memory allocation and deallocation
 		end
 
 
-	put_pointer_external (a_pointer: POINTER; a_value: POINTER; a_pos: INTEGER) is
+	put_pointer_external (a_pointer: POINTER; a_value: POINTER; a_pos: INTEGER)
 			-- Put `a_value' at the `a_pos'-th byte position
 			-- starting at `a_pointer'.
 			-- Writes `sizeof_pointer' bytes.
@@ -464,13 +464,13 @@ feature -- Memory allocation and deallocation
 			pointer_set: read_pointer_external (a_pointer, a_pos) = a_value
 		end
 
-	add_pointer_and_integer_external (a_pointer: POINTER; a_integer: INTEGER): POINTER is
+	add_pointer_and_integer_external (a_pointer: POINTER; a_integer: INTEGER): POINTER
 		obsolete "Use `a_pointer + a_integer' instead"
 		do
 			Result := a_pointer + a_integer
 		end
 
-	pointer_to_integer_external (a_pointer: POINTER): INTEGER is
+	pointer_to_integer_external (a_pointer: POINTER): INTEGER
 		-- TODO: what if sizeof(int) != sizeof(void*) ?
 
 		external
@@ -484,7 +484,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	integer_to_pointer_external (a_integer: INTEGER): POINTER is
+	integer_to_pointer_external (a_integer: INTEGER): POINTER
 		-- TODO: what if sizeof(int) != sizeof(void*) ?
 
 		external
@@ -498,7 +498,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	reference_of_external (a_pointer: POINTER): POINTER is
+	reference_of_external (a_pointer: POINTER): POINTER
 
 		external
 			"C macro use <ewg_memory_macros.h>"
@@ -513,12 +513,12 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	sizeof_pointer_external: INTEGER is
+	sizeof_pointer_external: INTEGER
 		do
 			Result := Pointer_bits // 8
 		end
 
-	sizeof_int_external: INTEGER is
+	sizeof_int_external: INTEGER
 		do
 
 			Result := Integer_32_bytes
@@ -528,10 +528,10 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	sizeof_real_external: INTEGER is
+	sizeof_real_external: INTEGER
 
 		do
-			Result := Real_bits // 8
+			Result := Real_32_bits // 8
 
 
 
@@ -541,15 +541,15 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	sizeof_double_external: INTEGER is
+	sizeof_double_external: INTEGER
 		do
-			Result := Double_bits // 8
+			Result := Real_64_bits // 8
 		end
 
 -- bitwise and & or
 -- TODO: put in other class
 
-	bitwise_integer_or_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER is
+	bitwise_integer_or_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER
 
 		do
 			Result := a_value_1 | a_value_2
@@ -562,7 +562,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	bitwise_integer_and_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER is
+	bitwise_integer_and_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER
 
 		do
 			Result := a_value_1 & a_value_2
@@ -575,7 +575,7 @@ feature -- Memory allocation and deallocation
 
 		end
 
-	bitwise_integer_xor_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER is
+	bitwise_integer_xor_external (a_value_1: INTEGER; a_value_2: INTEGER): INTEGER
 
 		do
 			Result := a_value_1.bit_xor (a_value_2)

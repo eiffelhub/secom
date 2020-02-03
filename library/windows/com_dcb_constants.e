@@ -1,4 +1,4 @@
-indexing
+note
 
 	description:
 	
@@ -20,7 +20,7 @@ inherit
 
 feature -- Access (Baud Rate)
 
-	Baud_110: INTEGER is
+	Baud_110: INTEGER
 			-- A baud rate of 110 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -28,7 +28,7 @@ feature -- Access (Baud Rate)
 			"CBR_110"
 		end
 
-	Baud_300: INTEGER is
+	Baud_300: INTEGER
 			-- A baud rate of 300 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -36,7 +36,7 @@ feature -- Access (Baud Rate)
 			"CBR_300"
 		end
 	
-	Baud_600: INTEGER is
+	Baud_600: INTEGER
 			-- A baud rate of 600 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -44,7 +44,7 @@ feature -- Access (Baud Rate)
 			"CBR_600"
 		end
 	
-	Baud_1200: INTEGER is
+	Baud_1200: INTEGER
 			-- A baud rate of 1200 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -52,7 +52,7 @@ feature -- Access (Baud Rate)
 			"CBR_1200"
 		end
 	
-	Baud_2400: INTEGER is
+	Baud_2400: INTEGER
 			-- A baud rate of 2400 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -60,7 +60,7 @@ feature -- Access (Baud Rate)
 			"CBR_2400"
 		end
 	
-	Baud_4800: INTEGER is
+	Baud_4800: INTEGER
 			-- A baud rate of 4800 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -68,7 +68,7 @@ feature -- Access (Baud Rate)
 			"CBR_4800"
 		end
 	
-	Baud_9600: INTEGER is
+	Baud_9600: INTEGER
 			-- A baud rate of 9600 symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -76,7 +76,7 @@ feature -- Access (Baud Rate)
 			"CBR_9600"
 		end
 	
-	Baud_14400: INTEGER is
+	Baud_14400: INTEGER
 			-- A baud rate of 14.4 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -84,7 +84,7 @@ feature -- Access (Baud Rate)
 			"CBR_14400"
 		end
 	
-	Baud_19200: INTEGER is
+	Baud_19200: INTEGER
 			-- A baud rate of 19.2 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -92,7 +92,7 @@ feature -- Access (Baud Rate)
 			"CBR_19200"
 		end
 	
-	Baud_38400: INTEGER is
+	Baud_38400: INTEGER
 			-- A baud rate of 38.4 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -100,7 +100,7 @@ feature -- Access (Baud Rate)
 			"CBR_38400"
 		end
 	
-	Baud_56000: INTEGER is
+	Baud_56000: INTEGER
 			-- A baud rate of 56 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -108,7 +108,7 @@ feature -- Access (Baud Rate)
 			"CBR_56000"
 		end
 	
-	Baud_57600: INTEGER is
+	Baud_57600: INTEGER
 			-- A baud rate of 57.6 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -116,7 +116,7 @@ feature -- Access (Baud Rate)
 			"CBR_57600"
 		end
 	
-	Baud_115200: INTEGER is
+	Baud_115200: INTEGER
 			-- A baud rate of 115.2 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -124,7 +124,7 @@ feature -- Access (Baud Rate)
 			"CBR_115200"
 		end
 	
-	Baud_128000: INTEGER is
+	Baud_128000: INTEGER
 			-- A baud rate of 128 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -132,7 +132,7 @@ feature -- Access (Baud Rate)
 			"CBR_128000"
 		end
 	
-	Baud_256000: INTEGER is
+	Baud_256000: INTEGER
 			-- A baud rate of 256 kilo symbols per second.
 		external
 			"C inline use <windows.h>"
@@ -142,7 +142,7 @@ feature -- Access (Baud Rate)
 
 feature -- Access (data-terminal-ready control flow)
 
-	Dtr_control_disable: INTEGER is
+	Dtr_control_disable: INTEGER
 			-- Disables the DTR line when the device is opened
 			-- and leaves it disabled.
 		external
@@ -151,7 +151,7 @@ feature -- Access (data-terminal-ready control flow)
 			"DTR_CONTROL_DISABLE"
 		end
 	
-	Dtr_control_enable: INTEGER is
+	Dtr_control_enable: INTEGER
 			-- Enables the DTR line when the device is opened
 			-- and leaves it on.
 		external
@@ -160,7 +160,7 @@ feature -- Access (data-terminal-ready control flow)
 			"DTR_CONTROL_ENABLE"
 		end
 	
-	Dtr_control_handshake: INTEGER is
+	Dtr_control_handshake: INTEGER
 			-- Enables DTR handshaking.  When in use the DTR line can not be
 			-- directly controlled.
 		external
@@ -171,7 +171,7 @@ feature -- Access (data-terminal-ready control flow)
 
 feature -- Access (request-to-send control flow)
 
-	Rts_control_disable: INTEGER is
+	Rts_control_disable: INTEGER
 			-- Disables the RTS line when the device is opened
 			-- and leave it disabled. 
 		external
@@ -180,7 +180,7 @@ feature -- Access (request-to-send control flow)
 			"RTS_CONTROL_DISABLE"
 		end
 
-	Rts_control_enable: INTEGER is
+	Rts_control_enable: INTEGER
 			-- Enables the RTS line when the device is opened
 			-- and leave it on. 
 		external
@@ -189,7 +189,7 @@ feature -- Access (request-to-send control flow)
 			"RTS_CONTROL_ENABLE"
 		end
 	
-	Rts_control_handshake: INTEGER is
+	Rts_control_handshake: INTEGER
 			-- Enables RTS handshaking. The driver raises the RTS line when the
 			-- "type-ahead" (input) buffer is less than one-half full and lowers
 			-- the RTS line when the buffer is more than three-quarters full.
@@ -200,7 +200,7 @@ feature -- Access (request-to-send control flow)
 			"RTS_CONTROL_HANDSHAKE"
 		end
 	
-	Rts_control_toggle: INTEGER is
+	Rts_control_toggle: INTEGER
 			-- Specifies that the RTS line will be high if bytes are available
 			-- for transmission. After all buffered bytes have been sent, the
 			-- RTS line will be low. Not available on Windows Me/98/95
@@ -212,7 +212,7 @@ feature -- Access (request-to-send control flow)
 
 feature -- Access (Parity)
 
-	No_parity: INTEGER is
+	No_parity: INTEGER
 			-- No parity bit is sent
 		external
 			"C inline use <windows.h>"
@@ -220,7 +220,7 @@ feature -- Access (Parity)
 			"NOPARITY"
 		end
 
-	Odd_parity: INTEGER is
+	Odd_parity: INTEGER
 			-- Parity bit sent for each data word.  The number of ones
 			-- in the data byte and the parity bit is always odd
 		external
@@ -229,7 +229,7 @@ feature -- Access (Parity)
 			"ODDPARITY"
 		end
 
-	Even_parity: INTEGER is
+	Even_parity: INTEGER
 			-- Parity bit sent for each data word.  The number of ones
 			-- in the data byte and the parity bit is always even.
 		external
@@ -238,7 +238,7 @@ feature -- Access (Parity)
 			"EVENPARITY"
 		end
 
-	Mark_parity: INTEGER is
+	Mark_parity: INTEGER
 			-- An additional mark bit is sent for each data word.
 		external
 			"C inline use <windows.h>"
@@ -246,7 +246,7 @@ feature -- Access (Parity)
 			"MARKPARITY"
 		end
 
-	Space_parity: INTEGER is
+	Space_parity: INTEGER
 			-- An additional space bit is sent for each data word.
 		external
 			"C inline use <windows.h>"
@@ -256,7 +256,7 @@ feature -- Access (Parity)
 
 feature -- Access (Stop Bits)
 
-	One_stop_bit: INTEGER is
+	One_stop_bit: INTEGER
 			-- A mark is sent for each data word, indicating the
 			-- end of the word.
 		external
@@ -265,7 +265,7 @@ feature -- Access (Stop Bits)
 			"ONESTOPBIT"
 		end
 
-	One_5_stop_bits: INTEGER is
+	One_5_stop_bits: INTEGER
 			-- 1 mark is sent for odd data words, and 2 marks are sent
 			-- for even data words, for an average of 1.5 marks per word.
 		external
@@ -274,7 +274,7 @@ feature -- Access (Stop Bits)
 			"ONE5STOPBITS"
 		end
 	
-	Two_stop_bits: INTEGER is
+	Two_stop_bits: INTEGER
 			-- 2 marks are sent for each data word, indicating the
 			-- end of the word.
 		external
@@ -285,16 +285,16 @@ feature -- Access (Stop Bits)
 
 feature -- Access (data bits)
 
-	Five_data_bits: INTEGER is 5
+	Five_data_bits: INTEGER = 5
 			-- Five data bits per word
 
-	Six_data_bits: INTEGER is 6
+	Six_data_bits: INTEGER = 6
 			-- Five data bits per word
 
-	Seven_data_bits: INTEGER is 7
+	Seven_data_bits: INTEGER = 7
 			-- Five data bits per word
 
-	Eight_data_bits: INTEGER is 8
+	Eight_data_bits: INTEGER = 8
 			-- Five data bits per word
 
 end -- class COM_DCB_CONSTANTS
